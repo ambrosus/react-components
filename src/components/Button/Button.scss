@@ -1,0 +1,110 @@
+@import 'styles/utils';
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button,
+.Button {
+  position: relative;
+  font-size: 15px;
+  line-height: 1.2;
+  color: $white;
+  background: linear-gradient(90deg, $dark-blue 0%, $dark-purple 100%);
+  border-radius: 20px;
+  border: 1px solid $purple-blue;
+  font-weight: 500;
+  text-align: center;
+  width: 192px;
+  cursor: pointer;
+  word-break: keep-all;
+  user-select: none;
+  padding: 11px 15px;
+  transition: all 0.2s;
+
+  &.no-style {
+    width: auto;
+    padding: 0;
+    border-radius: 0;
+    background: initial;
+    border: none;
+  }
+
+  + button,
+  + .button {
+    margin: 10px 0 0 0;
+  }
+
+  &.outline {
+    border: 1px solid $purple-blue;
+    background: transparent;
+    color: $purple-blue;
+
+    &:hover {
+      opacity: .75;
+    }
+  }
+
+  &.transparent {
+    border-color: transparent;
+    background: transparent;
+    color: $blue;
+
+    &.light {
+      color: $grey;
+    }
+
+    &:hover {
+      background: rgba($grey, 0.07);
+    }
+  }
+
+  > .spinner {
+    display: inline-block;
+    border: 2px solid $grey;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 13px;
+    right: 11px;
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    transition: opacity .2s;
+  }
+
+  &.loading {
+    opacity: 0.25;
+
+    > .spinner {
+      animation: 1.25s linear infinite rotate;
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 0.25;
+    }
+  }
+
+  @include breakpoint-min(480) {
+
+    + button,
+    + .button {
+      margin: 0 0 0 10px;
+    }
+  }
+}
+
+a {
+  &.button {
+    line-height: 1.3;
+    height: 42px;
+  }
+}

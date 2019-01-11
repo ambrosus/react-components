@@ -1,0 +1,46 @@
+.accordions {
+  > .accordion {
+    border-bottom: 1px solid #eee;
+
+    > .title {
+      padding: 25px 30px 25px 15px;
+      position: relative;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-image: url('/assets/svg/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: contain;
+        right: 10px;
+        top: 30px;
+        transform: rotate(90deg);
+        transition: transform .2s;
+      }
+
+      &.active {
+        &:after {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
+    > .content {
+      height: 0px;
+      transition: height 0.3s;
+      overflow: hidden;
+      cursor: initial;
+
+      &.active {
+        height: auto;
+        overflow: visible;
+        padding: 40px 0;
+      }
+    }
+  }
+}

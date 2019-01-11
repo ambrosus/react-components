@@ -1,0 +1,140 @@
+// Global
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: 100%;
+  background: transparent;
+  box-sizing: border-box;
+  touch-action: manipulation;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  font-size: 13px;
+  color: $black;
+  font-family: 'Rubik', sans-serif;
+  background-color: #fff;
+  font-weight: normal;
+  font-style: normal;
+  position: relative;
+  overflow-x: hidden;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+[disabled],
+:disabled {
+  opacity: 0.25 !important;
+  cursor: not-allowed !important;
+}
+
+// Paragraph and lead
+
+p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: $grey;
+  font-weight: 400;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+p+p {
+  margin-top: 20px;
+}
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.17;
+  color: $black;
+  font-weight: 300;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+h4 {
+  font-size: 17px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h6 {
+  font-size: 13px;
+}
+
+// Other
+
+a {
+  font-size: 13px;
+  color: $light-blue;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+span {
+  word-wrap: break-word;
+}
+
+.subtitle {
+  @extend h5;
+  color: $black;
+}
+
+.meta {
+  @extend p;
+  font-size: 11px;
+  color: $grey;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 1px;
+  overflow: visible;
+  background: #ddd;
+  width: 100%;
+  margin: 25px 0;
+}
