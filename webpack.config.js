@@ -1,6 +1,7 @@
 // Path is in Node for free and will make simple resolving of directories no
 // matter which part of your file system your library lives in
 const path = require('path');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 // Webpack is just a bunch of keys on module.exports!
 module.exports = {
@@ -8,6 +9,9 @@ module.exports = {
   // and exporting, to get to here
   entry: './src/index.tsx',
   devtool: "source-map",
+  plugins: [
+    new CaseSensitivePathsPlugin(),
+  ],
   // module (I know it's a bit weird to have module.exports.module) is where we
   // define all the rules for how webpack will deal with thing.
   module: {
@@ -54,10 +58,9 @@ module.exports = {
     // sources. UMD may not be correct now and there is an open issue to fix this,
     // but until then, more reading can be found here:
     // https://webpack.js.org/configuration/output/#output-librarytarget
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2'
   },
   externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
+    "react": "commonjs react",
   }
 };

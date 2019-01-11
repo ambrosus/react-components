@@ -1,6 +1,6 @@
 {
   "name": "@ambrosus/react",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "Reusable react components for Ambrosus front-end apps.",
   "main": "./dist/index.js",
   "private": false,
@@ -28,6 +28,7 @@
     "@types/web3": "^1.0.14",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "css-loader": "^1.0.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
