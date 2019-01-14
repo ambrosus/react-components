@@ -7,7 +7,7 @@ import React from 'react';
 import Button from 'amborosus/react-components'
 
 const App = () => (
-    <Button classes={["class1" "class2"] disabled={true}>
+    <Button classes={["class1" "class2"]} disabled={true}>
       Click Me!
     </Button>
   );
