@@ -14,12 +14,11 @@ export default class Button extends Component<IButton> {
     };
 
     public render() {
-        const {label, children, icon, type, loading, primary, outlined, onClick, className, disabled } = this.props;
-        const spinner = this.props.spinner ? this.props.spinner : spinnerLogo;
+        const {label, children, spinner, icon, loading, primary, outlined, className, disabled, ...otherProps } = this.props;
         const classes = [`AMB-Button ${loading && 'loading'} ${primary && 'primary'} ${outlined && 'outlined'}`, className].join(' ').trim();
 
         return (
-            <button type={type} onClick={onClick} disabled={loading || disabled} className={classes}>
+            <button disabled={loading || disabled} className={classes} {...otherProps}>
                 {icon && <SVG className='Sideicon' src={icon} wrapper='span' />}
                 {label && label}
                 {children}

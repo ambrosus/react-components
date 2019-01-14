@@ -15,17 +15,18 @@ export interface IButton extends Element {
     icon?: string;
     primary?: boolean;
     outlined?: boolean;
-    spinner?: string;
+    spinner: string;
 }
 
 export interface ICheckbox extends Element {
-    checkIcon?: string;
-    uncheckIcon?: string;
+    checkedIcon?: string;
+    uncheckedIcon?: string;
     label?: string;
+    labelPosition?: 'left' | 'right';
     icon?: string;
     value?: any;
     checked?: boolean;
     name?: string;
     outlined?: boolean;
-    spinner?: string;
+    onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => void;
 }
