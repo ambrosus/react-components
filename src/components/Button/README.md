@@ -4,7 +4,7 @@
 
 ```javascript
 import React from 'react';
-import Button from 'amborosus/react-components'
+import { Button } from 'amborosus/react'
 
 const App = () => (
     <Button classes={["class1" "class2"]} disabled={true}>
