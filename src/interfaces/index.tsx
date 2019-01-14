@@ -1,9 +1,14 @@
 
 export interface IButton {
     disabled?: boolean;
-    classes?: string[];
+    className?: string;
     clicked?: () => any;
-    children: React.ReactNode;
+    children: string | React.ReactNode;
     loading?: boolean;
     type?: string;
+    label?: string;
+    icon?: string;
+    primary?: boolean;
+    outlined?: boolean;
+    spinner?: string;
 }

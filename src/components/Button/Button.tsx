@@ -1,18 +1,21 @@
 import * as React from 'react';
+import SVG from 'react-svg';
+import spinnerLogo from '../../assets/icons/spinner.svg';
 
 import './Button.scss';
 import { IButton } from '../../interfaces';
 
 const Button = (props: IButton) => {
-    const defaultClass = 'AMB-Button';
-    const classes = props.classes || [];
+    const classes = ['AMB-Button', props.className].join(' ').trim();
     const disabled = props.hasOwnProperty('disabled') ? props.disabled : true;
+    const spinner = props.spinner ? props.spinner : spinnerLogo;
 
-    return <button
-        type={props.type || 'button'}
+    return <button type={props.type || 'button'}
         disabled={props.loading || disabled}
-        className={`${defaultClass} ${classes.join(' ')} ${props.loading && 'loading'}`}
-        onClick={props.clicked}>{props.children}<div className='spinner'></div></button>;
+        className={`AMB-Button ${classes} ${props.loading && 'loading'} ${props.primary && 'primary'} ${props.outlined && 'outlined'}`}>
+        {props.icon && <SVG className='Sideicon' src={props.icon} wrapper='span' />}{props.label}{props.children}
+        {props.loading && <SVG className='Loadingicon' src={spinner} />}
+    </button>;
 };
 
 export default Button;
