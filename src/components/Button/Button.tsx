@@ -20,7 +20,7 @@ export default class Button extends Component<IButton> {
         return (
             <button disabled={loading || disabled} className={classes} {...otherProps}>
                 {icon && <SVG className='Sideicon' src={icon} wrapper='span' />}
-                {label && label}
+                {label}
                 {children}
                 {loading && <SVG className='Loadingicon' src={spinner} />}
             </button>);
