@@ -1,23 +1,23 @@
 # Button
 
-## usage
+## Usage
 
 ```javascript
 import React from 'react';
-import { Button } from 'amborosus/react'
+import { Button } from '@amborosus/react'
 
 const App = () => (
-    <Button className="class1" "class2" disabled primary>
+    <Button className="class1 class2" disabled primary>
       Click Me!
     </Button>
   );
 ```
 
-## all properties
+## Properties
 
 
 | Props        | Type           | Description                                    |
-| ------------ |:-------------: | ----------------------------------------------:|
+| ------------ | -------------- | ---------------------------------------------- |
 | disabled     | boolean        | Disables button if true                        |
 | id           | string         | Id Attribute to assign to button               |
 | className    | string         | Class(es) to be applied to the component       |
