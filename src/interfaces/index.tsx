@@ -27,6 +27,5 @@ export interface ICheckbox extends Element {
     value?: any;
     checked?: boolean;
     name?: string;
-    outlined?: boolean;
     onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => void;
 }
