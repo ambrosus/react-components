@@ -11,6 +11,7 @@ export default class Checkbox extends Component<ICheckbox> {
         uncheckedIcon: '',
         labelPosition: 'left',
         checked: false,
+        // tslint:disable-next-line:no-empty
         onChange: () => {},
     };
 
