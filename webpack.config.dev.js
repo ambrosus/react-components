@@ -1,12 +1,18 @@
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   target: 'web',
-  entry: './src/components/index.tsx',
-  mode: 'production',
+  entry: './src/index.tsx',
+  devtool: "source-map",
+  mode: 'development',
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      filename: './index.html'
+    }),
   ],
   module: {
     rules: [
@@ -21,6 +27,13 @@ module.exports = {
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
       },
       {
         test: /\.(png|gif|jpg|svg)$/,
@@ -38,11 +51,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '',
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
   },
-  externals: {
-    "react": "commonjs react",
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    open: true,
+    progress: true,
   },
 };

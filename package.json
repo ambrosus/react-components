@@ -7,13 +7,14 @@
   "author": "Ambrosus",
   "license": "ISC",
   "scripts": {
-    "start": "webpack-dev-server --progress --open",
-    "dev": "source ./.env.dev && webpack --mode development",
-    "build": "source ./.env && webpack --mode production",
+    "start": "npm run dev",
+    "dev": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
+    "build": "source ./.env && webpack",
     "dev:lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "moment": "^2.23.0",
+    "normalize.css": "^8.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "^2.1.3",

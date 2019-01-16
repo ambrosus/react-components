@@ -20,12 +20,11 @@
     "preserveConstEnums": true,
     "removeComments": true,
     "target": "ES5",
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "react",
   },
   "exclude": [
     "node_modules"
-   ],
-  "files": [ "custom.d.ts" ]
+  ],
 }
