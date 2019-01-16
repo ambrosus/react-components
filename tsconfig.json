@@ -1,13 +1,31 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "target": "es5",
-    "jsx": "react"
+    "noImplicitAny": true,
+    "outDir": "./dist/",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "target": "ES5",
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "exclude": [
+    "node_modules"
+   ],
+  "files": [ "custom.d.ts" ]
 }

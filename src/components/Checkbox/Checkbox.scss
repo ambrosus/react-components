@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.AMB-Button {
+.AMB-Checkbox {
   @include font-size(14px, 14px);
 
   background: $background-light;

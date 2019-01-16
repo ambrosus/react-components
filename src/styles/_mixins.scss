@@ -1,0 +1,393 @@
+/*
+@include breakpoint(10px){color: red;}
+*/
+@mixin breakpoint($size) {
+  @if $size == desktop {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size == tablet-landscape {
+    @media only screen and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $size == tablet-portrait {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  } @else if $size == phone {
+    @media only screen and (max-width: 599px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $size + px) {
+      @content;
+    }
+  }
+}
+
+/*
+@include transform-origin(50% 50%)
+*/
+
+@mixin transform-origin($origin) {
+  moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+/*
+@include skew(20deg)
+*/
+
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+// Rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// Translate
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew($x, $y: '') {
+  @if $y != '' {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+  } @else {
+    @include transform(skew(#{$x}deg));
+  }
+}
+
+// Transform Origin
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+// Gradients
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin gradient-horizontal(
+  $start-color: #555,
+  $end-color: #333,
+  $start-percent: 0%,
+  $end-percent: 100%
+) {
+  background: -webkit-linear-gradient(
+    left,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Safari 5.1-6, Chrome 10+
+  background: -o-linear-gradient(
+    left,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Opera 12
+  background: linear-gradient(
+    to right,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin gradient-vertical(
+  $start-color: #555,
+  $end-color: #333,
+  $start-percent: 0%,
+  $end-percent: 100%
+) {
+  background: -webkit-linear-gradient(
+    top,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Safari 5.1-6, Chrome 10+
+  background: -o-linear-gradient(
+    top,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Opera 12
+  background: linear-gradient(
+    to bottom,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background: -webkit-linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Safari 5.1-6, Chrome 10+
+  background: -o-linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Opera 12
+  background: linear-gradient(
+    $deg,
+    $start-color,
+    $end-color
+  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+}
+@mixin gradient-horizontal-three-colors(
+  $start-color: #00b3ee,
+  $mid-color: #7a43b6,
+  $color-stop: 50%,
+  $end-color: #c3325f
+) {
+  background: -webkit-linear-gradient(
+    left,
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background: -o-linear-gradient(
+    left,
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background: linear-gradient(
+    to right,
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down, gets no color-stop at all for proper fallback
+}
+@mixin gradient-vertical-three-colors(
+  $start-color: #00b3ee,
+  $mid-color: #7a43b6,
+  $color-stop: 50%,
+  $end-color: #c3325f
+) {
+  background: -webkit-linear-gradient(
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background: -o-linear-gradient(
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background: linear-gradient(
+    $start-color,
+    $mid-color $color-stop,
+    $end-color
+  );
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
+}
+@mixin gradient-radial($inner-color: #555, $outer-color: #333) {
+  background: -webkit-radial-gradient(circle, $inner-color, $outer-color);
+  background: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-striped($color: rgba(255, 255, 255, 0.15), $angle: 45deg) {
+  background: -webkit-linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+  background: -o-linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+  background: linear-gradient(
+    $angle,
+    $color 25%,
+    transparent 25%,
+    transparent 50%,
+    $color 50%,
+    $color 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+/*
+@include font-face('gotham', '/fonts/gotham');
+*/
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name+'.eot');
+    src: url($file-name+'.eot?#iefix') format('embedded-opentype'),
+      url($file-name+'.woff') format('woff'),
+      url($file-name+'.ttf') format('truetype'),
+      url($file-name+'.svg##{$font-name}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+/*
+@include roundedCorners(10);
+*/
+@mixin roundedCorners($size) {
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  border-radius: $size;
+}
+
+/*
+@include opacity(0.4);
+*/
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/*
+@include pseudo;
+*/
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+/*
+@include font-size(10px, ?16px)
+*/
+@mixin font-size($size, $line_height: '') {
+  font-size: $size;
+  font-size: calculateRem($size);
+
+  @if $line_height != '' {
+    line-height: $line_height;
+    line-height: calculateRem($line_height);
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/*
+@include fluid-type($min_width, $max_width, $min_font, $max_font);
+*/
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+/*
+@include clearfix;
+*/
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/*
+.object-to-animate {
+  @include animation('animationName .5s 1');
+}
+*/
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ', '};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+
+/*
+@include keyframes(animationName){
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+*/
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}

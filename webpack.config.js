@@ -2,15 +2,21 @@
 // matter which part of your file system your library lives in
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Webpack is just a bunch of keys on module.exports!
 module.exports = {
   // This is where our app starts. This is why we have done all this importing
   // and exporting, to get to here
+  target: 'web',
   entry: './src/index.tsx',
   devtool: "source-map",
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      filename: './index.html'
+    }),
   ],
   // module (I know it's a bit weird to have module.exports.module) is where we
   // define all the rules for how webpack will deal with thing.
@@ -49,7 +55,6 @@ module.exports = {
   // be run after publishing so you don't wind up with it in source control
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '',
     // You can do fun things here like use the [hash] keyword to generate unique
     // filenames, but for this purpose rinse.js is fine. This file and path will
     // be what you put in package.json's "main" field
@@ -58,9 +63,10 @@ module.exports = {
     // sources. UMD may not be correct now and there is an open issue to fix this,
     // but until then, more reading can be found here:
     // https://webpack.js.org/configuration/output/#output-librarytarget
-    libraryTarget: 'commonjs2'
   },
-  externals: {
-    "react": "commonjs react",
-  }
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
 };
