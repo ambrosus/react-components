@@ -9,6 +9,9 @@ export interface IButton {
     label?: string;
     icon?: string;
     primary?: boolean;
+    secondary?: boolean;
+    solid?: boolean;
     outline?: boolean;
     transparent?: boolean;
+    light?: boolean;
 }

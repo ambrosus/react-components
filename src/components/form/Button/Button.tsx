@@ -6,27 +6,34 @@ import './Button.scss';
 import { IButton } from '../../../interfaces';
 
 const Button = (props: IButton) => {
-    const { label, children, icon, loading, primary, outline, transparent, className, type, disabled } = props;
+    const { solid, outline, transparent } = props;
+    const { primary, secondary, light } = props;
+    const { label, children, icon, loading, className, type, disabled, clicked } = props;
+
+    const buttonType = [`${solid && 'solid' || ''}`, `${outline && 'outline' || ''}`, `${transparent && 'transparent' || ''}`].filter(Boolean)[0];
+    const color = [`${primary && 'primary' || ''}`, `${secondary && 'secondary' || ''}`, `${light && 'light' || ''}`].filter(Boolean)[0];
+    const options = [`${loading && 'loading' || ''}`].filter(Boolean);
 
     const classes = [
         'AMB-Button',
-        `${loading && 'loading' || ''}`,
-        `${primary && 'primary' || ''}`,
-        `${outline && 'outline' || ''}`,
-        `${transparent && 'transparent' || ''}`,
-        className,
+        ...options,
+        buttonType,
+        color,
+        `${className || ''}`.trim(),
     ].join(' ').trim();
+
+    console.log(iconSpinner);
 
     return (
         <button
             type={type || 'button'}
             disabled={loading || disabled}
             className={classes}
-            onClick={props.clicked}>{props.children}>
+            onClick={clicked}>
             {icon && <SVG className='icon' src={icon} wrapper='span' />}
             {label}
             {children}
-            {loading && <SVG className='spinner' src={iconSpinner} />}
+            {loading && <SVG className='spinner' src={iconSpinner} wrapper='span' />}
         </button>
     );
 };

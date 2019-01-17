@@ -10,14 +10,15 @@
   }
 }
 
+$primary: $blue;
+$secondary: $purple;
+$light: #fff;
+
 .AMB-Button {
   position: relative;
   font-size: 15px;
   line-height: 1.2;
-  color: $white;
-  background: linear-gradient(90deg, $dark-blue 0%, $dark-purple 100%);
   border-radius: 20px;
-  border: 1px solid $purple-blue;
   font-weight: 500;
   text-align: center;
   width: 192px;
@@ -26,6 +27,9 @@
   user-select: none;
   padding: 11px 15px;
   transition: all 0.2s;
+  color: $white;
+  background: $primary;
+  border: 1px solid $primary;
 
   &.no-style {
     width: auto;
@@ -40,10 +44,56 @@
     margin: 10px 0 0 0;
   }
 
+  // colors
+
+  &.primary {
+    background: $primary;
+    border-color: $primary;
+  }
+
+  &.secondary {
+    background: $secondary;
+    border-color: $secondary;
+  }
+
+  &.light {
+    background: $light;
+    border-color: $light;
+  }
+
+  // button types
+
+  &.solid {
+    color: $white;
+    background: $primary;
+    border: 1px solid $primary;
+
+    &.secondary {
+      background: $secondary;
+      border-color: $secondary;
+    }
+
+    &.light {
+      color: $primary;
+      background: $light;
+      border-color: $light;
+    }
+  }
+
   &.outline {
-    border: 1px solid $purple-blue;
+    color: $primary;
     background: transparent;
-    color: $purple-blue;
+    border: 1px solid $primary;
+
+    &.secondary {
+      color: $secondary;
+      border-color: $secondary;
+    }
+
+    &.light {
+      color: $light;
+      border-color: $light;
+    }
 
     &:hover {
       opacity: .75;
@@ -51,12 +101,16 @@
   }
 
   &.transparent {
-    border-color: transparent;
+    color: $primary;
     background: transparent;
-    color: $blue;
+    border-color: transparent;
+
+    &.secondary {
+      color: $secondary;
+    }
 
     &.light {
-      color: $grey;
+      color: $light;
     }
 
     &:hover {

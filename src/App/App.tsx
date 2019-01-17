@@ -4,7 +4,7 @@ import { Button } from '../components/form';
 const App = () => {
   return (
     <div>
-      <Button>I am a button</Button>
+      <Button loading>I am a button</Button>
     </div>
   );
 };
