@@ -1,5 +1,6 @@
 const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'web',
@@ -7,6 +8,7 @@ module.exports = {
   mode: 'production',
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new CleanWebpackPlugin('./dist'),
   ],
   module: {
     rules: [
@@ -26,16 +28,15 @@ module.exports = {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          limit: 5000,
-          name: "assets/svg/[name].[hash:8].[ext]"
+          name: "assets/svg/[name].[ext]"
         }
       },
       {
         test: /\.(png|jpg|jpeg|bmp|gif)$/,
         loader: 'url-loader',
         options: {
-          limit: 5000,
-          name: "assets/images/[name].[hash:8].[ext]"
+          limit: 10000,
+          name: "assets/images/[name].[ext]"
         }
       },
     ],

@@ -7,8 +7,8 @@
   "author": "Ambrosus",
   "license": "ISC",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
+    "start": "npm run dev:start",
+    "dev:start": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
     "build": "source ./.env && webpack",
     "dev:lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
@@ -33,10 +33,12 @@
     "@types/web3": "^1.0.14",
     "awesome-typescript-loader": "^5.2.1",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",

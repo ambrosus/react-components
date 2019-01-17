@@ -1,9 +1,17 @@
+import React, { MouseEvent, ReactNode } from 'react';
 
-export interface IButton {
+interface Element extends React.HTMLProps<any> {
+    disabled?: boolean;
+    className?: string;
+    id?: string;
+    onClick?(e: MouseEvent<HTMLElement>): void;
+}
+
+export interface IButton extends Element {
     disabled?: boolean;
     className?: string;
     clicked?: () => any;
-    children: React.ReactNode;
+    children: ReactNode;
     loading?: boolean;
     type?: 'button' | 'submit';
     label?: string;

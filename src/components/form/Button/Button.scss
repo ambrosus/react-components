@@ -15,21 +15,46 @@ $secondary: $purple;
 $light: #fff;
 
 .AMB-Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   font-size: 15px;
   line-height: 1.2;
   border-radius: 20px;
   font-weight: 500;
   text-align: center;
-  width: 192px;
+  min-width: 192px;
   cursor: pointer;
   word-break: keep-all;
   user-select: none;
-  padding: 11px 15px;
+  padding: 11px 35px;
   transition: all 0.2s;
   color: $white;
   background: $primary;
   border: 1px solid $primary;
+
+  > .icon {
+    line-height: 1;
+    margin-right: 10px;
+
+    svg {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  > .spinner {
+    position: relative;
+    stroke: $light;
+    line-height: 1;
+    margin-left: 10px;
+
+    svg {
+      height: 20px;
+      width: auto;
+    }
+  }
 
   &.no-style {
     width: auto;
@@ -68,6 +93,10 @@ $light: #fff;
     background: $primary;
     border: 1px solid $primary;
 
+    .spinner {
+      stroke: $light;
+    }
+
     &.secondary {
       background: $secondary;
       border-color: $secondary;
@@ -77,6 +106,10 @@ $light: #fff;
       color: $primary;
       background: $light;
       border-color: $light;
+
+      .spinner {
+        stroke: $primary;
+      }
     }
   }
 
@@ -85,14 +118,26 @@ $light: #fff;
     background: transparent;
     border: 1px solid $primary;
 
+    .spinner {
+      stroke: $primary;
+    }
+
     &.secondary {
       color: $secondary;
       border-color: $secondary;
+
+      .spinner {
+        stroke: $secondary;
+      }
     }
 
     &.light {
       color: $light;
       border-color: $light;
+
+      .spinner {
+        stroke: $light;
+      }
     }
 
     &:hover {
@@ -105,46 +150,30 @@ $light: #fff;
     background: transparent;
     border-color: transparent;
 
+    .spinner {
+      stroke: $primary;
+    }
+
     &.secondary {
       color: $secondary;
+
+      .spinner {
+        stroke: $secondary;
+      }
     }
 
     &.light {
       color: $light;
+
+      .spinner {
+        stroke: $light;
+      }
     }
 
     &:hover {
       background: rgba($grey, 0.07);
     }
   }
-
-  // > .spinner {
-  //   display: inline-block;
-  //   border: 2px solid $grey;
-  //   border-right-color: transparent;
-  //   border-radius: 50%;
-  //   box-sizing: border-box;
-  //   position: absolute;
-  //   top: 13px;
-  //   right: 11px;
-  //   opacity: 0;
-  //   width: 16px;
-  //   height: 16px;
-  //   transition: opacity .2s;
-  // }
-
-  // &.loading {
-  //   opacity: 0.25;
-
-  //   > .spinner {
-  //     animation: 1.25s linear infinite rotate;
-  //     opacity: 1;
-  //   }
-
-  //   &:hover {
-  //     opacity: 0.25;
-  //   }
-  // }
 
   @include breakpoint-min(480) {
 
