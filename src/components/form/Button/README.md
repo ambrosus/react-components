@@ -7,7 +7,7 @@ import React from 'react';
 import { Button } from '@ambrosus/react/form'
 
 const App = () => (
-    <Button className="class1 class2" disabled secondary outline clicked={() => console.log('Clicked!')}>
+    <Button className="class1 class2" disabled secondary outline onClick={() => console.log('Clicked!')}>
       Click Me!
     </Button>
   );
@@ -21,7 +21,6 @@ const App = () => (
 | disabled     | boolean        | Disables the button if true                        |
 | id           | string         | Id Attribute to assign to button               |
 | className    | string         | Class(es) to be applied to the component       |
-| clicked      | function ref   | Event function to invoke if button is clicked  |
 | children     | ReactComponent | Element to be displayed within root element    |
 | loading      | boolean        | Shows loading animation if true and disables the button                 |
 | type         | string         | Button type (default: button)                |
