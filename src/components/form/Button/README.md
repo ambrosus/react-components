@@ -4,7 +4,7 @@
 
 ```javascript
 import React from 'react';
-import { Button } from '@amborosus/react'
+import { Button } from '@ambrosus/react/form'
 
 const App = () => (
     <Button className="class1 class2" disabled primary outline onClick={() => console.log('Clicked!')}>
