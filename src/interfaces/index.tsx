@@ -10,7 +10,6 @@ interface Element extends React.HTMLProps<any> {
 export interface IButton extends Element {
     disabled?: boolean;
     className?: string;
-    clicked?: () => any;
     children: ReactNode;
     loading?: boolean;
     type?: 'button' | 'submit';

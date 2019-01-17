@@ -5,7 +5,7 @@ const App = () => {
 
   return (
     <div>
-      <Button onClick={() => console.log('test')} outline loading>I am a button</Button>
+      <Button onClick={() => console.log('test')} outline>I am a button</Button>
     </div>
   );
 };

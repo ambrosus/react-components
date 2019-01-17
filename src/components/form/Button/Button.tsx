@@ -8,7 +8,7 @@ import { IButton } from '../../../interfaces';
 const Button = (props: IButton) => {
     const { solid, outline, transparent } = props;
     const { primary, secondary, light } = props;
-    const { label, children, icon, loading, className, type, disabled, clicked, ...otherProps } = props;
+    const { label, children, icon, loading, className, type, disabled, ...otherProps } = props;
 
     const buttonType = [`${solid && 'solid' || ''}`, `${outline && 'outline' || ''}`, `${transparent && 'transparent' || ''}`].filter(Boolean)[0];
     const color = [`${primary && 'primary' || ''}`, `${secondary && 'secondary' || ''}`, `${light && 'light' || ''}`].filter(Boolean)[0];
