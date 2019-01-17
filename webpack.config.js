@@ -14,7 +14,7 @@ function fromDir(startPath, filter, content = '') {
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Component@${pjson.version}
+# React Components@${pjson.version}
 `;
   }
 

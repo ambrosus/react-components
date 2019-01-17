@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Component@0.3.1
+# React Components@0.3.1
 # Button
 
 ## Usage
