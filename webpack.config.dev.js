@@ -39,15 +39,15 @@ module.exports = {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: "assets/svg/[name].[hash:8].[ext]"
+          name: "assets/svg/[name].[ext]",
         }
       },
       {
         test: /\.(png|jpg|jpeg|bmp|gif)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
-          name: "assets/images/[name].[hash:8].[ext]"
+          limit: "10000",
+          name: "assets/images/[name].[ext]"
         }
       },
     ],

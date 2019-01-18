@@ -9,7 +9,7 @@ const CreateFileWebpack = require('create-file-webpack')
 
 function fromDir(startPath, filter, content = '') {
 
-  if (!content){
+  if (!content) {
     content = `<!---
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
@@ -25,8 +25,7 @@ DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
     const stat = fs.lstatSync(filename);
     if (stat.isDirectory()) {
       content = fromDir(filename, filter, content);
-    }
-    else if (filename.indexOf(filter) >= 0) {
+    } else if (filename.indexOf(filter) >= 0) {
       content += fs.readFileSync(filename, 'utf8') + `
 
       `;
@@ -69,14 +68,14 @@ module.exports = {
         test: /\.svg$/,
         loader: 'file-loader',
         options: {
-          name: "assets/svg/[name].[ext]"
+          name: "assets/svg/[name].[ext]",
         }
       },
       {
         test: /\.(png|jpg|jpeg|bmp|gif)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: "10000",
           name: "assets/images/[name].[ext]"
         }
       },
