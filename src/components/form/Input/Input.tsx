@@ -22,8 +22,8 @@ export default class Input extends Component<IInput> {
     public componentDidMount() {
         const {
             label, className, value, changed, invalid, shouldValidate,
-            touched, errors, disabled, light, info, password, ...otherProps } = this.props;
-        const type = (this.props.password && 'password') || otherProps.type || 'text';
+            touched, errors, disabled, light, info, ...otherProps } = this.props;
+        const type = otherProps.type || 'text';
         this.setState({ type, otherProps });
     }
 
@@ -54,7 +54,7 @@ export default class Input extends Component<IInput> {
                     />
                     <div className='meta'>
                         {this.props.touched && !this.props.invalid && <SVG className='SVG' src={iconSuccess} wrapper='span' />}
-                        {this.props.password && (
+                        {this.props.type === 'password' && (
                             <SVG onClick={this.togglePassword} className='SVG' src={this.state.type === 'password' ? iconEyeOpen : iconEyeClose} wrapper='span' />
                         )}
                         {this.props.info && (
