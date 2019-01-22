@@ -52,6 +52,7 @@ export default class Input extends Component<IInput> {
                         value={this.props.value}
                         onChange={this.props.changed}
                     />
+                    <div className='border'></div>
                     <div className='meta'>
                         {this.props.touched && !this.props.invalid && <SVG className='SVG' src={iconSuccess} wrapper='span' />}
                         {this.props.type === 'password' && (
