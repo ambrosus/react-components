@@ -56,7 +56,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist/'),
+    path: path.resolve(__dirname, 'docs/'),
     filename: 'index.js',
   },
   devServer: {
