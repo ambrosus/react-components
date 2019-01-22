@@ -14,6 +14,7 @@
     margin-top: 10px;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 
     > .border {
       border: 1px solid $grey;
@@ -35,6 +36,7 @@
       line-height: 1;
       padding: 10px 15px;
       background: transparent;
+      flex: 0 0 auto;
 
       > * {
         margin-right: 10px;
