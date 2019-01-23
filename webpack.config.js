@@ -27,8 +27,7 @@ DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
       content = fromDir(filename, filter, content);
     } else if (filename.toLowerCase().indexOf(filter) >= 0) {
       content += fs.readFileSync(filename, 'utf8') + `
-
-      `;
+`;
     };
   };
 

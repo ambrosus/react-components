@@ -37,8 +37,7 @@ const App = () => (
 | solid        | boolean        | Solid button style          |
 | outline      | boolean        | Outline button style          |
 | transparent  | boolean        | Transparent button style          |
-
-      # Input
+# Input
 
 ## Usage
 
@@ -68,5 +67,3 @@ const App = () => (
 | errors        | string        | Error string to show below the input                            |
 | light        | boolean        | Input light theme          |
 | info      | string        | Hover info pop-up          |
-
-      
