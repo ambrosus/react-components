@@ -22,10 +22,10 @@ DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 
   for (let i = 0; i < files.length; i++) {
     const filename = path.join(startPath, files[i]);
-    const stat = fs.lstatSync(filename);
+    const stat = fs.statSync(filename);
     if (stat.isDirectory()) {
       content = fromDir(filename, filter, content);
-    } else if (filename.indexOf(filter) >= 0) {
+    } else if (filename.toLowerCase().indexOf(filter) >= 0) {
       content += fs.readFileSync(filename, 'utf8') + `
 
       `;
