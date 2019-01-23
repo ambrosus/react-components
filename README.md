@@ -2,14 +2,14 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.3.1
+# React Components@0.3.2
 # Button
 
 ## Usage
 
 ```javascript
 import React from 'react';
-import { Button } from '@ambrosus/react/form'
+import { Button } from '@ambrosus/react'
 
 const App = () => (
     <Button className="class1 class2" disabled secondary outline onClick={() => console.log('Clicked!')}>

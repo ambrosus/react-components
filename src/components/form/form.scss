@@ -48,10 +48,12 @@
 
       .SVG {
         line-height: 0;
+        color: $black;
 
         svg {
           width: 14px;
           height: 14px;
+          fill: currentColor;
         }
       }
     }
@@ -150,8 +152,8 @@
     }
 
     &:hover {
-      svg {
-        fill: $blue;
+      .SVG {
+        color: $blue;
       }
 
       .message {
@@ -210,9 +212,7 @@
   > .input {
 
     .SVG {
-      svg {
-        fill: #fff;
-      }
+      color: #fff;
     }
 
     > input:not([type='checkbox']),

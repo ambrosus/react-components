@@ -2,6 +2,7 @@ const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   target: 'web',
@@ -12,10 +13,12 @@ module.exports = {
     new CleanWebpackPlugin('./docs'),
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public', 'index.html'),
+      template: path.resolve(__dirname, 'public/index.html'),
       filename: './index.html',
-      favicon: path.resolve(__dirname, 'public', 'favicons', 'favicon.ico')
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './src/assets', to: 'assets' }
+    ]),
   ],
   module: {
     rules: [
@@ -33,13 +36,31 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ]
       },
       {
         test: /\.svg$/,
-        loader: 'file-loader',
-        options: {
-          name: "assets/svg/[name].[ext]",
+        use: function({ realResource }) {
+          const loaders = [];
+
+          let ext = realResource.split('.');
+          ext = ext[ext.length - 1];
+
+          if (['css', 'scss'].indexOf(ext) > -1) {
+            loaders.push({
+              loader: 'file-loader',
+              options: {
+                name: '/assets/svg/[name].[ext]'
+              }
+            });
+          } else {
+            loaders.push({ loader: 'raw-loader' });
+          }
+
+          return loaders;
         }
       },
       {

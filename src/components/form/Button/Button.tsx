@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SVG from 'react-svg';
+import { SVG } from '../../utils';
 import iconSpinner from '../../../assets/svg/spinner.svg';
 
 import './Button.scss';
@@ -17,8 +17,8 @@ const Button = (props: IButton) => {
     const classes = [
         'AMB-Button',
         ...options,
-        buttonType,
-        color,
+        buttonType || 'solid',
+        color || 'primary',
         `${className || ''}`.trim(),
     ].join(' ').trim();
 
@@ -28,10 +28,10 @@ const Button = (props: IButton) => {
             type={type || 'button'}
             disabled={loading || disabled}
             className={classes}>
-            {icon && <SVG className='icon' src={icon} wrapper='span' />}
+            {icon && <SVG className='icon SVG' src={icon} />}
             {label}
             {children}
-            {loading && <SVG className='spinner' src={iconSpinner} wrapper='span' />}
+            {loading && <SVG className='spinner SVG' src={iconSpinner} />}
         </button>
     );
 };
