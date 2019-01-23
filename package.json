@@ -2,6 +2,7 @@
   "name": "@ambrosus/react",
   "version": "0.3.1",
   "description": "Reusable react components for Ambrosus front-end apps.",
+  "homepage": "http://ambrosus.github.io/react-components",
   "main": "./dist/index.js",
   "private": false,
   "author": "Ambrosus",
@@ -9,6 +10,7 @@
   "scripts": {
     "start": "npm run dev:start",
     "dev:start": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
+    "docs:build": "source ./.env && webpack --config ./webpack.config.dev.js --mode=production",
     "build": "source ./.env && webpack",
     "dev:lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
