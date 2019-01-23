@@ -1,0 +1,16 @@
+@import 'styles/utils';
+@import '../form.scss';
+
+.AMB-Input {
+  @extend %label;
+
+  > .input {
+    input {
+      @extend %input;
+    }
+  }
+
+  &.light {
+    @extend %input--light;
+  }
+}
