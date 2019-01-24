@@ -4,8 +4,8 @@ const pjson = require('./package.json');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const CreateFileWebpack = require('create-file-webpack')
+const CreateFileWebpack = require('create-file-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function fromDir(startPath, filter, content = '') {
 
@@ -22,13 +22,12 @@ DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 
   for (let i = 0; i < files.length; i++) {
     const filename = path.join(startPath, files[i]);
-    const stat = fs.lstatSync(filename);
+    const stat = fs.statSync(filename);
     if (stat.isDirectory()) {
       content = fromDir(filename, filter, content);
-    } else if (filename.indexOf(filter) >= 0) {
+    } else if (filename.toLowerCase().indexOf(filter) >= 0) {
       content += fs.readFileSync(filename, 'utf8') + `
-
-      `;
+`;
     };
   };
 
@@ -48,7 +47,10 @@ module.exports = {
       path: './',
       fileName: 'README.MD',
       content
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './src/assets', to: 'assets' }
+    ]),
   ],
   module: {
     rules: [
@@ -66,9 +68,24 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'file-loader',
-        options: {
-          name: "assets/svg/[name].[ext]",
+        use: function({ realResource }) {
+          const loaders = [];
+
+          let ext = realResource.split('.');
+          ext = ext[ext.length - 1];
+
+          if (['css', 'scss'].indexOf(ext) > -1) {
+            loaders.push({
+              loader: 'file-loader',
+              options: {
+                name: '/assets/svg/[name].[ext]'
+              }
+            });
+          } else {
+            loaders.push({ loader: 'raw-loader' });
+          }
+
+          return loaders;
         }
       },
       {
@@ -91,7 +108,6 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   externals: {
-    "react": "commonjs react",
-    "react-svg": "commonjs react-svg",
+    "react": "react",
   },
 };

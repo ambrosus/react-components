@@ -4,7 +4,7 @@
 
 ```javascript
 import React from 'react';
-import { Button } from '@ambrosus/react/form'
+import { Button } from '@ambrosus/react'
 
 const App = () => (
     <Button className="class1 class2" disabled secondary outline onClick={() => console.log('Clicked!')}>

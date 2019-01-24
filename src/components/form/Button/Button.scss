@@ -1,15 +1,5 @@
 @import 'styles/utils';
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .AMB-Button {
   display: flex;
   justify-content: center;
@@ -26,42 +16,29 @@
   user-select: none;
   padding: 11px 35px;
   transition: all 0.2s;
-  color: $white;
-  background: $primary;
-  border: 1px solid $primary;
 
-  > .icon {
+  > .SVG {
     line-height: 1;
-    margin-right: 10px;
+    position: relative;
+    color: $primary;
 
     svg {
       height: 20px;
       width: auto;
+      fill: currentColor;
+      stroke: currentColor;
     }
+  }
+
+  > .icon {
+    margin-right: 10px;
   }
 
   > .spinner {
-    position: relative;
-    stroke: $light;
-    line-height: 1;
     margin-left: 10px;
-
-    svg {
-      height: 20px;
-      width: auto;
-    }
   }
 
-  &.no-style {
-    width: auto;
-    padding: 0;
-    border-radius: 0;
-    background: initial;
-    border: none;
-  }
-
-  + button,
-  + .button {
+  + .AMB-Button {
     margin: 10px 0 0 0;
   }
 
@@ -89,8 +66,8 @@
     background: $primary;
     border: 1px solid $primary;
 
-    .spinner {
-      stroke: $light;
+    .SVG {
+      color: $light;
     }
 
     &.secondary {
@@ -103,8 +80,8 @@
       background: $light;
       border-color: $light;
 
-      .spinner {
-        stroke: $primary;
+      .SVG {
+        color: $primary;
       }
     }
   }
@@ -114,16 +91,16 @@
     background: transparent;
     border: 1px solid $primary;
 
-    .spinner {
-      stroke: $primary;
+    .SVG {
+      color: $primary;
     }
 
     &.secondary {
       color: $secondary;
       border-color: $secondary;
 
-      .spinner {
-        stroke: $secondary;
+      .SVG {
+        color: $secondary;
       }
     }
 
@@ -131,8 +108,8 @@
       color: $light;
       border-color: $light;
 
-      .spinner {
-        stroke: $light;
+      .SVG {
+        color: $light;
       }
     }
 
@@ -146,23 +123,23 @@
     background: transparent;
     border-color: transparent;
 
-    .spinner {
-      stroke: $primary;
+    .SVG {
+      color: $primary;
     }
 
     &.secondary {
       color: $secondary;
 
-      .spinner {
-        stroke: $secondary;
+      .SVG {
+        color: $secondary;
       }
     }
 
     &.light {
       color: $light;
 
-      .spinner {
-        stroke: $light;
+      .SVG {
+        color: $light;
       }
     }
 
@@ -173,8 +150,7 @@
 
   @include breakpoint-min(480) {
 
-    + button,
-    + .button {
+    + .AMB-Button {
       margin: 0 0 0 10px;
     }
   }

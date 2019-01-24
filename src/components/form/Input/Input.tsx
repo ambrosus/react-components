@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SVG from 'react-svg';
+import { SVG } from '../../utils';
 
 import './Input.scss';
 import { IInput } from '../../../interfaces';
@@ -54,13 +54,13 @@ export default class Input extends Component<IInput> {
                     />
                     <div className='border'></div>
                     <div className='meta'>
-                        {this.props.touched && !this.props.invalid && <SVG className='SVG' src={iconSuccess} wrapper='span' />}
+                        {this.props.touched && !this.props.invalid && <SVG className='SVG' src={iconSuccess} />}
                         {this.props.type === 'password' && (
-                            <SVG onClick={this.togglePassword} className='SVG' src={this.state.type === 'password' ? iconEyeOpen : iconEyeClose} wrapper='span' />
+                            <SVG onClick={this.togglePassword} className='SVG' src={this.state.type === 'password' ? iconEyeOpen : iconEyeClose} />
                         )}
                         {this.props.info && (
                             <div className='info'>
-                                <SVG className='SVG' src={iconInfo} wrapper='span' />
+                                <SVG className='SVG' src={iconInfo} />
                                 <span className='message' dangerouslySetInnerHTML={{ __html: this.props.info }}></span>
                             </div>
                         )}
