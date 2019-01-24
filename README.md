@@ -2,14 +2,14 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.3.1
+# React Components@0.3.2
 # Button
 
 ## Usage
 
 ```javascript
 import React from 'react';
-import { Button } from '@ambrosus/react/form'
+import { Button } from '@ambrosus/react'
 
 const App = () => (
     <Button className="class1 class2" disabled secondary outline onClick={() => console.log('Clicked!')}>
@@ -37,5 +37,33 @@ const App = () => (
 | solid        | boolean        | Solid button style          |
 | outline      | boolean        | Outline button style          |
 | transparent  | boolean        | Transparent button style          |
+# Input
 
-      
+## Usage
+
+```javascript
+import React from 'react';
+import { Input } from '@ambrosus/react'
+
+const App = () => (
+    <Input className="class1" label="Your password" type="password" info="Your password will never leave your browser" light />
+  );
+```
+
+## Properties
+
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| disabled     | boolean        | Disables the button if true                        |
+| id           | string         | Id Attribute to assign to button               |
+| className    | string         | Class(es) to be applied to the component       |
+| label      | string        | Text for input label (title)                 |
+| value         | string | number         | Input value                |
+| changed        | function ref         | Function that will check for validation errors and value changes                |
+| invalid         | boolean         | If input is invalid                 |
+| shouldValidate      | boolean        | If there's validation                            |
+| touched    | boolean        | If input was touched                            |
+| errors        | string        | Error string to show below the input                            |
+| light        | boolean        | Input light theme          |
+| info      | string        | Hover info pop-up          |

@@ -7,7 +7,7 @@ export default class App extends Component {
   public render() {
     return (
       <div style={{ margin: '150px auto', maxWidth: '500px' }}>
-        <Input touched info={this.info} type='password' placeholder='Some placeholder' label='Title here' light />
+        <Input touched info={this.info} type='password' placeholder='Some placeholder' label='Title here' />
         <Button onClick={() => console.log('test')} loading>I am a button</Button>
       </div>
     );
