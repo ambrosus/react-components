@@ -13,36 +13,36 @@ const Textarea = (props: ITextarea) => {
 
     const classes: any = [
         'AMB-Textarea',
-        `${props.light && 'light' || ''}`,
-        `${props.touched && !props.invalid && 'valid' || ''}`,
+        `${light && 'light' || ''}`,
+        `${touched && !invalid && 'valid' || ''}`,
     ].filter(Boolean);
 
-    if (props.invalid && props.shouldValidate && props.touched) {
+    if (invalid && shouldValidate && touched) {
         classes.push('error');
     }
 
     return (
         <label className={classes.join(' ').trim()}>
-            {props.label && <span className='title'>{props.label}</span>}
+            {label && <span className='title'>{label}</span>}
             <div className='textarea'>
                 <textarea
                     {...otherProps}
-                    value={props.value}
-                    onChange={props.changed}
+                    value={value}
+                    onChange={changed}
                     spellCheck={false}
                 ></textarea>
                 <div className='border'></div>
                 <div className='meta'>
-                    {props.touched && !props.invalid && <SVG className='SVG' src={iconSuccess} />}
-                    {props.info && (
+                    {touched && !invalid && <SVG className='SVG' src={iconSuccess} />}
+                    {info && (
                         <div className='info'>
                             <SVG className='SVG' src={iconInfo} />
-                            <span className='message' dangerouslySetInnerHTML={{ __html: props.info }}></span>
+                            <span className='message' dangerouslySetInnerHTML={{ __html: info }}></span>
                         </div>
                     )}
                 </div>
             </div>
-            {props.invalid && props.shouldValidate && props.touched && <p className='message'>{props.errors}</p>}
+            {invalid && shouldValidate && touched && <p className='message'>{errors}</p>}
         </label>
     );
 };
