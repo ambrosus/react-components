@@ -5,3 +5,4 @@ export function Button(props: IButton): any;
 export function Input(props: IInput): any;
 export function Textarea(props: ITextarea): any;
 export function Checkbox(props: ICheckbox): any;
+export function Switch(props: ICheckbox): any;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Textarea, Checkbox } from '../components/form';
+import { Button, Input, Textarea, Checkbox, Switch } from '../components/form';
 
 export default class App extends Component {
   public info = 'For maximum security, your private key will <b>never</b> leave your browser.';
@@ -11,6 +11,7 @@ export default class App extends Component {
         <Input touched info={this.info} type='password' placeholder='Some placeholder' label='Title here' />
         <Button onClick={() => console.log('test')} loading>I am a button</Button>
         <Checkbox light>Some checkbox text <a>Some link</a></Checkbox>
+        <Switch light>Some switch text <a>Some link</a></Switch>
       </div>
     );
   }
