@@ -32,8 +32,8 @@ const Checkbox = (props: ICheckbox) => {
                 />
                 <SVG className='SVG icon' src={iconSuccess} />
             </div>
-            {(children || props.label) && (
-                <span className='label'>{children || props.label}</span>
+            {(children || label) && (
+                <span className='label'>{children || label}</span>
             )}
         </label>
     );
