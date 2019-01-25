@@ -3,6 +3,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
   target: 'web',
@@ -10,7 +11,6 @@ module.exports = {
   devtool: 'source-map',
   mode: 'development',
   plugins: [
-    new CleanWebpackPlugin('./docs'),
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
@@ -88,3 +88,9 @@ module.exports = {
     progress: true
   }
 };
+
+if (NODE_ENV === 'production') {
+  module.exports.plugins.push(
+    new CleanWebpackPlugin('./docs'),
+  );
+}
