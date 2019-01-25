@@ -12,11 +12,11 @@ const Checkbox = (props: ICheckbox) => {
 
     const classes: any = [
         'AMB-Checkbox',
-        `${props.light && 'light' || ''}`,
-        `${props.touched && !props.invalid && 'valid' || ''}`,
+        `${light && 'light' || ''}`,
+        `${touched && !invalid && 'valid' || ''}`,
     ].filter(Boolean);
 
-    if (props.invalid && props.shouldValidate && props.touched) {
+    if (invalid && shouldValidate && touched) {
         classes.push('error');
     }
 
