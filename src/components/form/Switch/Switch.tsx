@@ -1,10 +1,7 @@
 import React from 'react';
-import { SVG } from '../../utils';
 
 import './Switch.scss';
 import { ICheckbox } from '../../../interfaces';
-
-import iconSuccess from '../../../assets/svg/success.svg';
 
 const Switch = (props: ICheckbox) => {
     const { label, className, value, checked, changed, children, invalid, shouldValidate,
