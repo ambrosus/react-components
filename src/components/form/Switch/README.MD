@@ -7,7 +7,7 @@ import React from 'react';
 import { Switch } from '@ambrosus/react'
 
 const App = () => (
-    <Switch className="class1" light>I've read <a>Terms and Conditions</a></Switch>
+    <Switch className="class1" light>I have read <a>Terms and Conditions</a></Switch>
   );
 ```
 

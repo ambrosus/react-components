@@ -7,7 +7,7 @@ import React from 'react';
 import { Checkbox } from '@ambrosus/react'
 
 const App = () => (
-    <Checkbox className="class1" light>I've read <a>Terms and Conditions</a></Checkbox>
+    <Checkbox className="class1" light>I have read <a>Terms and Conditions</a></Checkbox>
   );
 ```
 
