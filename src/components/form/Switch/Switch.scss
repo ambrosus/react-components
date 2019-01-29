@@ -1,0 +1,82 @@
+@import 'styles/utils';
+
+.AMB-Switch {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > .label {
+    flex: 1 1 auto;
+  }
+
+  > .checkbox {
+    flex: 0 0 auto;
+    position: relative;
+    margin-right: 15px;
+
+    > .switch {
+      position: relative;
+      width: 40px;
+      height: 20px;
+      border-radius: 16px;
+      border: 2px solid $grey;
+      background-color: transparent;
+      transition-property: background-color, border-color;
+      transition-duration: .2s;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 2px solid $grey;
+        position: relative;
+        top: 2px;
+        left: 3px;
+        transition-property: background-color, border-color, transform;
+        transition-duration: .2s;
+      }
+    }
+
+    > input {
+      visibility: hidden;
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+
+      &:checked {
+        + .switch {
+          background-color: $blue;
+          border-color: $blue;
+
+          &:after {
+            border-color: #fff;
+            background-color: #fff;
+            transform: translateX(19px);
+          }
+        }
+      }
+    }
+  }
+
+  &.light {
+    > .checkbox {
+      > input {
+
+        &:checked {
+          + .switch {
+            background-color: $light-blue;
+            border-color: $light-blue;
+          }
+        }
+      }
+    }
+
+    > .label {
+      color: $white;
+    }
+  }
+}
