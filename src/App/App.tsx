@@ -11,7 +11,7 @@ export default class App extends Component {
         <Input touched info={this.info} type='password' placeholder='Some placeholder' label='Title here' />
         <Button onClick={() => console.log('test')} loading>I am a button</Button>
         <Checkbox light>Some checkbox text <a>Some link</a></Checkbox>
-        <Switch light>Some switch text <a>Some link</a></Switch>
+        <Switch>Some switch text <a>Some link</a></Switch>
       </div>
     );
   }

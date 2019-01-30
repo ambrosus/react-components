@@ -18,21 +18,23 @@ const Switch = (props: ICheckbox) => {
     }
 
     return (
-        <label className={classes.join(' ').trim()}>
-            <div className='checkbox'>
-                <input
-                    {...otherProps}
-                    type='checkbox'
-                    value={value}
-                    checked={checked}
-                    onChange={changed}
-                />
-                <div className='switch'></div>
-            </div>
+        <div className={classes.join(' ').trim()}>
+            <label>
+                <div className='checkbox'>
+                    <input
+                        {...otherProps}
+                        type='checkbox'
+                        value={value}
+                        checked={checked}
+                        onChange={changed}
+                    />
+                    <div className='switch'></div>
+                </div>
+            </label>
             {(children || label) && (
                 <span className='label'>{children || label}</span>
             )}
-        </label>
+        </div>
     );
 };
 
