@@ -21,21 +21,23 @@ const Checkbox = (props: ICheckbox) => {
     }
 
     return (
-        <label className={classes.join(' ').trim()}>
-            <div className='checkbox'>
-                <input
-                    {...otherProps}
-                    type='checkbox'
-                    value={value}
-                    checked={checked}
-                    onChange={changed}
-                />
-                <SVG className='SVG icon' src={iconSuccess} />
-            </div>
+        <div className={classes.join(' ').trim()}>
+            <label>
+                <div className='checkbox'>
+                    <input
+                        {...otherProps}
+                        type='checkbox'
+                        value={value}
+                        checked={checked}
+                        onChange={changed}
+                    />
+                    <SVG className='SVG icon' src={iconSuccess} />
+                </div>
+            </label>
             {(children || label) && (
                 <span className='label'>{children || label}</span>
             )}
-        </label>
+        </div>
     );
 };
 

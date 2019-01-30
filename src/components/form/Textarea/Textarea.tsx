@@ -23,15 +23,8 @@ const Textarea = (props: ITextarea) => {
 
     return (
         <label className={classes.join(' ').trim()}>
-            {label && <span className='title'>{label}</span>}
-            <div className='textarea'>
-                <textarea
-                    {...otherProps}
-                    value={value}
-                    onChange={changed}
-                    spellCheck={false}
-                ></textarea>
-                <div className='border'></div>
+            <div className='title'>
+                <span>{label}</span>
                 <div className='meta'>
                     {touched && !invalid && <SVG className='SVG' src={iconSuccess} />}
                     {info && (
@@ -41,6 +34,15 @@ const Textarea = (props: ITextarea) => {
                         </div>
                     )}
                 </div>
+            </div>
+            <div className='textarea'>
+                <textarea
+                    {...otherProps}
+                    value={value}
+                    onChange={changed}
+                    spellCheck={false}
+                ></textarea>
+                <div className='border'></div>
             </div>
             {invalid && shouldValidate && touched && <p className='message'>{errors}</p>}
         </label>

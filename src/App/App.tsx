@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Input, Textarea, Checkbox, Switch } from '../components/form';
+import { Button, Input, Textarea, Checkbox, Switch, Radio } from '../components/form';
 
 export default class App extends Component {
   public info = 'For maximum security, your private key will <b>never</b> leave your browser.';
@@ -11,7 +11,12 @@ export default class App extends Component {
         <Input touched info={this.info} type='password' placeholder='Some placeholder' label='Title here' />
         <Button onClick={() => console.log('test')} loading>I am a button</Button>
         <Checkbox light>Some checkbox text <a>Some link</a></Checkbox>
-        <Switch light>Some switch text <a>Some link</a></Switch>
+        <Switch>Some switch text <a>Some link</a></Switch>
+        <div style={{ marginTop: '15px' }}>
+          <Radio name='test' value='value1' label='Value 1' disabled />
+          <Radio name='test' value='value2' light />
+          <Radio name='test' value='value3' label='This is value 3' />
+        </div>
       </div>
     );
   }
