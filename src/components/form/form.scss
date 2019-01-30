@@ -9,6 +9,36 @@
   color: $grey;
   margin-bottom: 25px;
 
+  .meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    line-height: 1;
+    padding: 10px 15px;
+    background: transparent;
+    flex: 0 0 auto;
+
+    > * {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .SVG {
+      line-height: 0;
+      color: $black;
+
+      svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+      }
+    }
+  }
+
   .input,
   .textarea {
     position: relative;
@@ -27,36 +57,6 @@
       height: 100%;
       background: transparent;
       z-index: -1;
-    }
-
-    > .meta {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      line-height: 1;
-      padding: 10px 15px;
-      background: transparent;
-      flex: 0 0 auto;
-
-      > * {
-        margin-right: 10px;
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-
-      .SVG {
-        line-height: 0;
-        color: $black;
-
-        svg {
-          width: 14px;
-          height: 14px;
-          fill: currentColor;
-        }
-      }
     }
   }
 
@@ -134,7 +134,7 @@
       position: absolute;
       width: 135px;
       bottom: calc(100% + 12px);
-      left: calc(100% - 75px);
+      right: -15px;
       padding: 8px;
       border-radius: 4px;
       background: #fafafa;
@@ -148,7 +148,7 @@
         content: '';
         position: absolute;
         bottom: -3px;
-        left: calc(100% - 75px);
+        right: 17px;
         width: 0;
         height: 0;
         border: 7px solid #fafafa;
