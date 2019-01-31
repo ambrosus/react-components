@@ -1,3 +1,10 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
 import React from 'react';
 import { SVG } from '../../utils';
 
@@ -14,6 +21,7 @@ const Checkbox = (props: ICheckbox) => {
         'AMB-Checkbox',
         `${light && 'light' || ''}`,
         `${touched && !invalid && 'valid' || ''}`,
+        `${className || ''}`.trim(),
     ].filter(Boolean);
 
     if (invalid && shouldValidate && touched) {
@@ -21,11 +29,10 @@ const Checkbox = (props: ICheckbox) => {
     }
 
     return (
-        <div className={classes.join(' ').trim()}>
+        <div className={classes.join(' ').trim()} {...otherProps}>
             <label>
                 <div className='checkbox'>
                     <input
-                        {...otherProps}
                         type='checkbox'
                         value={value}
                         checked={checked}

@@ -1,10 +1,17 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
 .form {
   display: block;
   width: 100%;
   margin: 0 auto;
   text-align: left;
 
-  >div {
+  > div {
     &:last-child {
       display: flex;
       flex-direction: column;
@@ -12,7 +19,7 @@
       justify-content: center;
       margin-top: 30px;
 
-      >*+* {
+      > * + * {
         margin: 15px 0 0 0;
       }
 
@@ -21,7 +28,7 @@
         justify-content: flex-end;
         padding: 0;
 
-        >*+* {
+        > * + * {
           margin: 0 0 0 15px;
         }
       }
@@ -63,7 +70,7 @@
     @include breakpoint-min(768) {
       flex-direction: row;
 
-      >* {
+      > * {
         margin-right: 24px;
 
         &:last-child {
@@ -91,7 +98,7 @@
       cursor: pointer;
     }
 
-    >span:first-child {
+    > span:first-child {
       font-weight: 500;
       text-transform: uppercase;
       font-size: 11px;
@@ -282,7 +289,7 @@
     }
 
     &:checked {
-      +.custom_checkbox__icon {
+      + .custom_checkbox__icon {
         &:after {
           opacity: 1;
           transform: scale(1);
@@ -339,7 +346,7 @@
     color: rgb(0, 0, 0) !important;
   }
 
-  [disabled]+* {
+  [disabled] + * {
     opacity: 0.25;
   }
 }

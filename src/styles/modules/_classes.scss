@@ -1,9 +1,17 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
 .wrapper {
   display: block;
   width: 100%;
   max-width: 840px;
   margin: 0 auto;
   padding: 0 30px;
+
   @include breakpoint(900) {
     padding: 0 15px;
   }
@@ -161,6 +169,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 0px;
+
   &:before,
   &:after {
     content: "";
@@ -168,23 +177,28 @@
     width: 100%;
     border: 0.5px solid $white;
   }
+
   &:before {
     margin-right: 15px;
   }
+
   &:after {
     margin-left: 15px;
   }
+
   > * {
     font-size: 11px;
     text-align: center;
     text-transform: uppercase;
     color: $grey;
   }
+
   &-right {
     &:before {
       content: none;
     }
   }
+
   &-left {
     &:after {
       content: none;

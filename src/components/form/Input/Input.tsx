@@ -1,3 +1,10 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
 import React, { Component } from 'react';
 import { SVG } from '../../utils';
 
@@ -36,6 +43,7 @@ export default class Input extends Component<IInput> {
             'AMB-Input',
             `${this.props.light && 'light' || ''}`,
             `${this.props.touched && !this.props.invalid && 'valid' || ''}`,
+            `${this.props.className || ''}`.trim(),
         ].filter(Boolean);
 
         if (this.props.invalid && this.props.shouldValidate && this.props.touched) {
@@ -43,11 +51,10 @@ export default class Input extends Component<IInput> {
         }
 
         return (
-            <label className={classes.join(' ').trim()}>
+            <label className={classes.join(' ').trim()} {...this.state.otherProps}>
                 {this.props.label && <span className='title'>{this.props.label}</span>}
                 <div className='input'>
                     <input
-                        {...this.state.otherProps}
                         type={this.state.type}
                         value={this.props.value}
                         onChange={this.props.changed}
