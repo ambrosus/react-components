@@ -13,19 +13,8 @@ declare let Prism: any;
 import './App.scss';
 
 export default class App extends Component {
-  public info = 'For maximum security, your private key will <b>never</b> leave your browser.';
 
   public render() {
-    const _Button: any = Prism.highlight(`
-import { Button } from '@ambrosus/react';
-
-...
-
-return (
-  <Button onClick={() => console.log('Click!')} loading transparent>I'm a button</Button>
-);
-
-`, Prism.languages.tsx);
     return (
       <div className='App'>
         <h1 className='title'>Ambrosus react components, API docs</h1>
