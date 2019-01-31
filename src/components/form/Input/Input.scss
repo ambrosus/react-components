@@ -11,6 +11,11 @@ This Source Code Form is “Incompatible With Secondary Licenses”, as defined 
 .AMB-Input {
   @extend %label;
 
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   > .input {
     input {
       @extend %input;

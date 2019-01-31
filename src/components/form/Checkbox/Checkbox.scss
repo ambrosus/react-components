@@ -12,6 +12,11 @@ This Source Code Form is “Incompatible With Secondary Licenses”, as defined 
   flex-direction: row;
   align-items: center;
 
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   > .label {
     flex: 1 1 auto;
     margin-left: 15px;

@@ -15,12 +15,13 @@ import iconSuccess from '../../../assets/svg/success.svg';
 import iconInfo from '../../../assets/svg/info.svg';
 
 const Textarea = (props: ITextarea) => {
-    const { label, className, value, changed, invalid, shouldValidate,
+    const { label, className, value, changed, invalid, shouldValidate, placeholder, children,
         touched, errors, disabled, light, info, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Textarea',
         `${light && 'light' || ''}`,
+        `${disabled && 'disabled' || ''}`,
         `${touched && !invalid && 'valid' || ''}`,
         `${className || ''}`.trim(),
     ].filter(Boolean);
@@ -28,6 +29,8 @@ const Textarea = (props: ITextarea) => {
     if (invalid && shouldValidate && touched) {
         classes.push('error');
     }
+
+    const _value = children && children.toString() || value;
 
     return (
         <label className={classes.join(' ').trim()} {...otherProps}>
@@ -45,9 +48,11 @@ const Textarea = (props: ITextarea) => {
             </div>
             <div className='textarea'>
                 <textarea
-                    value={value}
+                    value={_value}
                     onChange={changed}
                     spellCheck={false}
+                    placeholder={placeholder}
+                    disabled={disabled}
                 ></textarea>
                 <div className='border'></div>
             </div>

@@ -14,11 +14,12 @@ import { ICheckbox } from '../../../interfaces';
 import iconSuccess from '../../../assets/svg/success.svg';
 
 const Checkbox = (props: ICheckbox) => {
-    const { label, className, value, checked, changed, children, light, ...otherProps } = props;
+    const { label, className, value, disabled, checked, changed, children, light, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Checkbox',
         `${light && 'light' || ''}`,
+        `${disabled && 'disabled' || ''}`,
         `${className || ''}`.trim(),
     ].filter(Boolean);
 
@@ -31,6 +32,7 @@ const Checkbox = (props: ICheckbox) => {
                         value={value}
                         checked={checked}
                         onChange={changed}
+                        disabled={disabled}
                     />
                     <SVG className='SVG icon' src={iconSuccess} />
                 </div>

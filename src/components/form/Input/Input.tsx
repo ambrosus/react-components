@@ -29,7 +29,7 @@ export default class Input extends Component<IInput> {
     public componentDidMount() {
         const {
             label, className, value, changed, invalid, shouldValidate,
-            touched, errors, disabled, light, info, ...otherProps } = this.props;
+            touched, errors, disabled, light, info, placeholder, children, ...otherProps } = this.props;
         const type = otherProps.type || 'text';
         this.setState({ type, otherProps });
     }
@@ -42,6 +42,7 @@ export default class Input extends Component<IInput> {
         const classes: any = [
             'AMB-Input',
             `${this.props.light && 'light' || ''}`,
+            `${this.props.disabled && 'disabled' || ''}`,
             `${this.props.touched && !this.props.invalid && 'valid' || ''}`,
             `${this.props.className || ''}`.trim(),
         ].filter(Boolean);
@@ -50,14 +51,18 @@ export default class Input extends Component<IInput> {
             classes.push('error');
         }
 
+        const value = this.props.children && this.props.children.toString() || this.props.value;
+
         return (
             <label className={classes.join(' ').trim()} {...this.state.otherProps}>
                 {this.props.label && <span className='title'>{this.props.label}</span>}
                 <div className='input'>
                     <input
                         type={this.state.type}
-                        value={this.props.value}
+                        value={value}
                         onChange={this.props.changed}
+                        placeholder={this.props.placeholder}
+                        disabled={this.props.disabled}
                     />
                     <div className='border'></div>
                     <div className='meta'>
