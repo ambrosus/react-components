@@ -1,3 +1,10 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
 import React from 'react';
 import { SVG } from '../../utils';
 
@@ -15,6 +22,7 @@ const Textarea = (props: ITextarea) => {
         'AMB-Textarea',
         `${light && 'light' || ''}`,
         `${touched && !invalid && 'valid' || ''}`,
+        `${className || ''}`.trim(),
     ].filter(Boolean);
 
     if (invalid && shouldValidate && touched) {
@@ -22,7 +30,7 @@ const Textarea = (props: ITextarea) => {
     }
 
     return (
-        <label className={classes.join(' ').trim()}>
+        <label className={classes.join(' ').trim()} {...otherProps}>
             <div className='title'>
                 <span>{label}</span>
                 <div className='meta'>
@@ -37,7 +45,6 @@ const Textarea = (props: ITextarea) => {
             </div>
             <div className='textarea'>
                 <textarea
-                    {...otherProps}
                     value={value}
                     onChange={changed}
                     spellCheck={false}

@@ -1,4 +1,11 @@
 /*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
+/*
 @include breakpoint(10px){color: red;}
 */
 @mixin breakpoint($size) {
@@ -6,19 +13,27 @@
     @media only screen and (min-width: 1200px) {
       @content;
     }
-  } @else if $size==tablet-landscape {
+  }
+
+  @else if $size==tablet-landscape {
     @media only screen and (max-width: 1199px) {
       @content;
     }
-  } @else if $size==tablet-portrait {
+  }
+
+  @else if $size==tablet-portrait {
     @media only screen and (max-width: 900px) {
       @content;
     }
-  } @else if $size==phone {
+  }
+
+  @else if $size==phone {
     @media only screen and (max-width: 599px) {
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media only screen and (max-width: $size + px) {
       @content;
     }
@@ -71,9 +86,11 @@
 
 // Skew
 @mixin skew($x, $y: "") {
-  @if $y != "" {
+  @if $y !="" {
     @include transform(skew(#{$x}deg, #{$y}deg));
-  } @else {
+  }
+
+  @else {
     @include transform(skew(#{$x}deg));
   }
 }
@@ -92,27 +109,19 @@
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
-@mixin gradient-horizontal(
-  $start-color: #555,
-  $end-color: #333,
-  $start-percent: 0%,
-  $end-percent: 100%
-) {
-  background: -webkit-linear-gradient(
-    left,
+@mixin gradient-horizontal($start-color: #555,
+$end-color: #333,
+$start-percent: 0%,
+$end-percent: 100%) {
+  background: -webkit-linear-gradient(left,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Safari 5.1-6, Chrome 10+
-  background: -o-linear-gradient(
-    left,
+    $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background: -o-linear-gradient(left,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Opera 12
-  background: linear-gradient(
-    to right,
+    $end-color $end-percent); // Opera 12
+  background: linear-gradient(to right,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
 }
 
@@ -120,88 +129,62 @@
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
-@mixin gradient-vertical(
-  $start-color: #555,
-  $end-color: #333,
-  $start-percent: 0%,
-  $end-percent: 100%
-) {
-  background: -webkit-linear-gradient(
-    top,
+@mixin gradient-vertical($start-color: #555,
+$end-color: #333,
+$start-percent: 0%,
+$end-percent: 100%) {
+  background: -webkit-linear-gradient(top,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Safari 5.1-6, Chrome 10+
-  background: -o-linear-gradient(
-    top,
+    $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background: -o-linear-gradient(top,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Opera 12
-  background: linear-gradient(
-    to bottom,
+    $end-color $end-percent); // Opera 12
+  background: linear-gradient(to bottom,
     $start-color $start-percent,
-    $end-color $end-percent
-  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
 }
 
 @mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
-  background: -webkit-linear-gradient(
-    $deg,
+  background: -webkit-linear-gradient($deg,
     $start-color,
-    $end-color
-  ); // Safari 5.1-6, Chrome 10+
+    $end-color); // Safari 5.1-6, Chrome 10+
   background: -o-linear-gradient($deg, $start-color, $end-color); // Opera 12
-  background: linear-gradient(
-    $deg,
+  background: linear-gradient($deg,
     $start-color,
-    $end-color
-  ); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+    $end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
 }
 
-@mixin gradient-horizontal-three-colors(
-  $start-color: #00b3ee,
-  $mid-color: #7a43b6,
-  $color-stop: 50%,
-  $end-color: #c3325f
-) {
-  background: -webkit-linear-gradient(
-    left,
+@mixin gradient-horizontal-three-colors($start-color: #00b3ee,
+$mid-color: #7a43b6,
+$color-stop: 50%,
+$end-color: #c3325f) {
+  background: -webkit-linear-gradient(left,
     $start-color,
     $mid-color $color-stop,
-    $end-color
-  );
-  background: -o-linear-gradient(
-    left,
+    $end-color);
+  background: -o-linear-gradient(left,
     $start-color,
     $mid-color $color-stop,
-    $end-color
-  );
-  background: linear-gradient(
-    to right,
+    $end-color);
+  background: linear-gradient(to right,
     $start-color,
     $mid-color $color-stop,
-    $end-color
-  );
+    $end-color);
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down, gets no color-stop at all for proper fallback
 }
 
-@mixin gradient-vertical-three-colors(
-  $start-color: #00b3ee,
-  $mid-color: #7a43b6,
-  $color-stop: 50%,
-  $end-color: #c3325f
-) {
-  background: -webkit-linear-gradient(
-    $start-color,
+@mixin gradient-vertical-three-colors($start-color: #00b3ee,
+$mid-color: #7a43b6,
+$color-stop: 50%,
+$end-color: #c3325f) {
+  background: -webkit-linear-gradient($start-color,
     $mid-color $color-stop,
-    $end-color
-  );
-  background: -o-linear-gradient(
-    $start-color,
+    $end-color);
+  background: -o-linear-gradient($start-color,
     $mid-color $color-stop,
-    $end-color
-  );
+    $end-color);
   background: linear-gradient($start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
@@ -214,36 +197,30 @@
 }
 
 @mixin gradient-striped($color: rgba(255, 255, 255, 0.15), $angle: 45deg) {
-  background: -webkit-linear-gradient(
-    $angle,
+  background: -webkit-linear-gradient($angle,
     $color 25%,
     transparent 25%,
     transparent 50%,
     $color 50%,
     $color 75%,
     transparent 75%,
-    transparent
-  );
-  background: -o-linear-gradient(
-    $angle,
+    transparent);
+  background: -o-linear-gradient($angle,
     $color 25%,
     transparent 25%,
     transparent 50%,
     $color 50%,
     $color 75%,
     transparent 75%,
-    transparent
-  );
-  background: linear-gradient(
-    $angle,
+    transparent);
+  background: linear-gradient($angle,
     $color 25%,
     transparent 25%,
     transparent 50%,
     $color 50%,
     $color 75%,
     transparent 75%,
-    transparent
-  );
+    transparent);
 }
 
 /*
@@ -254,9 +231,9 @@
     font-family: quote($font-name);
     src: url($file-name+".eot");
     src: url($file-name+".eot?#iefix") format("embedded-opentype"),
-      url($file-name+".woff") format("woff"),
-      url($file-name+".ttf") format("truetype"),
-      url($file-name+".svg##{$font-name}") format("svg");
+    url($file-name+".woff") format("woff"),
+    url($file-name+".ttf") format("truetype"),
+    url($file-name+".svg##{$font-name}") format("svg");
     font-weight: $weight;
     font-style: $style;
   }
@@ -301,7 +278,7 @@
   font-size: $size;
   font-size: calculateRem($size);
 
-  @if $line_height != "" {
+  @if $line_height !="" {
     line-height: $line_height;
     line-height: calculateRem($line_height);
   }
@@ -326,10 +303,7 @@
       font-size: $min-font-size;
 
       @media screen and (min-width: $min-vw) {
-        font-size: calc(
-          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
-            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
-        );
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
       }
 
       @media screen and (min-width: $max-vw) {

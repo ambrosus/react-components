@@ -1,8 +1,13 @@
+import React, { MouseEvent } from 'react';
 
-export interface IRadio {
+interface Element extends React.HTMLProps<any> {
     disabled?: boolean;
     className?: string;
     id?: string;
+    onClick?(e: MouseEvent<HTMLElement>): void;
+}
+
+export interface IRadio extends Element {
     changed?: (event: any) => any;
     name: string;
     light?: boolean;

@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.6.0
+# React Components@0.6.1
 # Button
 
 ## Usage
@@ -61,10 +61,6 @@ const App = () => (
 | label      | string        | Text for input label (title)                 |
 | value         | string | number         | Input value                |
 | changed        | function ref         | Function that will check for validation errors and value changes                |
-| invalid         | boolean         | If input is invalid                 |
-| shouldValidate      | boolean        | If there's validation                            |
-| touched    | boolean        | If input was touched                            |
-| errors        | string        | Error string to show below the input                            |
 | light        | boolean        | Input light theme          |
 | children      | ReactNode        | Children or label used for checkbox text          |
 # Input
@@ -121,10 +117,6 @@ const App = () => (
 | label      | string        | Text for input label (title)                 |
 | value         | string | number         | Input value                |
 | changed        | function ref         | Function that will check for validation errors and value changes                |
-| invalid         | boolean         | If input is invalid                 |
-| shouldValidate      | boolean        | If there's validation                            |
-| touched    | boolean        | If input was touched                            |
-| errors        | string        | Error string to show below the input                            |
 | light        | boolean        | Input light theme          |
 | children      | ReactNode        | Children or label used for checkbox text          |
 # Switch
@@ -151,10 +143,6 @@ const App = () => (
 | label      | string        | Text for input label (title)                 |
 | value         | string | number         | Input value                |
 | changed        | function ref         | Function that will check for validation errors and value changes                |
-| invalid         | boolean         | If input is invalid                 |
-| shouldValidate      | boolean        | If there's validation                            |
-| touched    | boolean        | If input was touched                            |
-| errors        | string        | Error string to show below the input                            |
 | light        | boolean        | Input light theme          |
 | children      | ReactNode        | Children or label used for checkbox text          |
 # Textarea

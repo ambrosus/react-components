@@ -16,7 +16,7 @@ export interface IButton extends Element {
     primary?: boolean;
     secondary?: boolean;
     solid?: boolean;
-    outline?: boolean | string;
+    outline?: boolean;
     transparent?: boolean;
     light?: boolean;
 }
