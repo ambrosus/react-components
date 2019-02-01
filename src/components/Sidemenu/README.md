@@ -15,15 +15,6 @@ const App = () => (
 
 ## Properties
 
-header?: ReactNode;
-    children?: any;
-    open?: boolean;
-    onOpen?: () => any;
-    onClose?: () => any;
-    icon?: boolean;
-    iconSrc?: string;
-    portal?: any;
-
 | Props        | Type           | Description                                    |
 | ------------ | -------------- | ---------------------------------------------- |
 | header       | ReactNode      | Optinal header content                        |
