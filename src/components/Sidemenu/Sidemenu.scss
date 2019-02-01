@@ -1,0 +1,83 @@
+@import 'styles/utils';
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.AMB-Sidemenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100000;
+  overflow: hidden;
+  margin: 0 !important;
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  > aside {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
+    background: linear-gradient(180deg, $dark-purple 0, $purple-blue);
+    overflow: hidden;
+    color: $white;
+
+    > header {
+      flex: 0 0 auto;
+    }
+
+    > main {
+      flex: 1 1 auto;
+      overflow-y: auto;
+    }
+
+    > footer {
+      flex: 0 0 auto;
+      padding: 25px 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      > .close {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          fill: $grey;
+        }
+      }
+    }
+  }
+
+  > .overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadeIn .1s forwards;
+  }
+}
