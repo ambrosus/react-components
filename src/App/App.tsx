@@ -11,8 +11,26 @@ import { Button, Input, Textarea, Checkbox, Switch, Radio } from '../components/
 declare let Prism: any;
 
 import './App.scss';
+import { Sidemenu } from '../components';
 
 export default class App extends Component {
+  public state: any = {
+    sidemenu: false,
+  };
+
+  public onOpenSidemenu = () => {
+    console.log('Sidemenu is open!');
+    this.setState({
+      sidemenu: true,
+    });
+  }
+
+  public onCloseSidemenu = () => {
+    console.log('Sidemenu is closed!');
+    this.setState({
+      sidemenu: false,
+    });
+  }
 
   public render() {
     return (
@@ -256,6 +274,60 @@ return (
             <Textarea label='With info icon' info='Some <b>info</b> content for this <i>textarea</i>.' />
             <Textarea label='With errors' touched errors='Some error' shouldValidate invalid />
             <Textarea label='Light textarea' placeholder='Some placeholder' light touched info='Some info' />
+          </div>
+
+        </section>
+        <section>
+          <h2>Sidemenu</h2>
+          <pre className='language-tsx'>
+            <code dangerouslySetInnerHTML={{
+              __html: Prism.highlight(`
+import React, { Component } from 'react';
+import { Sidemenu } from '@ambrosus/react';
+
+export default class App extends Component {
+  public state: any = {
+    sidemenu: false,
+  };
+
+  public onOpenSidemenu = () => {
+    console.log('Sidemenu is open!');
+    this.setState({
+      sidemenu: true,
+    });
+  }
+
+  public onCloseSidemenu = () => {
+    console.log('Sidemenu is closed!');
+    this.setState({
+      sidemenu: false,
+    });
+  }
+
+  public render() {
+    return (
+      <Sidemenu onOpen={this.onOpenSidemenu} onClose={this.onCloseSidemenu} open={this.state.sidemenu}>
+        <h3>Sidenav state managed in parent</h3>
+        <p>This one is console logging, using parent's onOpen and onClose methods</p>
+      </Sidemenu>
+      <Sidemenu>
+        <h3>Sidenav state managed internally</h3>
+      </Sidemenu>
+    );
+  }
+}
+            `, Prism.languages.tsx),
+            }}></code>
+          </pre>
+
+          <div className='examples'>
+            <Sidemenu onOpen={this.onOpenSidemenu} onClose={this.onCloseSidemenu} open={this.state.sidemenu}>
+              <h3 style={{ color: '#fff' }}>Sidenav state managed in parent</h3>
+              <p>This one is console logging, using parent's onOpen and onClose methods</p>
+            </Sidemenu>
+            <Sidemenu>
+              <h3 style={{ color: '#fff' }}>Sidenav state managed internally</h3>
+            </Sidemenu>
           </div>
 
         </section>
