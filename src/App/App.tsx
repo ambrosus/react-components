@@ -11,7 +11,7 @@ import { Button, Input, Textarea, Checkbox, Switch, Radio } from '../components/
 declare let Prism: any;
 
 import './App.scss';
-import { Sidemenu, Tabs } from '../components';
+import { Sidemenu, Tabs, Tab } from '../components';
 
 export default class App extends Component {
   public state: any = {
@@ -346,12 +346,15 @@ import { Tabs } from '@ambrosus/react';
 return (
   <>
     <Tabs active='Tab 2'>
-      <div data-label='Tab 1'>
+      <Tab label='Tab 1'>
         See ya later, <em>Alligator</em>!
-      </div>
-      <div data-label='Tab 2'>
+      </Tab>
+      <Tab label='Tab 2'>
         After 'while, <em>Crocodile</em>!
-      </div>
+      </Tab>
+      <Tab label='Tab 3' disabled>
+        Tab 3, some content!
+      </Tab>
     </Tabs>
   </>
 );
@@ -361,12 +364,15 @@ return (
 
           <div className='examples'>
             <Tabs active='Tab 2'>
-              <div data-label='Tab 1'>
+              <Tab label='Tab 1'>
                 See ya later, <em>Alligator</em>!
-              </div>
-              <div data-label='Tab 2'>
+              </Tab>
+              <Tab label='Tab 2'>
                 After 'while, <em>Crocodile</em>!
-              </div>
+              </Tab>
+              <Tab label='Tab 3' disabled>
+                Tab 3, some content!
+              </Tab>
             </Tabs>
           </div>
 

@@ -19,8 +19,9 @@ class Tabs extends Component<ITabs, any> {
     this.tabListRef = React.createRef();
 
     const children: any = this.props.children || [];
-    let active: any = children.find((child: any) => child.props.active) || children[0] || { props: {} };
-    active = this.props.active || active.props['data-label'];
+    let active: any = children.find((child: any) => child.props.active && !child.props.disabled) || children[0] || { props: {} };
+    const activeFromParent = children.find((child: any) => child.props.label === this.props.active);
+    active = (!activeFromParent.props.disabled && activeFromParent.props.label) || active.props.label;
 
     this.state = {
       active,
@@ -77,11 +78,12 @@ class Tabs extends Component<ITabs, any> {
           <div className='tabList' ref={this.tabListRef}>
             {children.map((child: any) => (
               <button
-                key={child.props['data-label']}
+                key={child.props.label}
                 type='button'
-                className={`tab ${child.props['data-label'] === this.state.active ? 'active' : ''}`.trim()}
-                onClick={(e) => this.onClickTabItem(e, child.props['data-label'])}>
-                {child.props['data-label']}
+                className={`tab ${child.props.label === this.state.active ? 'active' : ''}`.trim()}
+                onClick={(e) => this.onClickTabItem(e, child.props.label)}
+                disabled={child.props.disabled}>
+                {child.props.label}
               </button>
             ))}
           </div>
@@ -89,7 +91,7 @@ class Tabs extends Component<ITabs, any> {
         </header>
         <div className='tabContent'>
           {children.map(
-            (child: any) => child.props['data-label'] === this.state.active && child.props.children
+            (child: any) => child.props.label === this.state.active && child.props.children
           )}
         </div>
       </div>

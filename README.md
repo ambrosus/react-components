@@ -40,12 +40,15 @@ import { Tabs } from '@ambrosus/react'
 
 const App = () => (
     <Tabs active='Tab 2'>
-      <div data-label='Tab 1'>
+      <Tab label='Tab 1'>
         See ya later, <em>Alligator</em>!
-      </div>
-      <div data-label='Tab 2'>
+      </Tab>
+      <Tab label='Tab 2'>
         After 'while, <em>Crocodile</em>!
-      </div>
+      </Tab>
+      <Tab label='Tab 3' disabled>
+        Tab 3, some content!
+      </Tab>
     </Tabs>
   );
 ```
@@ -57,6 +60,30 @@ const App = () => (
 | active       | string         | Label name of active tab                        |
 | children     | ReactNode      | Custom content as children               |
 | light        | boolean        | Light theme       |
+# Tab
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Tabs, Tab } from '@ambrosus/react'
+
+const App = () => (
+    <Tabs>
+      <Tab label='Tab 2'>
+        After 'while, <em>Crocodile</em>!
+      </Tab>
+    </Tabs>
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| disabled     | boolean        | Disables the tab                        |
+| children     | ReactNode      | Custom content as children               |
+| label        | string         | Tab label       |
 # Button
 
 ## Usage

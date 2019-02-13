@@ -1,21 +1,15 @@
-# Tabs
+# Tab
 
 ## Usage
 
 ```javascript
 import React from 'react';
-import { Tabs } from '@ambrosus/react'
+import { Tabs, Tab } from '@ambrosus/react'
 
 const App = () => (
-    <Tabs active='Tab 2'>
-      <Tab label='Tab 1'>
-        See ya later, <em>Alligator</em>!
-      </Tab>
+    <Tabs>
       <Tab label='Tab 2'>
         After 'while, <em>Crocodile</em>!
-      </Tab>
-      <Tab label='Tab 3' disabled>
-        Tab 3, some content!
       </Tab>
     </Tabs>
   );
@@ -25,6 +19,6 @@ const App = () => (
 
 | Props        | Type           | Description                                    |
 | ------------ | -------------- | ---------------------------------------------- |
-| active       | string         | Label name of active tab                        |
+| disabled     | boolean        | Disables the tab                        |
 | children     | ReactNode      | Custom content as children               |
-| light        | boolean        | Light theme       |
+| label        | string         | Tab label       |
