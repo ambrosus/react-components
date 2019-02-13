@@ -42,7 +42,10 @@ This Source Code Form is “Incompatible With Secondary Licenses”, as defined 
   }
 
   > .spinner {
-    margin-left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
   }
 
   + .AMB-Button {
