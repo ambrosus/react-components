@@ -2,6 +2,6 @@ import { ReactNode } from 'react';
 
 export interface ITabs {
   children?: ReactNode | ReactNode[];
-  active?: string;
+  active?: number;
   light?: boolean;
 }

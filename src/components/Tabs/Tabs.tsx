@@ -20,7 +20,7 @@ class Tabs extends Component<ITabs, any> {
 
     const children: any = this.props.children || [];
     let active: any = children.find((child: any) => child.props.active && !child.props.disabled) || children[0] || { props: {} };
-    const activeFromParent = children.find((child: any) => child.props.label === this.props.active);
+    const activeFromParent = children[this.props.active || 0];
     active = (!activeFromParent.props.disabled && activeFromParent.props.label) || active.props.label;
 
     this.state = {

@@ -22,3 +22,4 @@ const App = () => (
 | disabled     | boolean        | Disables the tab                        |
 | children     | ReactNode      | Custom content as children               |
 | label        | string         | Tab label       |
+| active       | boolean        | Active tab       |

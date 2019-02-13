@@ -345,7 +345,7 @@ import { Tabs } from '@ambrosus/react';
 
 return (
   <>
-    <Tabs active='Tab 2'>
+    <Tabs active={1}>
       <Tab label='Tab 1'>
         See ya later, <em>Alligator</em>!
       </Tab>
@@ -363,7 +363,7 @@ return (
           </pre>
 
           <div className='examples'>
-            <Tabs active='Tab 2'>
+            <Tabs active={2}>
               <Tab label='Tab 1'>
                 See ya later, <em>Alligator</em>!
               </Tab>

@@ -39,7 +39,7 @@ import React from 'react';
 import { Tabs } from '@ambrosus/react'
 
 const App = () => (
-    <Tabs active='Tab 2'>
+    <Tabs active={1}>
       <Tab label='Tab 1'>
         See ya later, <em>Alligator</em>!
       </Tab>
@@ -57,7 +57,7 @@ const App = () => (
 
 | Props        | Type           | Description                                    |
 | ------------ | -------------- | ---------------------------------------------- |
-| active       | string         | Label name of active tab                        |
+| active       | number         | Child at given index to be active                        |
 | children     | ReactNode      | Custom content as children               |
 | light        | boolean        | Light theme       |
 # Tab
@@ -84,6 +84,7 @@ const App = () => (
 | disabled     | boolean        | Disables the tab                        |
 | children     | ReactNode      | Custom content as children               |
 | label        | string         | Tab label       |
+| active       | boolean        | Active tab       |
 # Button
 
 ## Usage

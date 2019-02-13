@@ -4,4 +4,5 @@ export interface ITab {
     children?: ReactNode | ReactNode[];
     label: string;
     disabled?: boolean;
+    active?: boolean;
 }
