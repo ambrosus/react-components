@@ -11,7 +11,7 @@ import { Button, Input, Textarea, Checkbox, Switch, Radio } from '../components/
 declare let Prism: any;
 
 import './App.scss';
-import { Sidemenu } from '../components';
+import { Sidemenu, Tabs, Tab } from '../components';
 
 export default class App extends Component {
   public state: any = {
@@ -331,6 +331,53 @@ export default class App extends Component {
           </div>
 
         </section>
+
+        {/* Tabs */}
+        <section>
+          <h2>Tabs</h2>
+          <pre className='language-tsx'>
+            <code dangerouslySetInnerHTML={{
+              __html: Prism.highlight(`
+import React from 'react';
+import { Tabs } from '@ambrosus/react';
+
+...
+
+return (
+  <>
+    <Tabs active={1}>
+      <Tab label='Tab 1'>
+        See ya later, <em>Alligator</em>!
+      </Tab>
+      <Tab label='Tab 2'>
+        After 'while, <em>Crocodile</em>!
+      </Tab>
+      <Tab label='Tab 3' disabled>
+        Tab 3, some content!
+      </Tab>
+    </Tabs>
+  </>
+);
+            `, Prism.languages.tsx),
+            }}></code>
+          </pre>
+
+          <div className='examples'>
+            <Tabs active={2}>
+              <Tab label='Tab 1'>
+                See ya later, <em>Alligator</em>!
+              </Tab>
+              <Tab label='Tab 2'>
+                After 'while, <em>Crocodile</em>!
+              </Tab>
+              <Tab label='Tab 3' disabled>
+                Tab 3, some content!
+              </Tab>
+            </Tabs>
+          </div>
+
+        </section>
+
         <footer>
           Ambrosus, all rights reserved, 2019.
         </footer>

@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.7.1
+# React Components@0.8.0
 # Sidemenu
 
 ## Usage
@@ -30,6 +30,61 @@ const App = () => (
 | icon         | boolean        | To render sidenav icon, default is true                 |
 | iconSrc      | Element        | Custom sidenav icon                            |
 | portal       | DOM element    | Element within which to render the sidenav as a child on open                    |
+# Tabs
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Tabs } from '@ambrosus/react'
+
+const App = () => (
+    <Tabs active={1}>
+      <Tab label='Tab 1'>
+        See ya later, <em>Alligator</em>!
+      </Tab>
+      <Tab label='Tab 2'>
+        After 'while, <em>Crocodile</em>!
+      </Tab>
+      <Tab label='Tab 3' disabled>
+        Tab 3, some content!
+      </Tab>
+    </Tabs>
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| active       | number         | Child at given index to be active                        |
+| children     | ReactNode      | Custom content as children               |
+| light        | boolean        | Light theme       |
+# Tab
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Tabs, Tab } from '@ambrosus/react'
+
+const App = () => (
+    <Tabs>
+      <Tab label='Tab 2'>
+        After 'while, <em>Crocodile</em>!
+      </Tab>
+    </Tabs>
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| disabled     | boolean        | Disables the tab                        |
+| children     | ReactNode      | Custom content as children               |
+| label        | string         | Tab label       |
+| active       | boolean        | Active tab       |
 # Button
 
 ## Usage
