@@ -5,3 +5,4 @@ export * from './textarea.interface';
 export * from './checkbox.interface';
 export * from './radio.interface';
 export * from './sidemenu.interface';
+export * from './tabs.interface';

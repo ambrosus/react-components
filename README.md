@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.7.0
+# React Components@0.8.0
 # Sidemenu
 
 ## Usage
@@ -30,6 +30,33 @@ const App = () => (
 | icon         | boolean        | To render sidenav icon, default is true                 |
 | iconSrc      | Element        | Custom sidenav icon                            |
 | portal       | DOM element    | Element within which to render the sidenav as a child on open                    |
+# Tabs
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Tabs } from '@ambrosus/react'
+
+const App = () => (
+    <Tabs active='Tab 2'>
+      <div data-label='Tab 1'>
+        See ya later, <em>Alligator</em>!
+      </div>
+      <div data-label='Tab 2'>
+        After 'while, <em>Crocodile</em>!
+      </div>
+    </Tabs>
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| active       | string         | Label name of active tab                        |
+| children     | ReactNode      | Custom content as children               |
+| light        | boolean        | Light theme       |
 # Button
 
 ## Usage

@@ -1,0 +1,92 @@
+/*
+Copyright: Ambrosus Technologies GmbH
+Email: tech@ambrosus.com
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
+*/
+@import 'styles/utils';
+
+.AMB-Tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  > header {
+    position: relative;
+    overflow-x: auto;
+
+    > .tabList {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      user-select: none;
+
+      @include breakpoint-min(768) {
+        justify-content: center;
+      }
+
+      > .tab {
+        flex: 0 0 auto;
+        padding: 12px 20px;
+        width: 100%;
+        max-width: 204px;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.2;
+        text-align: center;
+        cursor: pointer;
+        color: $grey;
+        transition-property: color, box-shadow;
+        transition-duration: .2s;
+        align-self: stretch;
+        user-select: none;
+        box-shadow: inset 0 -1px $grey;
+
+        &.active {
+          color: $black;
+        }
+      }
+    }
+
+    > .line {
+      position: absolute;
+      width: 0px;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: $blue;
+      transition-property: left;
+      transition-duration: 0.2s;
+    }
+  }
+
+  > .tabContent {
+    width: 100%;
+    padding: 35px 0 25px;
+  }
+
+  &.light {
+    > header {
+      > .tabList {
+        > .tab {
+
+          &.active {
+            color: #fff;
+          }
+        }
+      }
+
+      > .line {
+        background-color: $light-blue;
+      }
+    }
+
+    > .tabContent {
+      color: #fff;
+    }
+  }
+}
