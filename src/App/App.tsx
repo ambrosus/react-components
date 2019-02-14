@@ -356,6 +356,12 @@ return (
         Tab 3, some content!
       </Tab>
     </Tabs>
+
+    <Tabs active={0} light>
+      <Tab label='Tab 1'>
+        Single tab and light theme!
+      </Tab>
+    </Tabs>
   </>
 );
             `, Prism.languages.tsx),
@@ -372,6 +378,12 @@ return (
               </Tab>
               <Tab label='Tab 3' disabled>
                 Tab 3, some content!
+              </Tab>
+            </Tabs>
+
+            <Tabs active={0} light>
+              <Tab label='Tab 1'>
+                Single tab and light theme!
               </Tab>
             </Tabs>
           </div>
