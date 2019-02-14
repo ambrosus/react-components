@@ -18,9 +18,11 @@ class Tabs extends Component<ITabs, any> {
 
     this.tabListRef = React.createRef();
 
-    const children: any = this.props.children || [];
+    const children: any = Array.isArray(this.props.children) && this.props.children || [this.props.children].filter(Boolean);
     let active: any = children.find((child: any) => child.props.active && !child.props.disabled) || children[0] || { props: {} };
-    const activeFromParent = children[this.props.active || 0];
+    let index = this.props.active || 0;
+    index = index > children.length - 1 ? 0 : index;
+    const activeFromParent = children[index];
     active = (!activeFromParent.props.disabled && activeFromParent.props.label) || active.props.label;
 
     this.state = {
@@ -70,7 +72,7 @@ class Tabs extends Component<ITabs, any> {
 
   public render() {
     const line = this.state.line;
-    const children = this.props.children ? (Array.isArray(this.props.children) ? this.props.children : [this.props.children]) : [];
+    const children: any = Array.isArray(this.props.children) && this.props.children || [this.props.children].filter(Boolean);
 
     return (
       <div className={`AMB-Tabs ${this.props.light ? 'light' : ''}`.trim()}>
