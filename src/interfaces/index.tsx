@@ -6,3 +6,4 @@ export * from './checkbox.interface';
 export * from './radio.interface';
 export * from './sidemenu.interface';
 export * from './tabs.interface';
+export * from './tab.interface';
