@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.8.2
+# React Components@0.8.3
 # Sidemenu
 
 ## Usage
