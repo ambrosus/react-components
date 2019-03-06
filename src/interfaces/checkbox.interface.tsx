@@ -1,3 +1,7 @@
+/**
+ * Copyright 2018 Ambrosus Inc.
+ * Email: tech@ambrosus.com
+ */
 import React, { ReactNode } from 'react';
 
 interface Element extends React.HTMLProps<any> {
