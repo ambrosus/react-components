@@ -1,3 +1,7 @@
+/**
+ * Copyright 2018 Ambrosus Inc.
+ * Email: tech@ambrosus.com
+ */
 export * from './SVG.interface';
 export * from './button.interface';
 export * from './input.interface';
