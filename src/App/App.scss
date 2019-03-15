@@ -6,15 +6,45 @@
 
 .App {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: row;
   width: 100%;
-  max-width: 900px;
-  padding: 75px 30px;
-  margin: 0 auto;
+  padding-left: 240px;
 
-  > footer {
+  main {
+    width: 100%;
+    padding: 50px 30px;
+
+    > .title {
+      color: $dark-purple;
+      font-weight: 600;
+      font-size: 28px;
+      width: 100%;
+    }
+
+    > .subtitle {
+      color: $grey;
+      font-size: 11px;
+      margin-top: 15px;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+
+  aside {
+    width: 240px;
+    display: block;
+    flex: 0 0 auto;
+    padding: 30px 25px;
+    background: #fff;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  footer {
     padding: 75px 30px 0 30px;
     text-align: center;
     width: 100%;
@@ -24,22 +54,7 @@
     width: 100%;
   }
 
-  > .title {
-    color: $dark-purple;
-    font-weight: 600;
-    font-size: 28px;
-    width: 100%;
-  }
-
-  > .subtitle {
-    color: $grey;
-    font-size: 11px;
-    margin-top: 15px;
-    text-transform: uppercase;
-    width: 100%;
-  }
-
-  > section {
+  section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -63,6 +78,31 @@
     > h2 {
       font-weight: 600;
       margin-bottom: 15px;
+    }
+  }
+}
+
+.Sidebar {
+  margin-top: 50px;
+
+  a {
+    display: inline-block;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #999;
+    font-weight: 300;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.2s;
+
+    &:hover {
+      transform: scale(1.03);
+      color: $primary;
+    }
+
+    &.active {
+      transform: scale(1.03);
+      color: $primary;
     }
   }
 }

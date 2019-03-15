@@ -77,15 +77,16 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.scss', '.js', '.json', '.png', '.gif', '.jpg', '.svg']
   },
   output: {
-    path: path.resolve(__dirname, 'docs/'),
+    path: path.resolve(__dirname, 'docs'),
     filename: 'index.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'docs'),
     compress: true,
     port: 9000,
     open: true,
-    progress: true
+    progress: true,
+    publicPath: '/'
   }
 };
 
