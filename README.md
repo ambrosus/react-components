@@ -2,7 +2,29 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.8.3
+# React Components@0.9.0
+# Paragraph
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Paragraph } from '@ambrosus/react'
+
+const App = () => (
+    <Paragraph>
+        Paragraph content
+    </Paragraph>
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| children     | ReactNode      | Custom content as children               |
+| content      | HTML string    | Custom content as HTML string       |
+| light        | boolean    | Light theme       |
 # Sidemenu
 
 ## Usage

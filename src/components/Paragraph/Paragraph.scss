@@ -1,0 +1,19 @@
+@import 'styles/utils';
+
+.AMB-Paragraph {
+  display: block;
+  line-height: 1.55;
+  font-size: 13px;
+  color: $black;
+  font-family: inherit;
+  width: 100%;
+  max-width: 100%;
+
+  &.light {
+    color: #fff;
+  }
+
+  & + .AMB-Paragraph {
+    margin-top: 15px;
+  }
+}
