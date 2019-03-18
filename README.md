@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.9.0
+# React Components@0.9.2
 # Paragraph
 
 ## Usage
