@@ -7,6 +7,10 @@
   "private": false,
   "author": "Ambrosus",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ambrosus/react-components.git"
+  },
   "scripts": {
     "start": "npm run dev:start",
     "dev:start": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
