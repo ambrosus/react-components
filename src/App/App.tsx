@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import Router from './Router';
 
 import './App.scss';
-import { Sidebar } from './components';
+import { Sidebar } from './Sidebar';
 
 export default class App extends Component {
 

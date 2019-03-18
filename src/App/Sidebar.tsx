@@ -4,7 +4,7 @@
  */
 import React from 'react';
 
-import '../App.scss';
+import './App.scss';
 import { NavLink } from 'react-router-dom';
 
 export const Sidebar = () => {
@@ -23,6 +23,9 @@ export const Sidebar = () => {
                 </li>
                 <li>
                     <NavLink to='/radio'>Radio</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/paragraph'>Paragraph</NavLink>
                 </li>
                 <li>
                     <NavLink to='/sidemenu'>Sidemenu</NavLink>
