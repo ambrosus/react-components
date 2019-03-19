@@ -6,28 +6,17 @@
 @import '../form.scss';
 
 .AMB-CalendarInput {
-  @extend %label;
-
-  &.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  > .input {
-    input {
-      @extend %input;
-    }
-  }
-
-  &.light {
-    @extend %input--light;
-  }
+  position: relative;
+  width: 100%;
 }
 
 .calendar {
-  position: fixed;
+  position: absolute;
   margin: 0 !important;
-  z-index: 25000;
+  max-width: 100%;
+  top: 100%;
+  left: 0;
+  z-index: 100;
 
   abbr[title] {
     text-decoration: none;

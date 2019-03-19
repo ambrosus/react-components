@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput } from './components';
+import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput, _Paragraph } from './components';
 
 const Router = () => (
     <Switch>
@@ -8,6 +8,7 @@ const Router = () => (
         <Route exact path='/checkbox' component={_Checkbox} />
         <Route exact path='/calendar-input' component={_CalendarInput} />
         <Route exact path='/input' component={_Input} />
+        <Route exact path='/paragraph' component={_Paragraph} />
         <Route exact path='/radio' component={_Radio} />
         <Route exact path='/sidemenu' component={_Sidemenu} />
         <Route exact path='/switch' component={_Switch} />

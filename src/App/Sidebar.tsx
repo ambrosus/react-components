@@ -28,6 +28,9 @@ export const Sidebar = () => {
                     <NavLink to='/radio'>Radio</NavLink>
                 </li>
                 <li>
+                    <NavLink to='/paragraph'>Paragraph</NavLink>
+                </li>
+                <li>
                     <NavLink to='/sidemenu'>Sidemenu</NavLink>
                 </li>
                 <li>
