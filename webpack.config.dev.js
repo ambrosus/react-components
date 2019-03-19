@@ -84,7 +84,6 @@ module.exports = {
     contentBase: path.join(__dirname, 'docs'),
     compress: true,
     port: 9000,
-    open: true,
     progress: true,
     publicPath: '/'
   }

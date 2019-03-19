@@ -17,6 +17,7 @@
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^16.7.0",
+    "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -51,7 +52,7 @@
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.17.0",
-    "typescript": "^3.2.2",
+    "typescript": "^3.4.0-dev.20190319",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0",

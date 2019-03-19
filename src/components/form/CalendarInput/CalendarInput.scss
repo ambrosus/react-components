@@ -1,0 +1,45 @@
+/**
+ * Copyright 2018 Ambrosus Inc.
+ * Email: tech@ambrosus.com
+ */
+@import 'styles/utils';
+@import '../form.scss';
+
+.AMB-CalendarInput {
+  @extend %label;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  > .input {
+    input {
+      @extend %input;
+    }
+  }
+
+  &.light {
+    @extend %input--light;
+  }
+}
+
+.calendar {
+  position: fixed;
+  margin: 0 !important;
+  z-index: 25000;
+
+  abbr[title] {
+    text-decoration: none;
+  }
+
+  .react-calendar {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 25px -1px rgba(0, 0, 0, 0.15);
+  }
+
+  .react-calendar__month-view__days__day--weekend {
+    color: $red;
+  }
+}

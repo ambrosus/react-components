@@ -6,4 +6,4 @@ export * from './Switch';
 export * from './Textarea';
 export * from './Sidemenu';
 export * from './Tabs';
-export * from './Sidebar';
+export * from './CalendarInput';
