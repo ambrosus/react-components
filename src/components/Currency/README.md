@@ -15,7 +15,7 @@ const App = () => (
 
 | Props        | Type           | Description                                    |
 | ------------ | -------------- | ---------------------------------------------- |
-| value     | number      | Value to process               |
-| fixed      | number    | Number of decimal places       |
+| value     | number | string      | Value to process               |
+| fixed      | number | false    | Number of decimal places       |
 | symbol        | string    | Default $      |
 | side        | string    | Side to place the symbol, default right      |
