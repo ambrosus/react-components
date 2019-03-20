@@ -23,8 +23,10 @@ import { Currency } from '@ambrosus/react';
 
 return (
   <>
-    <Currency value={100.15} />
-    <Currency value={100} side='left' fixed={1} symbol='€' />
+    <Currency value='100.25' />
+    <Currency value='100' side='left' fixed={1} symbol='€' />
+    <Currency value='100.000000001' fixed={false} symbol='AMB' />
+    <Currency value='10012341231252123.12345' fixed={3} />
   </>
 );
             `, Prism.languages.tsx),
@@ -32,8 +34,10 @@ return (
             </pre>
 
             <div className='examples'>
-                <Currency value={100.15} />
-                <Currency value={100} side='left' fixed={1} symbol='€' />
+                <Currency value='100.25' />
+                <Currency value='100' side='left' fixed={1} symbol='€' />
+                <Currency value='100.000000001' fixed={false} symbol='AMB' />
+                <Currency value='10012341231252123.12345' fixed={3} />
             </div>
 
         </section>

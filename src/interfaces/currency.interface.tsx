@@ -8,8 +8,8 @@ interface Element extends React.HTMLProps<any> {
 }
 
 export interface ICurrency extends Element {
-    value: number;
+    value: number | string;
     symbol?: string;
     side?: string;
-    fixed?: number;
+    fixed?: number | false;
 }

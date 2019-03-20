@@ -2,10 +2,11 @@ import React from 'react';
 import { ICurrency } from '../../interfaces';
 
 import './Currency.scss';
+import { numWithCommas } from '../utils';
 
 const Currency = (props: ICurrency) => {
 
-    const { className, symbol, value, fixed, side, ...otherProps } = props;
+    const { className, symbol, value: _value, fixed, side, ...otherProps } = props;
 
     const classes = [
         'AMB-Currency',
@@ -13,12 +14,16 @@ const Currency = (props: ICurrency) => {
     ].join(' ').trim();
 
     const _symbol = symbol || '$';
-    const [_value, decimals] = Number(value).toFixed(fixed || 2).split('.');
+    let [value, decimals]: any = String(_value).split('.');
+    value = numWithCommas(value);
+    if (fixed !== false) {
+        decimals = String(Number(`0.${decimals || 0}`).toFixed(fixed || 2)).split('.')[1];
+    }
 
     return (
         <span className={classes} {...otherProps}>
             {side === 'left' && <span className='symbol left'>{_symbol}</span>}
-            <span className='value'>{_value}</span>
+            <span className='value'>{value}</span>
             <span className='decimals'>.{decimals}</span>
             {side !== 'left' && <span className='symbol right'>{_symbol}</span>}
         </span>
