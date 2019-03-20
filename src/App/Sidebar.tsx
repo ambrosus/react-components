@@ -19,6 +19,9 @@ export const Sidebar = () => {
                     <NavLink to='/checkbox'>Checkbox</NavLink>
                 </li>
                 <li>
+                    <NavLink to='/calendar-input'>Calendar input</NavLink>
+                </li>
+                <li>
                     <NavLink to='/input'>Input</NavLink>
                 </li>
                 <li>
