@@ -1,0 +1,28 @@
+@import 'styles/utils';
+
+.AMB-Currency {
+
+  > .value {
+    color: $black;
+  }
+
+  > .decimals {
+    color: $grey;
+  }
+
+  > .symbol {
+    color: $grey;
+
+    &.left {
+      margin-right: 3px;
+    }
+
+    &.right {
+      margin-left: 3px;
+    }
+  }
+
+  & + .AMB-Currency {
+    margin-left: 15px;
+  }
+}
