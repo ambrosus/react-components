@@ -1,28 +1,31 @@
-@import 'styles/utils';
+@import "styles/utils";
 
 .AMB-Currency {
-
-  > .value {
-    color: $black;
-  }
-
-  > .decimals {
-    color: $grey;
-  }
-
-  > .symbol {
-    color: $grey;
-
-    &.left {
-      margin-right: 3px;
+    > .value {
+        color: currentColor;
     }
 
-    &.right {
-      margin-left: 3px;
+    > .decimals {
+        color: currentColor;
+        opacity: 0.6;
+        font-size: 0.9em;
     }
-  }
 
-  & + .AMB-Currency {
-    margin-left: 15px;
-  }
+    > .symbol {
+        @extend .decimals;
+
+        opacity: 1;
+
+        &.left {
+            margin-right: 3px;
+        }
+
+        &.right {
+            margin-left: 3px;
+        }
+    }
+
+    & + .AMB-Currency {
+        margin-left: 15px;
+    }
 }

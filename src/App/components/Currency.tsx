@@ -23,7 +23,7 @@ import { Currency } from '@ambrosus/react';
 
 return (
   <>
-    <Currency value='100.25' />
+    <Currency style={{ color: '#4f299b', fontSize: '22px' }} value='1000.25' />
     <Currency value='100.123' fixed={0} />
     <Currency value='100' side='left' fixed={1} symbol='€' />
     <Currency value='100.000000001' fixed={false} symbol='AMB' />
@@ -35,7 +35,7 @@ return (
             </pre>
 
             <div className='examples'>
-                <Currency value='100.25' />
+                <Currency style={{ color: '#4f299b', fontSize: '22px' }} value='1000.25' />
                 <Currency value='100.123' fixed={0} />
                 <Currency value='100' side='left' fixed={1} symbol='€' />
                 <Currency value='100.000000001' fixed={false} symbol='AMB' />
