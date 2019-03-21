@@ -1,6 +1,6 @@
 {
   "name": "@ambrosus/react",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Reusable react components for Ambrosus front-end apps.",
   "homepage": "http://ambrosus.github.io/react-components",
   "main": "./dist/index.js",
@@ -12,11 +12,10 @@
     "url": "https://github.com/ambrosus/react-components.git"
   },
   "scripts": {
-    "start": "npm run dev:start",
-    "dev:start": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
-    "docs:build": "source ./.env && webpack --config ./webpack.config.dev.js --mode=production",
+    "start": "source ./.env.dev && webpack-dev-server --config ./webpack.config.dev.js",
+    "docs": "source ./.env && webpack --config ./webpack.config.dev.js --mode=production",
     "build": "source ./.env && webpack",
-    "dev:lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
+    "lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",

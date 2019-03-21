@@ -10,3 +10,7 @@ export const formatDate = (date: any, datetime = false) => {
     const strTime = `${hours}:${minutes} ${ampm}`;
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}${datetime ? ` ${strTime}` : ''}`;
 };
+
+export const numWithCommas = (val: number | string) => {
+    return val ? val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0;
+};

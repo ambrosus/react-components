@@ -2,7 +2,28 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.10.0
+# React Components@0.11.0
+# Currency
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Currency } from '@ambrosus/react'
+
+const App = () => (
+    <Currency value={100.35} />
+  );
+```
+
+## Properties
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| value     | number | string      | Value to process               |
+| fixed      | number | false    | Number of decimal places       |
+| symbol        | string    | Default $      |
+| side        | string    | Side to place the symbol, default right      |
 # Paragraph
 
 ## Usage

@@ -13,3 +13,4 @@ export * from './tabs.interface';
 export * from './tab.interface';
 export * from './calendar-input.interface';
 export * from './paragraph.interface';
+export * from './currency.interface';

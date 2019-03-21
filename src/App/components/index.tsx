@@ -8,3 +8,4 @@ export * from './Sidemenu';
 export * from './Tabs';
 export * from './CalendarInput';
 export * from './Paragraph';
+export * from './Currency';

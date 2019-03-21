@@ -1,12 +1,13 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput, _Paragraph } from './components';
+import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput, _Paragraph, _Currency } from './components';
 
 const Router = () => (
     <Switch>
         <Route exact path='/button' component={_Button} />
         <Route exact path='/checkbox' component={_Checkbox} />
         <Route exact path='/calendar-input' component={_CalendarInput} />
+        <Route exact path='/currency' component={_Currency} />
         <Route exact path='/input' component={_Input} />
         <Route exact path='/paragraph' component={_Paragraph} />
         <Route exact path='/radio' component={_Radio} />
