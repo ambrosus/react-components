@@ -1,31 +1,19 @@
 @import "styles/utils";
 
 .AMB-Currency {
-    > .value {
-        color: currentColor;
+  margin: 0 !important;
+
+  > .symbol {
+    color: currentColor;
+    font-size: 0.9em;
+    opacity: 1;
+
+    &.left {
+      margin-right: 0.3em;
     }
 
-    > .decimals {
-        color: currentColor;
-        opacity: 0.6;
-        font-size: 0.9em;
+    &.right {
+      margin-left: 0.3em;
     }
-
-    > .symbol {
-        @extend .decimals;
-
-        opacity: 1;
-
-        &.left {
-            margin-right: 3px;
-        }
-
-        &.right {
-            margin-left: 3px;
-        }
-    }
-
-    & + .AMB-Currency {
-        margin-left: 15px;
-    }
+  }
 }

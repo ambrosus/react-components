@@ -22,6 +22,9 @@ export const Sidebar = () => {
                     <NavLink to='/calendar-input'>Calendar input</NavLink>
                 </li>
                 <li>
+                    <NavLink to='/number'>Number</NavLink>
+                </li>
+                <li>
                     <NavLink to='/currency'>Currency</NavLink>
                 </li>
                 <li>

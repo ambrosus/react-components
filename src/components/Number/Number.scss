@@ -1,0 +1,15 @@
+@import "styles/utils";
+
+.AMB-Number {
+  margin: 0 !important;
+
+  > .value {
+    color: currentColor;
+  }
+
+  > .decimals {
+    color: currentColor;
+    opacity: 0.6;
+    font-size: 0.9em;
+  }
+}
