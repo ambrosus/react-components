@@ -1,4 +1,4 @@
-import { IButton, IInput, ISVG, ITextarea, ICheckbox, ITabs, ITab, ISidemenu, ICalendarInput, IParagraph, ICurrency } from './src/interfaces';
+import { IButton, IInput, ISVG, ITextarea, ICheckbox, ITabs, ITab, ISidemenu, ICalendarInput, IParagraph, ICurrency, INumber } from './src/interfaces';
 
 export function SVG(props: ISVG): any;
 export function Button(props: IButton): any;
@@ -12,3 +12,4 @@ export function Sidemenu(props: ISidemenu): any;
 export function CalendarInput(props: ICalendarInput): any;
 export function Paragraph(props: IParagraph): any;
 export function Currency(props: ICurrency): any;
+export function Number(props: INumber): any;

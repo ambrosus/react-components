@@ -2,7 +2,7 @@
 DO NOT EDIT THIS README.MD. IT IS GENERATED FROM COMPONENTS READMES.
 -->
 
-# React Components@0.11.0
+# React Components@0.12.0
 # Currency
 
 ## Usage
@@ -18,12 +18,44 @@ const App = () => (
 
 ## Properties
 
+interface IDelimiter {
+    thousands?: string;
+    decimals?: string;
+};
+
 | Props        | Type           | Description                                    |
 | ------------ | -------------- | ---------------------------------------------- |
 | value     | number | string      | Value to process               |
 | fixed      | number | false    | Number of decimal places       |
 | symbol        | string    | Default $      |
 | side        | string    | Side to place the symbol, default right      |
+| delimiter        | IDelimiter    | Changes delimiter on thousands and decimals      |
+# Number
+
+## Usage
+
+```javascript
+import React from 'react';
+import { Number } from '@ambrosus/react'
+
+const App = () => (
+    <Number value={100.35} />
+  );
+```
+
+## Properties
+
+interface IDelimiter {
+    thousands?: string;
+    decimals?: string;
+};
+
+| Props        | Type           | Description                                    |
+| ------------ | -------------- | ---------------------------------------------- |
+| value     | number | string      | Value to process               |
+| fixed      | number | false    | Number of decimal places       |
+| delimiter        | IDelimiter    | Changes delimiter on thousands and decimals      |
+
 # Paragraph
 
 ## Usage

@@ -7,4 +7,5 @@ export * from './utils';
 export * from './Sidemenu';
 export * from './Tabs';
 export * from './Paragraph';
+export * from './Number';
 export * from './Currency';
