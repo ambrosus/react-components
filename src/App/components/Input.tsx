@@ -24,14 +24,13 @@ import { Input } from '@ambrosus/react';
 return (
   <>
     <Input label='Default input' />
-    <Input label='Disabled input' disabled/>
+    <Input label='Disabled input' disabled />
     <Input label='Password input' type='password' />
     <Input label='With a placeholder' placeholder='Some placeholder' />
     <Input label='With pre-inserted content' value='Some pre-inserted value' />
-    <Input touched label='Valid input' />
     <Input label='With info icon' info='Some <b>info</b> content for this <i>textarea</i>.' />
-    <Input label='With errors' touched errors='Some error' shouldValidate invalid />
-    <Input label='Light input' placeholder='Some placeholder' light touched info='Some info' spellCheck={false} />
+    <Input label='With errors' error='Some error' />
+    <Input label='Light input' placeholder='Some placeholder' light info='Some info' spellCheck={false} />
   </>
 );
             `, Prism.languages.tsx),
@@ -46,10 +45,9 @@ return (
                 <Input label='Password input' type='password' />
                 <Input label='With a placeholder' placeholder='Some placeholder' />
                 <Input label='With pre-inserted content' value='Some pre-inserted value' />
-                <Input touched label='Valid input' />
                 <Input label='With info icon' info='Some <b>info</b> content for this <i>textarea</i>.' />
-                <Input label='With errors' touched errors='Some error' shouldValidate invalid />
-                <Input label='Light input' placeholder='Some placeholder' light touched info='Some info' spellCheck={false} />
+                <Input label='With errors' error='Some error' />
+                <Input label='Light input' placeholder='Some placeholder' light info='Some info' spellCheck={false} />
             </div>
 
         </section>

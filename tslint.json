@@ -18,6 +18,7 @@
     "import-name": false,
     "max-classes-per-file": false,
     "no-parameter-reassignment": false,
+    "function-name": false,
     "member-ordering": [
       false,
       {

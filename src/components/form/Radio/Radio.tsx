@@ -8,7 +8,7 @@ import './Radio.scss';
 import { IRadio } from '../../../interfaces';
 
 const Radio = (props: IRadio) => {
-    const { className, name, checked, light, changed, value, label, children, disabled, ...otherProps } = props;
+    const { className, name, checked, light, onChange, value, label, children, disabled, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Radio',
@@ -19,7 +19,7 @@ const Radio = (props: IRadio) => {
 
     return (
         <label className={classes.join(' ').trim()} {...otherProps}>
-            <input type='radio' name={name} value={value} onChange={changed} disabled={disabled} />
+            <input type='radio' name={name} value={value} onChange={onChange} disabled={disabled} />
             <div className='radio'></div>
             <span className='label'>{children || label || value}</span>
         </label>

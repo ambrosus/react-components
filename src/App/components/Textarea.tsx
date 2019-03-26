@@ -44,10 +44,10 @@ return (
                 <Textarea label='Disabled textarea' disabled />
                 <Textarea label='With a placeholder' placeholder='Some placeholder' />
                 <Textarea label='With pre-inserted content'>Some pre-inserted content inside</Textarea>
-                <Textarea touched label='Valid textarea' />
+                {/* <Textarea touched label='Valid textarea' />
                 <Textarea label='With info icon' info='Some <b>info</b> content for this <i>textarea</i>.' />
                 <Textarea label='With errors' touched errors='Some error' shouldValidate invalid />
-                <Textarea label='Light textarea' placeholder='Some placeholder' light touched info='Some info' />
+                <Textarea label='Light textarea' placeholder='Some placeholder' light touched info='Some info' /> */}
             </div>
 
         </section>

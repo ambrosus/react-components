@@ -2,7 +2,7 @@
  * Copyright 2018 Ambrosus Inc.
  * Email: tech@ambrosus.com
  */
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import { SVG } from '../../utils';
 
 import './Input.scss';
@@ -13,70 +13,83 @@ import iconInfo from '../../../assets/svg/info.svg';
 import iconEyeOpen from '../../../assets/svg/eye_open.svg';
 import iconEyeClose from '../../../assets/svg/eye_close.svg';
 
-export default class Input extends Component<IInput> {
-    public state: any = {
-        type: 'text',
-        otherProps: {},
+function Input(props: IInput) {
+    const [type, setType] = useState('text');
+    const [touched, setTouched] = useState(false);
+    const inputRef: any = useRef(null);
+
+    const { label, className, value, onChange, onFocus, onBlur, error, disabled, light, info, placeholder, children, ...otherProps } = props;
+
+    const togglePassword = () => {
+        setType(type === 'text' ? 'password' : 'text');
     };
 
-    constructor(props: IInput) {
-        super(props);
-    }
-
-    public componentDidMount() {
-        const {
-            label, className, value, changed, invalid, shouldValidate,
-            touched, errors, disabled, light, info, placeholder, children, ...otherProps } = this.props;
-        const type = otherProps.type || 'text';
-        this.setState({ type, otherProps });
-    }
-
-    private togglePassword = () => {
-        this.setState({ type: this.state.type === 'text' ? 'password' : 'text' });
-    }
-
-    public render() {
-        const classes: any = [
-            'AMB-Input',
-            `${this.props.light && 'light' || ''}`,
-            `${this.props.disabled && 'disabled' || ''}`,
-            `${this.props.touched && !this.props.invalid && 'valid' || ''}`,
-            `${this.props.className || ''}`.trim(),
-        ].filter(Boolean);
-
-        if (this.props.invalid && this.props.shouldValidate && this.props.touched) {
-            classes.push('error');
+    const _onChange = (event: any) => {
+        if (onChange) {
+            onChange(event);
         }
+    };
 
-        const value = this.props.children && this.props.children.toString() || this.props.value;
+    const _onFocus = (event: any) => {
+        if (onFocus) {
+            onFocus(event);
+        }
+    };
 
-        return (
-            <label className={classes.join(' ').trim()} {...this.state.otherProps}>
-                {this.props.label && <span className='title'>{this.props.label}</span>}
-                <div className='input'>
-                    <input
-                        type={this.state.type}
-                        value={value}
-                        onChange={this.props.changed}
-                        placeholder={this.props.placeholder}
-                        disabled={this.props.disabled}
-                    />
-                    <div className='border'></div>
-                    <div className='meta'>
-                        {this.props.touched && !this.props.invalid && <SVG className='SVG' src={iconSuccess} />}
-                        {this.props.type === 'password' && (
-                            <SVG onClick={this.togglePassword} className='SVG' src={this.state.type === 'password' ? iconEyeOpen : iconEyeClose} />
-                        )}
-                        {this.props.info && (
-                            <div className='info'>
-                                <SVG className='SVG' src={iconInfo} />
-                                <span className='message' dangerouslySetInnerHTML={{ __html: this.props.info }}></span>
-                            </div>
-                        )}
-                    </div>
-                </div>
-                {this.props.invalid && this.props.shouldValidate && this.props.touched && <p className='message'>{this.props.errors}</p>}
-            </label>
-        );
+    const _onBlur = (event: any) => {
+        setTouched(true);
+        if (onBlur) {
+            onBlur(event);
+        }
+    };
+
+    const classes: any = [
+        'AMB-Input',
+        `${light && 'light' || ''}`,
+        `${disabled && 'disabled' || ''}`,
+        `${touched && !error && 'valid' || ''}`,
+        `${className || ''}`.trim(),
+    ].filter(Boolean);
+
+    if (error && touched) {
+        classes.push('error');
     }
+
+    const _value = children && children.toString() || value;
+
+    return (
+        <label className={classes.join(' ').trim()} {...otherProps}>
+            {label && <span className='title'>{label}</span>}
+            <div className='input'>
+                <input
+                    ref={inputRef}
+                    type={type}
+                    value={_value}
+                    onChange={_onChange}
+                    onFocus={_onFocus}
+                    onBlur={_onBlur}
+                    placeholder={placeholder}
+                    disabled={disabled}
+                />
+                <div className='border'></div>
+                <div className='meta'>
+                    {
+                        touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
+                    }
+                    {type === 'password' && (
+                        <SVG onClick={togglePassword} className='SVG' src={type === 'password' ? iconEyeOpen : iconEyeClose} />
+                    )}
+                    {info && (
+                        <div className='info'>
+                            <SVG className='SVG' src={iconInfo} />
+                            <span className='message' dangerouslySetInnerHTML={{ __html: info }}></span>
+                        </div>
+                    )}
+                </div>
+            </div>
+            {error && touched && <p className='message'>{error}</p>}
+        </label>
+    );
 }
+
+export default Input;

@@ -11,7 +11,7 @@ import { ICheckbox } from '../../../interfaces';
 import iconSuccess from '../../../assets/svg/success.svg';
 
 const Checkbox = (props: ICheckbox) => {
-    const { label, className, value, disabled, checked, changed, children, light, ...otherProps } = props;
+    const { label, className, value, disabled, checked, onChange, children, light, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Checkbox',
@@ -28,7 +28,7 @@ const Checkbox = (props: ICheckbox) => {
                         type='checkbox'
                         value={value}
                         checked={checked}
-                        onChange={changed}
+                        onChange={onChange}
                         disabled={disabled}
                     />
                     <SVG className='SVG icon' src={iconSuccess} />

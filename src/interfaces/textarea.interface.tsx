@@ -13,11 +13,10 @@ interface Element extends React.HTMLProps<any> {
 export interface ITextarea extends Element {
     label?: string;
     value?: string | number;
-    changed?: (event: any) => any;
-    invalid?: boolean;
-    shouldValidate?: boolean;
-    touched?: boolean;
-    errors?: string;
+    onChange?: (event: any) => void;
+    onBlur?: (event: any) => void;
+    onFocus?: (event: any) => void;
+    error?: string;
     light?: boolean;
     info?: string;
 }

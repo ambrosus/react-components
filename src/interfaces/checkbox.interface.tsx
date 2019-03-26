@@ -13,7 +13,9 @@ interface Element extends React.HTMLProps<any> {
 export interface ICheckbox extends Element {
     label?: string;
     value?: string | number;
-    changed?: (event: any) => any;
+    onChange?: (event: any) => void;
+    onBlur?: (event: any) => void;
+    onFocus?: (event: any) => void;
     light?: boolean;
     checked?: boolean;
     children?: ReactNode;

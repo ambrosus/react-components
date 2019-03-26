@@ -12,11 +12,10 @@ interface Element extends React.HTMLProps<any> {
 
 export interface ICalendarInput extends Element {
     label?: string;
-    changed?: (event: any) => any;
-    invalid?: boolean;
-    shouldValidate?: boolean;
-    touched?: boolean;
-    errors?: string;
+    onChange?: (event: any) => void;
+    onBlur?: (event: any) => void;
+    onFocus?: (event: any) => void;
+    error?: string;
     light?: boolean;
     info?: string;
     daterange?: boolean;
