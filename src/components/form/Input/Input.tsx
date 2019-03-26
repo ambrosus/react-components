@@ -2,7 +2,7 @@
  * Copyright 2018 Ambrosus Inc.
  * Email: tech@ambrosus.com
  */
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SVG } from '../../utils';
 
 import './Input.scss';
@@ -13,12 +13,14 @@ import iconInfo from '../../../assets/svg/info.svg';
 import iconEyeOpen from '../../../assets/svg/eye_open.svg';
 import iconEyeClose from '../../../assets/svg/eye_close.svg';
 
-function Input(props: IInput) {
+const Input = React.forwardRef((props: IInput, ref: any) => {
     const [type, setType] = useState('text');
     const [touched, setTouched] = useState(false);
     const inputRef: any = useRef(null);
 
-    const { label, className, value, onChange, onFocus, onBlur, error, disabled, light, info, placeholder, children, ...otherProps } = props;
+    const { label, check, className, value, onChange, onFocus, onBlur, error, disabled, light, info, placeholder, children, ...otherProps } = props;
+
+    useEffect(() => setType(otherProps.type || 'text'), []);
 
     const togglePassword = () => {
         setType(type === 'text' ? 'password' : 'text');
@@ -58,7 +60,7 @@ function Input(props: IInput) {
     const _value = children && children.toString() || value;
 
     return (
-        <label className={classes.join(' ').trim()} {...otherProps}>
+        <label className={classes.join(' ').trim()} {...otherProps} ref={ref}>
             {label && <span className='title'>{label}</span>}
             <div className='input'>
                 <input
@@ -74,9 +76,9 @@ function Input(props: IInput) {
                 <div className='border'></div>
                 <div className='meta'>
                     {
-                        touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
+                        check && touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
                     }
-                    {type === 'password' && (
+                    {otherProps.type === 'password' && (
                         <SVG onClick={togglePassword} className='SVG' src={type === 'password' ? iconEyeOpen : iconEyeClose} />
                     )}
                     {info && (
@@ -90,6 +92,6 @@ function Input(props: IInput) {
             {error && touched && <p className='message'>{error}</p>}
         </label>
     );
-}
+});
 
 export default Input;

@@ -17,7 +17,7 @@ function Textarea(props: ITextarea) {
 
     const onFocus = useCallback(() => setTouched(true), [touched]);
 
-    const { label, className, value, onChange, children, error, disabled, light, info, ...otherProps } = props;
+    const { label, check, className, value, onChange, children, error, disabled, light, info, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Textarea',
@@ -39,7 +39,7 @@ function Textarea(props: ITextarea) {
                 <span>{label}</span>
                 <div className='meta'>
                     {
-                        touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
+                        check && touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
                     }
                     {info && (
                         <div className='info'>

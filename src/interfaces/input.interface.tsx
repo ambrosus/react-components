@@ -16,6 +16,7 @@ export interface IInput extends Element {
     onChange?: (event: any) => void;
     onBlur?: (event: any) => void;
     onFocus?: (event: any) => void;
+    check?: boolean;
     error?: string;
     light?: boolean;
     info?: string;

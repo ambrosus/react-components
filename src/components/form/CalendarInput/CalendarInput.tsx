@@ -14,6 +14,7 @@ import { Input } from '../';
 function CalendarInput(props: ICalendarInput) {
     const [calendar, setCalendar] = useState(false);
     const [date, setDate] = useState('');
+    const inputRef: any = useRef(null);
     const calendarRef: any = useRef(null);
 
     const { daterange, value, onChange, onFocus, onBlur, ...otherProps } = props;
@@ -36,9 +37,12 @@ function CalendarInput(props: ICalendarInput) {
 
     const handleClickOutsideCalendar = (event: any) => {
         if (
-            calendarRef &&
-            calendarRef.current &&
-            !calendarRef.current.contains(event.target) &&
+            (
+                calendarRef &&
+                calendarRef.current &&
+                !inputRef.current.contains(event.target) &&
+                !calendarRef.current.contains(event.target)
+            ) &&
             !event.target.classList.contains('react-calendar__tile')
         ) {
             closeCalendar();
@@ -47,22 +51,20 @@ function CalendarInput(props: ICalendarInput) {
 
     const openCalendar = () => {
         setCalendar(true);
-        document.addEventListener('click', handleClickOutsideCalendar);
+        window.addEventListener('click', handleClickOutsideCalendar);
     };
 
     const closeCalendar = () => {
         setCalendar(false);
-        document.removeEventListener('click', handleClickOutsideCalendar);
+        window.removeEventListener('click', handleClickOutsideCalendar);
     };
 
     const _placeholder = formatDate(new Date());
 
-    const _value = date;
-
     return (
         <div className='AMB-CalendarInput'>
-            <Input {...otherProps} value={_value} placeholder={_placeholder} onChange={_onChange}
-                onClick={() => !otherProps.disabled && openCalendar()} />
+            <Input {...otherProps} value={date} placeholder={_placeholder} onChange={_onChange}
+                onClick={() => !otherProps.disabled && openCalendar()} ref={inputRef} />
             {calendar && (
                 <div className='calendar' ref={calendarRef}>
                     <Calendar onChange={onChoose} selectRange={!!daterange} />
