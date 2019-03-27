@@ -17,7 +17,7 @@ function Textarea(props: ITextarea) {
 
     const onFocus = useCallback(() => setTouched(true), [touched]);
 
-    const { label, check, className, value, onChange, children, error, disabled, light, info, ...otherProps } = props;
+    const { label, check, className, name, value, onChange, children, error, disabled, light, info, ...otherProps }: any = props;
 
     const classes: any = [
         'AMB-Textarea',
@@ -33,21 +33,24 @@ function Textarea(props: ITextarea) {
 
     const _value = children && children.toString() || value;
 
+    const meta: any = {
+        info,
+        check: check && touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim(),
+    };
+
     return (
         <label className={classes.join(' ').trim()} {...otherProps}>
             <div className='title'>
                 <span>{label}</span>
-                <div className='meta'>
-                    {
-                        check && touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim() && <SVG className='SVG' src={iconSuccess} />
-                    }
-                    {info && (
+                {meta.info || meta.check && <div className='meta'>
+                    {meta.check && <SVG className='SVG' src={iconSuccess} />}
+                    {meta.info && (
                         <div className='info'>
                             <SVG className='SVG' src={iconInfo} />
                             <span className='message' dangerouslySetInnerHTML={{ __html: info }}></span>
                         </div>
                     )}
-                </div>
+                </div>}
             </div>
             <div className='textarea'>
                 <textarea
@@ -57,6 +60,7 @@ function Textarea(props: ITextarea) {
                     onFocus={onFocus}
                     spellCheck={false}
                     disabled={disabled}
+                    name={name}
                 ></textarea>
                 <div className='border'></div>
             </div>

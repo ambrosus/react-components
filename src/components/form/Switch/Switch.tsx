@@ -8,7 +8,7 @@ import './Switch.scss';
 import { ICheckbox } from '../../../interfaces';
 
 const Switch = (props: ICheckbox) => {
-    const { label, className, value, checked, disabled, onChange, children, light, ...otherProps } = props;
+    const { label, className, value, name, checked, disabled, onChange, children, light, ...otherProps } = props;
 
     const classes: any = [
         'AMB-Switch',
@@ -27,6 +27,7 @@ const Switch = (props: ICheckbox) => {
                         checked={checked}
                         onChange={onChange}
                         disabled={disabled}
+                        name={name}
                     />
                     <div className='switch'></div>
                 </div>

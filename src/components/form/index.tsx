@@ -10,3 +10,4 @@ export { default as Checkbox } from './Checkbox';
 export { default as Switch } from './Switch';
 export { default as Radio } from './Radio';
 export { default as CalendarInput } from './CalendarInput';
+export * from './useForm';

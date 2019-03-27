@@ -41,4 +41,8 @@
   &.light {
     @extend %input--light;
   }
+
+  & + .AMB-Textarea {
+    margin-top: 15px;
+  }
 }
