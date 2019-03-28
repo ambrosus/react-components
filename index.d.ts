@@ -13,3 +13,5 @@ export function CalendarInput(props: ICalendarInput): any;
 export function Paragraph(props: IParagraph): any;
 export function Currency(props: ICurrency): any;
 export function Number(props: INumber): any;
+export function useForm(validate: (values: object) => object): any;
+export function validate(value: any, type: any, required?: boolean, options?: {}): string;

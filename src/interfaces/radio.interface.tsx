@@ -12,7 +12,9 @@ interface Element extends React.HTMLProps<any> {
 }
 
 export interface IRadio extends Element {
-    changed?: (event: any) => any;
+    onChange?: (event: any) => void;
+    onBlur?: (event: any) => void;
+    onFocus?: (event: any) => void;
     name: string;
     light?: boolean;
     value?: string;

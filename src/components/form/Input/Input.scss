@@ -22,4 +22,8 @@
   &.light {
     @extend %input--light;
   }
+
+  & + .AMB-Input {
+    margin-top: 15px;
+  }
 }
