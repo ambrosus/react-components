@@ -34,7 +34,7 @@ export const Sidebar = () => {
                     <NavLink to='/radio'>Radio</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/use-form'>useForm</NavLink>
+                    <NavLink to='/form'>Form</NavLink>
                 </li>
                 <li>
                     <NavLink to='/paragraph'>Paragraph</NavLink>

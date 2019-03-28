@@ -42,7 +42,7 @@ function Textarea(props: ITextarea) {
         <label className={classes.join(' ').trim()} {...otherProps}>
             <div className='title'>
                 <span>{label}</span>
-                {meta.info || meta.check && <div className='meta'>
+                {(meta.info || meta.check) && <div className='meta'>
                     {meta.check && <SVG className='SVG' src={iconSuccess} />}
                     {meta.info && (
                         <div className='info'>

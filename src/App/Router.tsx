@@ -12,7 +12,7 @@ const Router = () => (
         <Route exact path='/input' component={_Input} />
         <Route exact path='/paragraph' component={_Paragraph} />
         <Route exact path='/radio' component={_Radio} />
-        <Route exact path='/use-form' component={_useForm} />
+        <Route exact path='/form' component={_useForm} />
         <Route exact path='/sidemenu' component={_Sidemenu} />
         <Route exact path='/switch' component={_Switch} />
         <Route exact path='/tabs' component={_Tabs} />

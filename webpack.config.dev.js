@@ -17,7 +17,8 @@ module.exports = {
       filename: './index.html',
     }),
     new CopyWebpackPlugin([
-      { from: './src/assets', to: 'assets' }
+      { from: './src/assets', to: 'assets' },
+      { from: './public/404.html', to: '' },
     ]),
   ],
   module: {
