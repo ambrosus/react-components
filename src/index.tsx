@@ -7,6 +7,7 @@ import React from 'react';
 import App from './App/App';
 import 'normalize.css';
 import './styles/style.scss';
+import 'codemirror/lib/codemirror.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
