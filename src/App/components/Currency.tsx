@@ -5,8 +5,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Currency } from '../../components';
 import Table from '../Table';
-import * as CodeMirror from 'codemirror';
-import 'codemirror/mode/jsx/jsx';
+import Prism from 'prismjs';
 
 import '../App.scss';
 
@@ -26,20 +25,10 @@ return (
 );`;
 
 export const _Currency = () => {
-    const exampleRef: any = useRef(document.getElementById('example'));
 
     useEffect(() => {
-        if (exampleRef.current) {
-            CodeMirror.default(exampleRef.current, {
-                mode: 'jsx',
-                theme: 'default',
-                lineNumbers: true,
-                readOnly: true,
-                lineWrapping: true,
-                value: example,
-            });
-        }
-    }, [exampleRef]);
+        Prism.highlightAll();
+    });
 
     return (
         <section>
@@ -70,7 +59,11 @@ export const _Currency = () => {
             />
 
             <h3 className='subtitle'>Example</h3>
-            <div className='code' ref={exampleRef}></div>
+            <pre className='lang-jsx'>
+                <code className='line-numbers'>
+                    {example}
+                </code>
+            </pre>
 
             <div className='examples'>
                 <Currency style={{ color: '#4f299b', fontSize: '22px' }} value='1000.25' />

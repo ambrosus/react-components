@@ -5,8 +5,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Sidemenu } from '../../components';
 import Table from '../Table';
-import * as CodeMirror from 'codemirror';
-import 'codemirror/mode/jsx/jsx';
+import Prism from 'prismjs';
 
 import '../App.scss';
 
@@ -40,20 +39,10 @@ function App(props) {
 // tslint:disable-next-line:class-name
 export function _Sidemenu() {
   const [sidemenu, setSidemenu] = useState(false);
-  const exampleRef: any = useRef(document.getElementById('example'));
 
   useEffect(() => {
-    if (exampleRef.current) {
-      CodeMirror.default(exampleRef.current, {
-        mode: 'jsx',
-        theme: 'default',
-        lineNumbers: true,
-        readOnly: true,
-        lineWrapping: true,
-        value: example,
-      });
-    }
-  }, [exampleRef]);
+    Prism.highlightAll();
+  }, []);
 
   const onOpenSidemenu = () => {
     console.log('Sidemenu is open!');
@@ -86,7 +75,11 @@ export function _Sidemenu() {
       />
 
       <h3 className='subtitle'>Example</h3>
-      <div className='code' ref={exampleRef}></div>
+      <pre className='lang-jsx'>
+        <code className='line-numbers'>
+          {example}
+        </code>
+      </pre>
 
       <div className='examples'>
         <Sidemenu onOpen={onOpenSidemenu} onClose={onCloseSidemenu} open={sidemenu}>

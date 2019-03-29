@@ -18,8 +18,8 @@
     "lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "codemirror": "^5.45.0",
     "normalize.css": "^8.0.1",
+    "prismjs": "^1.16.0",
     "react": "^16.8.5",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.8.5",
@@ -34,6 +34,7 @@
     "@babel/preset-react": "^7.0.0",
     "@types/codemirror": "0.0.72",
     "@types/html-webpack-plugin": "^3.2.0",
+    "@types/prismjs": "^1.16.0",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
     "@types/react-router": "^4.4.5",
