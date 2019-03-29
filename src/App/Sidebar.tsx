@@ -13,6 +13,9 @@ export const Sidebar = () => {
             <h3>Documentation</h3>
             <ul className='Sidebar'>
                 <li>
+                    <NavLink to='/' exact>Home</NavLink>
+                </li>
+                <li>
                     <NavLink to='/button'>Button</NavLink>
                 </li>
                 <li>
