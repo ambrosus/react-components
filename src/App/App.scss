@@ -10,6 +10,19 @@
   width: 100%;
   padding-left: 240px;
 
+  h4 {
+    margin: 5px 0 15px;
+  }
+
+  .code {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .CodeMirror {
+    height: auto;
+  }
+
   main {
     width: 100%;
     padding: 50px 30px;
@@ -78,6 +91,42 @@
     > h2 {
       font-weight: 600;
       margin-bottom: 15px;
+    }
+  }
+
+  .subtitle {
+    margin: 20px 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 15px;
+    font-family: -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Helvetica,
+      Arial,
+      sans-serif,
+      Apple Color Emoji,
+      Segoe UI Emoji,
+      Segoe UI Symbol;
+    font-size: 14px;
+    line-height: 1.5;
+
+    tr {
+      background-color: #fff;
+      border-top: 1px solid #c6cbd1;
+
+      &:nth-child(even) {
+        background-color: #fafafa !important;
+      }
+    }
+
+    th,
+    td {
+      border: 1px solid #dfe2e5;
+      padding: 6px 13px;
     }
   }
 }

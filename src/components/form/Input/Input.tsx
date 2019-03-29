@@ -81,7 +81,7 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
                     name={name}
                 />
                 <div className='border'></div>
-                {meta.info || meta.check || meta.password && <div className='meta'>
+                {(meta.info || meta.check || meta.password) && <div className='meta'>
                     {meta.check && <SVG className='SVG' src={iconSuccess} />}
                     {meta.password && (
                         <SVG onClick={togglePassword} className='SVG' src={type === 'password' ? iconEyeOpen : iconEyeClose} />

@@ -11,3 +11,4 @@ export * from './Paragraph';
 export * from './Number';
 export * from './Currency';
 export * from './useForm';
+export * from './Home';

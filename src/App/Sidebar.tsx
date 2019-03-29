@@ -13,6 +13,9 @@ export const Sidebar = () => {
             <h3>Documentation</h3>
             <ul className='Sidebar'>
                 <li>
+                    <NavLink to='/' exact>Home</NavLink>
+                </li>
+                <li>
                     <NavLink to='/button'>Button</NavLink>
                 </li>
                 <li>
@@ -34,7 +37,7 @@ export const Sidebar = () => {
                     <NavLink to='/radio'>Radio</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/use-form'>useForm</NavLink>
+                    <NavLink to='/form'>Form</NavLink>
                 </li>
                 <li>
                     <NavLink to='/paragraph'>Paragraph</NavLink>

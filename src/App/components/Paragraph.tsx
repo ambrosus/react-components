@@ -2,21 +2,14 @@
  * Copyright 2018 Ambrosus Inc.
  * Email: tech@ambrosus.com
  */
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Paragraph } from '../../components';
-
-declare let Prism: any;
+import Table from '../Table';
+import Prism from 'prismjs';
 
 import '../App.scss';
 
-export const _Paragraph = () => {
-    return (
-        <section>
-            <h2>Paragraph</h2>
-            <pre className='language-tsx'>
-                <code dangerouslySetInnerHTML={{
-                    __html: Prism.highlight(`
-import React from 'react';
+const example = `import React from 'react';
 import { Paragraph } from '@ambrosus/react';
 
 ...
@@ -27,9 +20,36 @@ return (
     <Paragraph content='Here some <b>html content</b>.' />
     <Paragraph light style={{ padding: '30px', background: '#333' }}>I have a light theme</Paragraph>
   </>
-);
-            `, Prism.languages.tsx),
-                }}></code>
+);`;
+
+export const _Paragraph = () => {
+
+    useEffect(() => {
+        Prism.highlightAll();
+    });
+
+    return (
+        <section>
+            <h2>Paragraph</h2>
+
+            {/* Props */}
+            <h3 className='subtitle'>Props</h3>
+            <Table
+                head={['Prop', 'Type', 'Description']}
+                body={[
+                    ['id', 'string', 'Id Attribute to assign to input'],
+                    ['className', 'string', 'Class(es) to be applied to the component'],
+                    ['light', 'boolean', 'Light theme'],
+                    ['content', 'HTML string | string', 'Paragraph content'],
+                    ['children', 'ReactNode', 'Children'],
+                ]}
+            />
+
+            <h3 className='subtitle'>Example</h3>
+            <pre className='lang-jsx'>
+                <code className='line-numbers'>
+                    {example}
+                </code>
             </pre>
 
             <div className='examples'>
@@ -38,6 +58,6 @@ return (
                 <Paragraph light style={{ padding: '30px', background: '#333' }}>I have a light theme</Paragraph>
             </div>
 
-        </section>
+        </section >
     );
 };

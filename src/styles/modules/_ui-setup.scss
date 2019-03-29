@@ -123,17 +123,6 @@ span {
   word-wrap: break-word;
 }
 
-.subtitle {
-  @extend h5;
-  color: $black;
-}
-
-.meta {
-  @extend p;
-  font-size: 11px;
-  color: $grey;
-}
-
 hr {
   box-sizing: content-box;
   height: 1px;
