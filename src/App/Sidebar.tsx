@@ -16,6 +16,9 @@ export const Sidebar = () => {
                     <NavLink to='/' exact>Home</NavLink>
                 </li>
                 <li>
+                    <NavLink to='/accordion'>Accordion</NavLink>
+                </li>
+                <li>
                     <NavLink to='/button'>Button</NavLink>
                 </li>
                 <li>

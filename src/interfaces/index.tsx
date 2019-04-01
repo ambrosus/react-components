@@ -15,3 +15,4 @@ export * from './calendar-input.interface';
 export * from './paragraph.interface';
 export * from './currency.interface';
 export * from './number.interface';
+export * from './accordion.interface';
