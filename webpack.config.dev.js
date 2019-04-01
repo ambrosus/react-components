@@ -19,6 +19,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './src/assets', to: 'assets' },
       { from: './public/404.html', to: '' },
+      { from: './CNAME', to: '' },
     ]),
   ],
   module: {
