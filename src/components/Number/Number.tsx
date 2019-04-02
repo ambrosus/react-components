@@ -1,5 +1,6 @@
 import React from 'react';
 import { INumber } from '../../interfaces';
+import clsx from 'clsx';
 
 import './Number.scss';
 import { numWithCommas } from '../utils';
@@ -8,10 +9,7 @@ const _Number = (props: INumber) => {
 
     const { className, value: _value, fixed, delimiter, ...otherProps } = props;
 
-    const classes = [
-        'AMB-Number',
-        className || '',
-    ].join(' ').trim();
+    const classes = clsx('AMB-Number', className);
 
     let [value, decimals]: any = String(_value).split('.');
     value = numWithCommas(value, delimiter && delimiter.thousands || ',');

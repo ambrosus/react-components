@@ -4,6 +4,7 @@
  */
 import React, { useState, useRef, useEffect } from 'react';
 import { SVG } from '../../utils';
+import clsx from 'clsx';
 
 import './Input.scss';
 import { IInput } from '../../../interfaces';
@@ -45,17 +46,14 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
         }
     };
 
-    const classes: any = [
+    const classes = clsx(
         'AMB-Input',
-        `${light && 'light' || ''}`,
-        `${disabled && 'disabled' || ''}`,
-        `${touched && !error && 'valid' || ''}`,
-        `${className || ''}`.trim(),
-    ].filter(Boolean);
-
-    if (error && touched) {
-        classes.push('error');
-    }
+        light && 'light',
+        disabled && 'disabled',
+        touched && !error && 'valid',
+        error && touched && 'error',
+        className
+    );
 
     const _value = children && children.toString() || value;
 
@@ -66,7 +64,7 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
     };
 
     return (
-        <label className={classes.join(' ').trim()} {...otherProps} ref={ref}>
+        <label className={classes} {...otherProps} ref={ref}>
             {label && <span className='title'>{label}</span>}
             <div className='input'>
                 <input

@@ -5,6 +5,7 @@
 import React, { useState, useRef } from 'react';
 import { formatDate } from '../../utils';
 import Calendar from 'react-calendar';
+import clsx from 'clsx';
 
 import './CalendarInput.scss';
 import { ICalendarInput } from '../../../interfaces';

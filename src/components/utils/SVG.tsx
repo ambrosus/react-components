@@ -6,14 +6,14 @@ If a copy of the MPL was not distributed with this file, You can obtain one at h
 This Source Code Form is “Incompatible With Secondary Licenses”, as defined by the Mozilla Public License, v. 2.0.
 */
 import React from 'react';
-import { ISVG } from '../../../interfaces';
+import { ISVG } from '../../interfaces';
 
 const SVG = (props: ISVG) => {
-  const { src, ...otherProps } = props;
+    const { src, ...otherProps } = props;
 
-  const Wrapper = props.wrapper || 'span';
+    const Wrapper = props.wrapper || 'span';
 
-  return <Wrapper {...otherProps} dangerouslySetInnerHTML={{ __html: src }}></Wrapper>;
+    return <Wrapper {...otherProps} dangerouslySetInnerHTML={{ __html: src }}></Wrapper>;
 };
 
 export default SVG;

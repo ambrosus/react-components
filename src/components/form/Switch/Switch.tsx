@@ -3,6 +3,7 @@
  * Email: tech@ambrosus.com
  */
 import React from 'react';
+import clsx from 'clsx';
 
 import './Switch.scss';
 import { ICheckbox } from '../../../interfaces';
@@ -10,15 +11,15 @@ import { ICheckbox } from '../../../interfaces';
 const Switch = (props: ICheckbox) => {
     const { label, className, value, name, checked, disabled, onChange, children, light, ...otherProps } = props;
 
-    const classes: any = [
+    const classes = clsx(
         'AMB-Switch',
-        `${light && 'light' || ''}`,
-        `${disabled && 'disabled' || ''}`,
-        `${className || ''}`.trim(),
-    ].filter(Boolean);
+        light && 'light',
+        disabled && 'disabled',
+        className
+    );
 
     return (
-        <div className={classes.join(' ').trim()} {...otherProps}>
+        <div className={classes} {...otherProps}>
             <label>
                 <div className='checkbox'>
                     <input

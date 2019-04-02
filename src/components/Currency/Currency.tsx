@@ -1,5 +1,6 @@
 import React from 'react';
 import { ICurrency } from '../../interfaces';
+import clsx from 'clsx';
 
 import './Currency.scss';
 import { Number } from '../';
@@ -8,10 +9,7 @@ const Currency = (props: ICurrency) => {
 
     const { className, symbol, value, fixed, side, delimiter, ...otherProps } = props;
 
-    const classes = [
-        'AMB-Currency',
-        className || '',
-    ].join(' ').trim();
+    const classes = clsx('AMB-Currency', className);
 
     const _symbol = symbol || '$';
 

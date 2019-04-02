@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SVG from '../utils/SVG';
 import { ISidemenu } from '../../interfaces';
+import clsx from 'clsx';
 
 import './Sidemenu.scss';
 
@@ -65,17 +66,17 @@ export default class Sidemenu extends Component<ISidemenu, any> {
             document.body.style.removeProperty('overflow');
         }
 
-        const classes = [
+        const classes = clsx(
             'AMB-Sidemenu',
-            `${open ? 'open' : ''}`,
-        ].filter(Boolean);
+            open && 'open'
+        );
 
         const icon = this.props.hasOwnProperty('icon') ? this.props.icon : true;
 
         return <>
             {icon && <SVG className='AMB-Sidemenu__icon' onClick={this.onOpen} src={this.props.iconSrc || iconBurger} />}
             {open && ReactDOM.createPortal(
-                <div className={classes.join(' ').trim()}>
+                <div className={classes}>
                     <aside>
                         {this.props.header && <header>{this.props.header}</header>}
                         <main>{this.props.children}</main>

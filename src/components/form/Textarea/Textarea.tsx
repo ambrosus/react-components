@@ -4,6 +4,7 @@
  */
 import React, { useState, useCallback, useRef } from 'react';
 import { SVG } from '../../utils';
+import clsx from 'clsx';
 
 import './Textarea.scss';
 import { ITextarea } from '../../../interfaces';
@@ -19,17 +20,14 @@ function Textarea(props: ITextarea) {
 
     const { label, check, className, name, value, onChange, children, error, disabled, light, info, ...otherProps }: any = props;
 
-    const classes: any = [
+    const classes = clsx(
         'AMB-Textarea',
-        `${light && 'light' || ''}`,
-        `${disabled && 'disabled' || ''}`,
-        `${touched && !error && 'valid' || ''}`,
-        `${className || ''}`.trim(),
-    ].filter(Boolean);
-
-    if (error && touched) {
-        classes.push('error');
-    }
+        light && 'light',
+        disabled && 'disabled',
+        touched && !error && 'valid',
+        error && touched && 'error',
+        className
+    );
 
     const _value = children && children.toString() || value;
 
@@ -39,7 +37,7 @@ function Textarea(props: ITextarea) {
     };
 
     return (
-        <label className={classes.join(' ').trim()} {...otherProps}>
+        <label className={classes} {...otherProps}>
             <div className='title'>
                 <span>{label}</span>
                 {(meta.info || meta.check) && <div className='meta'>
