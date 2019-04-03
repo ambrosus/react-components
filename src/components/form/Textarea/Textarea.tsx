@@ -8,8 +8,8 @@ import { SVG } from '../../utils';
 import './Textarea.scss';
 import { ITextarea } from '../../../interfaces';
 
-import iconSuccess from '../../../assets/svg/success.svg';
-import iconInfo from '../../../assets/svg/info.svg';
+import iconSuccess from '../../assets/svg/success.svg';
+import iconInfo from '../../assets/svg/info.svg';
 
 function Textarea(props: ITextarea) {
     const [touched, setTouched] = useState(false);

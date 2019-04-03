@@ -8,7 +8,7 @@ import { SVG } from '../../utils';
 import './Checkbox.scss';
 import { ICheckbox } from '../../../interfaces';
 
-import iconSuccess from '../../../assets/svg/success.svg';
+import iconSuccess from '../../assets/svg/success.svg';
 
 const Checkbox = (props: ICheckbox) => {
     const { label, className, value, disabled, checked, onChange, children, light, name, ...otherProps } = props;

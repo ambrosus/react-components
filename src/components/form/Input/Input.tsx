@@ -8,10 +8,10 @@ import { SVG } from '../../utils';
 import './Input.scss';
 import { IInput } from '../../../interfaces';
 
-import iconSuccess from '../../../assets/svg/success.svg';
-import iconInfo from '../../../assets/svg/info.svg';
-import iconEyeOpen from '../../../assets/svg/eye_open.svg';
-import iconEyeClose from '../../../assets/svg/eye_close.svg';
+import iconSuccess from '../../assets/svg/success.svg';
+import iconInfo from '../../assets/svg/info.svg';
+import iconEyeOpen from '../../assets/svg/eye_open.svg';
+import iconEyeClose from '../../assets/svg/eye_close.svg';
 
 const Input = React.forwardRef((props: IInput, ref: any) => {
     const [type, setType] = useState('text');

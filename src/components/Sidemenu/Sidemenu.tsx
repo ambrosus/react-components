@@ -13,8 +13,8 @@ import { ISidemenu } from '../../interfaces';
 
 import './Sidemenu.scss';
 
-import iconCross from '../../assets/svg/cross.svg';
-import iconBurger from '../../assets/svg/burger.svg';
+import iconCross from '../assets/svg/cross.svg';
+import iconBurger from '../assets/svg/burger.svg';
 
 const root = document.getElementById('root');
 

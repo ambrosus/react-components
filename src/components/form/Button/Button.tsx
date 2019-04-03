@@ -4,7 +4,7 @@
  */
 import * as React from 'react';
 import { SVG } from '../../utils';
-import iconSpinner from '../../../assets/svg/spinner.svg';
+import iconSpinner from '../../assets/svg/spinner.svg';
 
 import './Button.scss';
 import { IButton } from '../../../interfaces';
