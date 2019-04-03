@@ -8,6 +8,7 @@ import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 import sass from 'rollup-plugin-sass';
 import svg from 'rollup-plugin-svg';
 import postcss from 'rollup-plugin-postcss'
+import copy from 'rollup-plugin-copy';
 
 const input = './src/components';
 const globals = {
@@ -56,6 +57,9 @@ export default [
             commonjs(commonjsOptions),
             nodeGlobals(), // Wait for https://github.com/cssinjs/jss/pull/893
             replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+            copy({
+                './index.d.ts': './build/index.d.ts'
+            })
         ],
     },
     {
@@ -80,6 +84,9 @@ export default [
             replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
             sizeSnapshot({ snapshotPath: 'size-snapshot.json' }),
             uglify(),
+            copy({
+                './index.d.ts': './build/index.d.ts'
+            })
         ],
     },
 ];

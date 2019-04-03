@@ -1,0 +1,349 @@
+/**
+ * Copyright 2018 Ambrosus Inc.
+ * Email: tech@ambrosus.com
+ */
+.form {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+
+  > div {
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+
+      > * + * {
+        margin: 15px 0 0 0;
+      }
+
+      @include breakpoint-min(768) {
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0;
+
+        > * + * {
+          margin: 0 0 0 15px;
+        }
+      }
+    }
+  }
+
+  section {
+    padding: 40px;
+  }
+
+  .title-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    ul {
+      li {
+        display: inline-block;
+        color: $blue;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .group {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(767) {
+      label {
+        width: 100% !important;
+      }
+    }
+
+    @include breakpoint-min(768) {
+      flex-direction: row;
+
+      > * {
+        margin-right: 24px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  label {
+    text-align: left;
+    display: block;
+    width: 100%;
+    user-select: none;
+    position: relative;
+    color: $grey;
+    margin-bottom: 25px;
+
+    .clear {
+      text-transform: capitalize;
+      font-weight: 400;
+      display: inline-block;
+      margin-left: 10px;
+      color: $light-blue;
+      cursor: pointer;
+    }
+
+    > span:first-child {
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 1.15;
+    }
+
+    input:not([type='checkbox']),
+    .input,
+    textarea {
+      margin-top: 10px;
+    }
+
+    .remove {
+      font-size: 20px;
+      font-weight: 300;
+      color: $grey;
+      position: absolute;
+      right: -25px;
+      top: 32px;
+    }
+
+    &.error {
+      color: $dark-red;
+
+      input:not([type='checkbox']),
+      .input,
+      textarea {
+        border-color: $dark-red !important;
+      }
+
+      .message {
+        font-size: 11px;
+        margin-top: 10px;
+        color: inherit;
+        text-transform: none;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &:after {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 14px;
+      width: 12px;
+      height: 12px;
+      content: '';
+      background-image: url('/assets/svg/success.svg');
+      background-size: contain;
+    }
+
+    &.valid {
+      &:after {
+        display: inline-block;
+      }
+
+      &.no-sign {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    .show-password {
+      display: inline-block;
+      position: absolute;
+      top: 36px;
+      right: 14px;
+      color: $grey;
+    }
+
+    .info {
+      display: inline-block;
+      position: absolute;
+      top: 36px;
+      right: 14px;
+      color: $grey;
+      width: 16px;
+      height: 16px;
+
+      .message {
+        display: none;
+        position: absolute;
+        bottom: calc(100% + 12px);
+        width: 135px;
+        left: calc(100% - 75px);
+        padding: 8px;
+        border-radius: 4px;
+        background: #fafafa;
+        font-size: 11px;
+        line-height: 1.2;
+        color: $black;
+        text-transform: none;
+
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: -3px;
+          left: calc(100% - 75px);
+          width: 0;
+          height: 0;
+          border: 7px solid #fafafa;
+          background: #fafafa;
+          transform: rotate(45deg);
+        }
+      }
+
+      &:hover {
+        svg {
+          fill: $light-blue;
+        }
+
+        .message {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  input:not([type='checkbox']),
+  .input,
+  textarea {
+    font-family: 'Rubiko', sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    border: 1px solid $grey;
+    color: $black;
+    font-size: 13px;
+    line-height: 1.15;
+    text-align: left;
+    text-overflow: ellipsis;
+    transition: all 0.2s;
+    padding: 12px 16px;
+    padding-right: 25px;
+    background-color: #fff;
+
+    &::placeholder {
+      color: $grey;
+    }
+
+    &:focus {
+      color: $black;
+      border-color: $black;
+    }
+  }
+
+  textarea {
+    min-height: 42px;
+  }
+
+  .custom_checkbox {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+
+    &__icon {
+      width: 22px;
+      height: 22px;
+      border: 2px solid $black;
+      display: inline-block;
+      position: relative;
+      border-radius: 6px;
+      top: 7px;
+      margin-right: 15px;
+      margin-left: 7px;
+
+      &:after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: absolute;
+        left: 4px;
+        top: 5px;
+        background-image: url('/assets/svg/success.svg');
+        background-size: 11px;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.2s;
+      }
+    }
+
+    &:checked {
+      + .custom_checkbox__icon {
+        &:after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    border: 1px solid $grey;
+    padding: 6px 7px;
+    margin-top: 10px;
+
+    input {
+      border: 0;
+      border-radius: 0;
+      margin: 0 !important;
+      padding: 7px 5px;
+      display: inline-block;
+      width: auto;
+      flex: 1 1 auto;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 4px;
+      padding: 3px 7px 3px;
+      padding-right: 20px;
+      color: #fff;
+      background-color: $light-blue;
+      border-radius: 2px;
+      position: relative;
+
+      .remove {
+        color: #fff;
+        position: absolute;
+        top: 4px;
+        right: 5px;
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    background-color: rgb(250, 255, 189) !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+  }
+
+  [disabled] + * {
+    opacity: 0.25;
+  }
+}
