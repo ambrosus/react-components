@@ -1,0 +1,7 @@
+{
+  "build/umd/ambrosus-react.production.min.js": {
+    "bundled": 241979,
+    "minified": 117242,
+    "gzipped": 24984
+  }
+}

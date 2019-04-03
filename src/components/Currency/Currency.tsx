@@ -2,7 +2,7 @@ import React from 'react';
 import { ICurrency } from '../../interfaces';
 
 import './Currency.scss';
-import { Number } from '../';
+import Number from '../Number';
 
 const Currency = (props: ICurrency) => {
 

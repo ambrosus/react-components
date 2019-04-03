@@ -7,4 +7,4 @@ This Source Code Form is “Incompatible With Secondary Licenses”, as defined 
 */
 
 export { default as Tabs } from './Tabs';
-export * from './Tab';
+export { default as Tab } from './Tab';

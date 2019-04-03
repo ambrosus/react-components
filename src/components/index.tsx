@@ -4,8 +4,8 @@
  */
 export * from './form';
 export * from './utils';
-export * from './Sidemenu';
+export { default as Sidemenu } from './Sidemenu';
 export * from './Tabs';
-export * from './Paragraph';
-export * from './Number';
-export * from './Currency';
+export { default as Paragraph } from './Paragraph';
+export { default as Number } from './Number';
+export { default as Currency } from './Currency';

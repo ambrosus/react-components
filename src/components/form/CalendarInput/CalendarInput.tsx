@@ -9,7 +9,7 @@ import Calendar from 'react-calendar';
 import './CalendarInput.scss';
 import { ICalendarInput } from '../../../interfaces';
 
-import { Input } from '../';
+import Input from '../Input';
 
 function CalendarInput(props: ICalendarInput) {
     const [calendar, setCalendar] = useState(false);
