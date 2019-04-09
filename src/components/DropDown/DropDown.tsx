@@ -243,7 +243,7 @@ export default class DropDown extends Component<IDropDown, any> {
         return (
             <>
                 {
-                    <span className={'item'} onClick={this.toggleOpen} ref={r => this.item = r}>
+                    <span className={'AMB-DropDown-item'} onClick={this.toggleOpen} ref={r => this.item = r}>
                         {component || label || _icon && <SVG src={_icon} />}
                     </span>
                 }
@@ -301,8 +301,8 @@ export default class DropDown extends Component<IDropDown, any> {
                         }
                     </nav>
                     {this.state.mobile && <>
-                        <div className={clsx('overlay', this.state.class)} onClick={this.onClose}></div>
-                        <div className={clsx('cancel', this.state.class)} onClick={this.onClose}>Cancel</div>
+                        <div className={clsx('AMB-DropDown-overlay', this.state.class)} onClick={this.onClose}></div>
+                        <div className={clsx('AMB-DropDown-cancel', this.state.class)} onClick={this.onClose}>Cancel</div>
                     </>}
                 </>, modalRoot)}
             </>
