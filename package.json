@@ -1,12 +1,12 @@
 {
   "name": "@ambrosus/react",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Reusable react components for Ambrosus front-end apps.",
   "homepage": "http://ambrosus.github.io/react-components",
   "main": "./dist/index.js",
   "private": false,
   "author": "Ambrosus",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ambrosus/react-components.git"
