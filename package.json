@@ -18,11 +18,12 @@
     "lint": "tslint -c tslint.json --project tsconfig.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "clsx": "^1.0.3",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.16.0",
-    "react": "^16.8.5",
+    "react": "^16.8.6",
     "react-calendar": "^2.18.1",
-    "react-dom": "^16.8.5",
+    "react-dom": "^16.8.6",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.3",

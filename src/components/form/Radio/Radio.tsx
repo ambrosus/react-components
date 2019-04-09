@@ -3,6 +3,7 @@
  * Email: tech@ambrosus.com
  */
 import React from 'react';
+import clsx from 'clsx';
 
 import './Radio.scss';
 import { IRadio } from '../../../interfaces';
@@ -10,15 +11,15 @@ import { IRadio } from '../../../interfaces';
 const Radio = (props: IRadio) => {
     const { className, name, checked, light, onChange, value, label, children, disabled, ...otherProps } = props;
 
-    const classes: any = [
+    const classes = clsx(
         'AMB-Radio',
-        `${className || ''}`.trim(),
-        `${light && 'light' || ''}`,
-        `${disabled && 'disabled' || ''}`,
-    ].filter(Boolean);
+        light && 'light',
+        disabled && 'disabled',
+        className
+    );
 
     return (
-        <label className={classes.join(' ').trim()} {...otherProps}>
+        <label className={classes} {...otherProps}>
             <input type='radio' name={name} value={value} onChange={onChange} disabled={disabled} />
             <div className='radio'></div>
             <span className='label'>{children || label || value}</span>

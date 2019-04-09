@@ -2,7 +2,6 @@ const path = require('path');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CreateFileWebpack = require('create-file-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -12,11 +11,6 @@ module.exports = {
   plugins: [
     new CaseSensitivePathsPlugin(),
     new CleanWebpackPlugin('./dist'),
-    new CreateFileWebpack({
-      path: './',
-      fileName: 'README.MD',
-      content
-    }),
     new CopyWebpackPlugin([
       { from: './src/assets', to: 'assets' }
     ]),
@@ -33,6 +27,13 @@ module.exports = {
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
         ],
       },
       {
@@ -78,5 +79,7 @@ module.exports = {
   },
   externals: {
     "react": "react",
+    "react-dom": "ReactDOM",
+    "react-router-dom": "react-router-dom"
   },
 };

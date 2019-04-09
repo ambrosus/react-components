@@ -7,6 +7,7 @@ This Source Code Form is “Incompatible With Secondary Licenses”, as defined 
 */
 import React from 'react';
 import { IParagraph } from '../../interfaces';
+import clsx from 'clsx';
 
 import './Paragraph.scss';
 
@@ -14,11 +15,11 @@ const Paragraph = (props: IParagraph) => {
 
     const { className, content, children, light, ...otherProps } = props;
 
-    const classes = [
+    const classes = clsx(
         'AMB-Paragraph',
-        className || '',
-        light && 'light' || '',
-    ].join(' ').trim();
+        className,
+        light && 'light'
+    );
 
     const innerHTML = content && { __html: content } || undefined;
 
