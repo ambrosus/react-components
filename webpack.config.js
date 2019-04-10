@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: function({ realResource }) {
+        use: function ({ realResource }) {
           const loaders = [];
 
           let ext = realResource.split('.');
@@ -79,7 +79,7 @@ module.exports = {
   },
   externals: {
     "react": "react",
-    "react-dom": "ReactDOM",
+    "react-dom": "react-dom",
     "react-router-dom": "react-router-dom"
   },
 };
