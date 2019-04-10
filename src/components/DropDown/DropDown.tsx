@@ -33,13 +33,24 @@ export default class DropDown extends Component<IDropDown, any> {
         return nextProps.open !== false;
     }
 
+    public componentWillUnmount() {
+        clearTimeout(this.exitTimeout);
+        enableScroll(this.freezeScroll, true);
+        window.removeEventListener('click', this.handleClickOutside);
+        window.removeEventListener('resize', this.resize);
+    }
+
     public calculateStyles = () => {
         const { open } = this.props;
         const mobile = window.innerWidth <= 1024;
         const style: any = {};
 
-        if (open || this.state.open) {
-            const { height: navHeight, width: navWidth, x: navX, y: navY } = this.nav.getBoundingClientRect();
+        if (
+            (open || this.state.open) &&
+            (this.nav && this.nav.getBoundingClientRect) &&
+            (this.item && this.item.getBoundingClientRect)
+        ) {
+            const { height: navHeight, width: navWidth } = this.nav.getBoundingClientRect();
             const { height, y, width, x } = this.item.getBoundingClientRect();
             const offset = 7;
 
@@ -104,6 +115,12 @@ export default class DropDown extends Component<IDropDown, any> {
                     style.bottom = 0;
                 }
             }
+
+            style.top = style.top < 0 ? 0 : style.top;
+
+            if (window.innerHeight < navHeight) {
+                style.bottom = 0;
+            }
         }
 
         if (
@@ -129,7 +146,7 @@ export default class DropDown extends Component<IDropDown, any> {
         const o = open || this.state.open;
 
         try {
-            if (o && !this.nav.contains(event.target) && !this.item.contains(event.target)) {
+            if (o && this.nav && !this.nav.contains(event.target) && this.item && !this.item.contains(event.target)) {
                 this.onClose();
             }
             // tslint:disable-next-line:no-empty
@@ -186,10 +203,11 @@ export default class DropDown extends Component<IDropDown, any> {
 
     private freezeScroll = (event: any) => {
         if (this.mouseIn) {
-            const curScrollPos = this.menu.scrollTop;
+            const curScrollPos = this.menu && this.menu.scrollTop;
             const dY = event.deltaY;
 
             if (
+                (curScrollPos && dY) &&
                 (dY > 0 && curScrollPos >= this.scrollableDist) ||
                 (dY < 0 && curScrollPos <= 0)
             ) {
