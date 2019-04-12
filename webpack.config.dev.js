@@ -87,7 +87,9 @@ module.exports = {
     compress: true,
     port: 9000,
     progress: true,
-    publicPath: '/'
+    publicPath: '/',
+    open: true,
+    historyApiFallback: true,
   }
 };
 

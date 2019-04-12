@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput, _Paragraph, _Currency, _Number, _useForm, _Home, _DropDown } from './components';
+import { _Button, _Checkbox, _Input, _Radio, _Sidemenu, _Switch, _Tabs, _Textarea, _CalendarInput, _Paragraph, _Currency, _Number, _useForm, _Home, _DropDown, _GradientText } from './components';
 
 const Router = () => (
     <Switch>
@@ -19,6 +19,7 @@ const Router = () => (
         <Route exact path='/switch' component={_Switch} />
         <Route exact path='/tabs' component={_Tabs} />
         <Route exact path='/textarea' component={_Textarea} />
+        <Route exact path='/gradient-text' component={_GradientText} />
         <Redirect from='*' to='/' />
     </Switch >
 );
