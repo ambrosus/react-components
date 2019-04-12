@@ -14,7 +14,7 @@ return (
     <>
         <GradientText colors={['#00B7F9', '#0042BA', '#5B1EC0']} fontWeight={700} size={40}>React Components</GradientText>
         <GradientText colors={['#FF5447', '#5B1EC0']} size={55} fontWeight={100}>React Component</GradientText>
-        <GradientText vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component'/>
+        <GradientText fontWeight={100} vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component'/>
     </>
 );`;
 
@@ -53,9 +53,8 @@ export const _GradientText = () => {
             <div className='examples'>
                 <GradientText colors={['#00B7F9', '#0042BA', '#5B1EC0']} fontWeight={700} size={40}>React Components</GradientText>
                 <GradientText colors={['#FF5447', '#5B1EC0']} size={55} fontWeight={100}>React Component</GradientText>
-                <GradientText vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component' />
+                <GradientText fontWeight={100} vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component' />
             </div>
-
         </section >
     );
 };
