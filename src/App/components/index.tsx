@@ -13,3 +13,4 @@ export * from './Currency';
 export * from './useForm';
 export * from './Home';
 export * from './DropDown';
+export * from './GradientText';

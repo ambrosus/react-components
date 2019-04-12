@@ -1,4 +1,4 @@
-import { IButton, IInput, ISVG, ITextarea, ICheckbox, ITabs, ITab, ISidemenu, ICalendarInput, IParagraph, ICurrency, INumber, IDropDown } from './src/interfaces';
+import { IButton, IInput, ISVG, ITextarea, ICheckbox, ITabs, ITab, ISidemenu, ICalendarInput, IParagraph, ICurrency, INumber, IDropDown, IGradientText } from './src/interfaces';
 
 export function SVG(props: ISVG): any;
 export function Button(props: IButton): any;
@@ -16,3 +16,4 @@ export function Number(props: INumber): any;
 export function useForm(validate: (values: object) => object): any;
 export function validate(value: any, type: any, required?: boolean, options?: {}): string;
 export function DropDown(props: IDropDown): any;
+export function GradientText(props: IGradientText): any;

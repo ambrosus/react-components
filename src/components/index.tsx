@@ -10,3 +10,4 @@ export * from './Paragraph';
 export * from './Number';
 export * from './Currency';
 export * from './DropDown';
+export * from './GradientText';

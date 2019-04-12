@@ -57,6 +57,9 @@ export const Sidebar = () => {
                 <li>
                     <NavLink to='/textarea'>Textarea</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/gradient-text'>Gradient Text</NavLink>
+                </li>
             </ul>
         </aside>
     );

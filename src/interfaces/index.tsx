@@ -16,3 +16,4 @@ export * from './paragraph.interface';
 export * from './currency.interface';
 export * from './number.interface';
 export * from './dropDown.interface';
+export * from './gradient-text.interface';
