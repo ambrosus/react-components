@@ -12,14 +12,14 @@ import { Button } from '@ambrosus/react';
 
 return (
     <>
-        <GradientText  colors={['#00B7F9', '#0042BA', '#5B1EC0'] size={40}}>React Components</GradientText>
-        <GradientText colors={['#FF5B99', '#5B1EC0']} size={55}>React Component</GradientText>
-        <GradientText colors={['#000', '#ddd']} size={20} fontWeight={700}>React Component</GradientText>
-        <GradientText vertical colors={['#00B7F9', '#0042BA', '#5B1EC0'] size={40}} value='React Component' />
+        <GradientText colors={['#00B7F9', '#0042BA', '#5B1EC0']} fontWeight={700} size={40}>React Components</GradientText>
+        <GradientText colors={['#FF5447', '#5B1EC0']} size={55} fontWeight={100}>React Component</GradientText>
+        <GradientText vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component'/>
     </>
 );`;
 
 export const _GradientText = () => {
+
     useEffect(() => {
         Prism.highlightAll();
     });
@@ -51,9 +51,8 @@ export const _GradientText = () => {
             </pre>
 
             <div className='examples'>
-                <GradientText colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40}>React Components</GradientText>
-                <GradientText colors={['#FF5447', '#5B1EC0']} size={55}>React Component</GradientText>
-                <GradientText colors={['#000', '#ddd']} size={48} fontWeight={700}>React Component</GradientText>
+                <GradientText colors={['#00B7F9', '#0042BA', '#5B1EC0']} fontWeight={700} size={40}>React Components</GradientText>
+                <GradientText colors={['#FF5447', '#5B1EC0']} size={55} fontWeight={100}>React Component</GradientText>
                 <GradientText vertical={true} colors={['#00B7F9', '#0042BA', '#5B1EC0']} size={40} value='React Component' />
             </div>
 

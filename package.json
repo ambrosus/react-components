@@ -1,6 +1,6 @@
 {
   "name": "@ambrosus/react",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "Reusable react components for Ambrosus front-end apps.",
   "homepage": "http://ambrosus.github.io/react-components",
   "main": "./dist/index.js",
