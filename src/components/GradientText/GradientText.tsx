@@ -3,15 +3,13 @@ import clsx from 'clsx';
 import { IGradientText } from '../../interfaces/gradient-text.interface';
 import './GradientText.scss';
 
-const GradientText: SFC<IGradientText> = ({ fontWeight = 400, size, vertical = false, colors, className = '', children, value }) => {
+const GradientText: SFC<IGradientText> = ({ fontWeight = 400, size = 20, vertical = false, colors, className = '', children, value }) => {
     const text = useRef<SVGTextElement>(null);
     const svgWrapper = useRef<any>(null);
     useEffect(() => {
         text.current!.style.fontSize = `${size}px`;
         text.current!.style.fontWeight = fontWeight.toString();
-        if (!vertical) {
-            text.current!.style.transform = `translateY(${size}px)`;
-        }
+
         const bbox = text.current!.getBBox();
         svgWrapper.current!.style.width = bbox.width;
         svgWrapper.current!.style.height = bbox.height;
@@ -33,7 +31,7 @@ const GradientText: SFC<IGradientText> = ({ fontWeight = 400, size, vertical = f
                         }
                     </linearGradient>
                 </defs>
-                <text ref={text} width='100' height='100' x='0' y={vertical ? '70%' : '0'} fill={`url(#${colors.join('')}-${vertical})`}>
+                <text ref={text} width='100' height='100' x='0' y={size} fill={`url(#${colors.join('')}-${vertical})`}>
                     {children || value}
                 </text>
             </svg>
