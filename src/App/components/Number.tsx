@@ -16,11 +16,14 @@ import { Number } from '@ambrosus/react';
 
 return (
   <>
-    <Number style={{ color: '#4f299b', fontSize: '22px' }} value='1000.25' />
     <Number value='100.123' fixed={0} />
-    <Number value='100' side='left' fixed={1} />
-    <Number value='100.000000001' fixed={false} />
+    <Number value='100.999' fixed={0} />
+    <Number value='100' fixed={1} />
+    <Number value='1e-18' fixed={2} />
+    <Number value='750.999966058' fixed={2} />
+    <Number value='750.999966058' fixed={5} />
     <Number value='10012341231252123.12345' fixed={3} />
+    <Number value='-10012341231252123.12345' fixed={3} />
   </>
 );`;
 
@@ -64,11 +67,14 @@ export const _Number = () => {
             </pre>
 
             <div className='examples'>
-                <Number style={{ color: '#4f299b', fontSize: '22px' }} value='1000.25' />
                 <Number value='100.123' fixed={0} />
+                <Number value='100.999' fixed={0} />
                 <Number value='100' fixed={1} />
-                <Number value='100.000000001' fixed={false} />
+                <Number value='1e-18' fixed={2} />
+                <Number value='750.999966058' fixed={2} />
+                <Number value='750.999966058' fixed={5} />
                 <Number value='10012341231252123.12345' fixed={3} />
+                <Number value='-10012341231252123.999' fixed={3} />
             </div>
 
         </section >

@@ -5,23 +5,43 @@ import clsx from 'clsx';
 import './Number.scss';
 import { numWithCommas } from '../utils';
 
+function round(input: any, precision: any) {
+    const [number, exponent] = input.toString().split('.');
+
+    if (exponent) {
+        input = `0.${exponent}`;
+    }
+
+    let [unit, mantissa] = `${input}e`.split('e');
+
+    let rounded: any = Math.round(+`${unit}e${Number(mantissa) + precision}`);
+    [unit, mantissa] = `${rounded}e`.split('e');
+
+    rounded = Number(`${unit}e${Number(mantissa) - precision}`);
+
+    if (exponent) {
+        [unit, mantissa] = rounded.toString().split('.');
+        rounded = `${Number(unit) >= 1 ? Number(number) + Number(unit) : number}${precision > 0 ? '.' : ''}${mantissa || Array(precision).fill('0').join('')}`;
+    } else {
+        rounded += `.${Array(precision).fill('0').join('')}`;
+    }
+
+    return rounded;
+}
+
 const _Number = (props: INumber) => {
 
-    const { className, value: _value, fixed, delimiter, ...otherProps } = props;
+    const { className, value, fixed, delimiter, ...otherProps } = props;
+    const number = typeof fixed === 'number' ? round(value, fixed) : value;
 
     const classes = clsx('AMB-Number', className);
-
-    let [value, decimals]: any = String(_value).split('.');
-    value = numWithCommas(value, delimiter && delimiter.thousands || ',');
-    if (fixed !== false && fixed) {
-        decimals = String(Number(`0.${decimals || 0}`).toFixed(fixed || 2)).split('.')[1];
-    }
+    const [unit, mantissa]: any = String(number).split('.');
 
     return (
         <span className={classes} {...otherProps}>
-            <span className='value'>{value}</span>
-            {decimals && fixed !== 0 && <span className='decimals'>
-                {delimiter && delimiter.decimals || '.'}{decimals}
+            <span className='value'>{numWithCommas(unit, delimiter && delimiter.thousands || ',')}</span>
+            {mantissa && fixed !== 0 && <span className='decimals'>
+                {delimiter && delimiter.decimals || '.'}{mantissa}
             </span>}
         </span>
     );
