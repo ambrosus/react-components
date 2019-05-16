@@ -2,7 +2,7 @@
  * Copyright 2018 Ambrosus Inc.
  * Email: tech@ambrosus.com
  */
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CalendarInput } from '../../components';
 import Table from '../Table';
 import Prism from 'prismjs';
@@ -29,6 +29,12 @@ export const _CalendarInput = () => {
     Prism.highlightAll();
   });
 
+  const [value, setValue] = useState('');
+
+  const onChange = (e: any) => {
+    setValue(e);
+  };
+
   return (
     <section>
       <h2>CalendarInput</h2>
@@ -50,6 +56,7 @@ export const _CalendarInput = () => {
           ['error', 'string', 'Error to display'],
           ['info', 'HTML string | string', 'Info box'],
           ['daterange', 'boolean', 'Date range selection'],
+          ['value', 'string', 'Value of the input'],
         ]}
       />
 
@@ -59,17 +66,34 @@ export const _CalendarInput = () => {
       </pre>
 
       <div className='examples'>
-        <CalendarInput label='Default input' />
-        <CalendarInput label='Calendar input with date range' daterange />
+        <CalendarInput
+          value={value}
+          onChange={onChange}
+          label='Default input'
+        />
+        <CalendarInput
+          value={value}
+          onChange={onChange}
+          label='Calendar input with date range'
+          daterange
+        />
         <CalendarInput
           daterange
+          value={value}
           label='Date range with min and max date'
           maxDate={new Date()}
           minDate={new Date('10/10/2018')}
-          onChange={e => console.log(e)}
+          onChange={onChange}
         />
-        <CalendarInput label='Calendar input with light theme' light />
         <CalendarInput
+          value={value}
+          onChange={onChange}
+          label='Calendar input with light theme'
+          light
+        />
+        <CalendarInput
+          value={value}
+          onChange={onChange}
           label='Calendar input with info button'
           info='Some info'
         />

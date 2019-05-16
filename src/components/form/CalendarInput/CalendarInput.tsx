@@ -14,7 +14,6 @@ import { Input } from '../';
 
 function CalendarInput(props: ICalendarInput) {
   const [calendar, setCalendar] = useState(false);
-  const [date, setDate] = useState('');
   const inputRef: any = useRef(null);
   const calendarRef: any = useRef(null);
 
@@ -31,25 +30,31 @@ function CalendarInput(props: ICalendarInput) {
 
   const onChoose = (_date: Date | Date[]) => {
     if (!!daterange) {
-      setDate(
-        `${formatDate(new Date(_date[0].toString()))} - ${formatDate(
-          new Date(_date[1].toString()),
-        )}`,
-      );
+      if (onChange) {
+        onChange(
+          `${formatDate(new Date(_date[0].toString()))} - ${formatDate(
+            new Date(_date[1].toString()),
+          )}`,
+        );
+      }
     } else {
-      setDate(formatDate(new Date(_date.toString())));
+      if (onChange) {
+        onChange(formatDate(new Date(_date.toString())));
+      }
     }
     closeCalendar();
   };
 
   useEffect(() => {
-    if (onChange && date) {
-      onChange(date);
+    if (onChange) {
+      onChange(value);
     }
-  }, [date]);
+  }, [value]);
 
   const _onChange = (event: any) => {
-    setDate(event.target.value);
+    if (onChange) {
+      onChange(event.target.value);
+    }
   };
 
   const handleClickOutsideCalendar = (event: any) => {
@@ -80,7 +85,7 @@ function CalendarInput(props: ICalendarInput) {
     <div className='AMB-CalendarInput'>
       <Input
         {...otherProps}
-        value={date}
+        value={value}
         placeholder={_placeholder}
         onChange={_onChange}
         onClick={() => !otherProps.disabled && openCalendar()}
