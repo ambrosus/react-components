@@ -14,6 +14,7 @@ export interface ICalendarInput extends Element {
   label?: string;
   onChange?: (event: any) => void;
   onBlur?: (event: any) => void;
+  value?: string | number;
   onFocus?: (event: any) => void;
   check?: boolean;
   error?: string;
