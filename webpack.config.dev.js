@@ -45,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: function({ realResource }) {
+        use: function ({ realResource }) {
           const loaders = [];
 
           let ext = realResource.split('.');
@@ -88,7 +88,6 @@ module.exports = {
     port: 9000,
     progress: true,
     publicPath: '/',
-    open: true,
     historyApiFallback: true,
   }
 };
