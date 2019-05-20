@@ -11,3 +11,7 @@ export * from './Number';
 export * from './Currency';
 export * from './DropDown';
 export * from './GradientText';
+export * from './Backdrop';
+export * from './Fade';
+export * from './Grow';
+export * from './Modal';
