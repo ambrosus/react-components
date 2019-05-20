@@ -11,8 +11,8 @@ import { ICheckbox } from '../../../interfaces';
 
 import iconSuccess from '../../../assets/svg/success.svg';
 
-const Checkbox = (props: ICheckbox) => {
-    const { label, className, value, disabled, checked, onChange, children, light, name, ...otherProps } = props;
+const Checkbox = React.forwardRef((props: ICheckbox, ref: any) => {
+    const { label, className, value, disabled, checked, onChange, children, light, name, ...other } = props;
 
     const classes = clsx(
         'AMB-Checkbox',
@@ -22,7 +22,7 @@ const Checkbox = (props: ICheckbox) => {
     );
 
     return (
-        <div className={classes} {...otherProps}>
+        <div className={classes}>
             <label>
                 <div className='checkbox'>
                     <input
@@ -32,6 +32,8 @@ const Checkbox = (props: ICheckbox) => {
                         onChange={onChange}
                         disabled={disabled}
                         name={name}
+                        ref={ref}
+                        {...other}
                     />
                     <SVG className='SVG icon' src={iconSuccess} />
                 </div>
@@ -41,6 +43,6 @@ const Checkbox = (props: ICheckbox) => {
             )}
         </div>
     );
-};
+});
 
 export default Checkbox;
