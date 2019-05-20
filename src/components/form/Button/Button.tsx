@@ -10,8 +10,8 @@ import clsx from 'clsx';
 import './Button.scss';
 import { IButton } from '../../../interfaces';
 
-const Button = (props: IButton) => {
-    const { label, children, icon, loading, className, type, disabled, solid, outline, transparent, primary, secondary, light, ...otherProps } = props;
+const Button = React.forwardRef((props: IButton, ref: any) => {
+    const { label, children, icon, loading, className, type, disabled, solid, outline, transparent, primary, secondary, light, ...other } = props;
 
     const buttonType = [solid && 'solid', outline && 'outline', transparent && 'transparent'].filter(Boolean)[0];
     const color = [primary && 'primary', secondary && 'secondary', light && 'light'].filter(Boolean)[0];
@@ -27,16 +27,18 @@ const Button = (props: IButton) => {
 
     return (
         <button
-            {...otherProps}
+            {...other}
             type={type || 'button'}
             disabled={loading || disabled}
-            className={classes}>
+            className={classes}
+            ref={ref}
+        >
             {icon && <SVG className='icon SVG' src={icon} />}
             {label}
             {children}
             {loading && <SVG className='spinner SVG' src={iconSpinner} />}
         </button>
     );
-};
+});
 
 export default Button;

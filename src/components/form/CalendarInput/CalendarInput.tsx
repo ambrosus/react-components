@@ -12,7 +12,7 @@ import { ICalendarInput } from '../../../interfaces';
 
 import { Input } from '../';
 
-function CalendarInput(props: ICalendarInput) {
+const CalendarInput = React.forwardRef((props: ICalendarInput, ref: any) => {
   const [calendar, setCalendar] = useState(false);
   const inputRef: any = useRef(null);
   const calendarRef: any = useRef(null);
@@ -25,16 +25,15 @@ function CalendarInput(props: ICalendarInput) {
     onChange,
     onFocus,
     onBlur,
-    ...otherProps
-  } = props;
+    ...other } = props;
 
   const onChoose = (_date: Date | Date[]) => {
     if (!!daterange) {
       if (onChange) {
         onChange(
           `${formatDate(new Date(_date[0].toString()))} - ${formatDate(
-            new Date(_date[1].toString()),
-          )}`,
+            new Date(_date[1].toString())
+          )}`
         );
       }
     } else {
@@ -84,12 +83,17 @@ function CalendarInput(props: ICalendarInput) {
   return (
     <div className='AMB-CalendarInput'>
       <Input
-        {...otherProps}
+        {...other}
         value={value}
         placeholder={_placeholder}
         onChange={_onChange}
-        onClick={() => !otherProps.disabled && openCalendar()}
-        ref={inputRef}
+        onClick={() => !other.disabled && openCalendar()}
+        ref={r => {
+          inputRef.current = r;
+          if (ref && ref.current) {
+            ref.current = r;
+          }
+        }}
       />
       {calendar && (
         <div className='calendar' ref={calendarRef}>
@@ -103,6 +107,6 @@ function CalendarInput(props: ICalendarInput) {
       )}
     </div>
   );
-}
+});
 
 export default CalendarInput;

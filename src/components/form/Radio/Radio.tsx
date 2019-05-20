@@ -8,8 +8,8 @@ import clsx from 'clsx';
 import './Radio.scss';
 import { IRadio } from '../../../interfaces';
 
-const Radio = (props: IRadio) => {
-    const { className, name, checked, light, onChange, value, label, children, disabled, ...otherProps } = props;
+const Radio = React.forwardRef((props: IRadio, ref: any) => {
+    const { className, name, checked, light, onChange, value, label, children, disabled, ...other } = props;
 
     const classes = clsx(
         'AMB-Radio',
@@ -19,12 +19,12 @@ const Radio = (props: IRadio) => {
     );
 
     return (
-        <label className={classes} {...otherProps}>
-            <input type='radio' name={name} value={value} onChange={onChange} disabled={disabled} />
+        <label className={classes}>
+            <input type='radio' name={name} value={value} onChange={onChange} disabled={disabled} ref={ref} {...other} />
             <div className='radio'></div>
             <span className='label'>{children || label || value}</span>
         </label>
     );
-};
+});
 
 export default Radio;
