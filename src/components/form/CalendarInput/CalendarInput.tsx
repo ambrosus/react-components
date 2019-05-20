@@ -42,8 +42,10 @@ function CalendarInput(props: ICalendarInput) {
     setCalendarValue(_date);
   };
 
-  const onDaySelect = (_date: Date) => {
-    setCalendarValue(_date);
+  const onClickDay = (_date: Date) => {
+    if (!!daterange) {
+      setCalendarValue(_date);
+    }
   };
 
   const _onChange = (event: any) => {
@@ -160,7 +162,7 @@ function CalendarInput(props: ICalendarInput) {
             maxDate={maxDate}
             minDate={minDate}
             onChange={onChoose}
-            onClickDay={onDaySelect}
+            onClickDay={onClickDay}
             selectRange={!!daterange}
             activeStartDate={maxDate}
             value={calendarValue}
