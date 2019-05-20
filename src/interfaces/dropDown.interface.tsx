@@ -25,4 +25,6 @@ export interface IDropDown extends Element {
     open?: boolean;
     menu?: IDropDownMenuItem[];
     maxWidth?: number;
+    transition?: 'Fade' | 'Grow' | 'Zoom';
+    transitionProps?: any;
 }
