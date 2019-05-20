@@ -81,7 +81,7 @@ export const _CalendarInput = () => {
           daterange
           value={value}
           label='Date range with min and max date'
-          maxDate={new Date()}
+          maxDate={new Date('3/3/2019')}
           minDate={new Date('10/10/2018')}
           onChange={onChange}
         />
