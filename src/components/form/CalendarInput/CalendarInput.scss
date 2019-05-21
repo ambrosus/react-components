@@ -18,6 +18,19 @@
   left: 0;
   z-index: 100;
 
+  &-search {
+    background: white;
+    padding: 10px 10px 10px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    &-button {
+      min-width: 80px;
+      font-size: 13px;
+      padding: 8px 30px;
+    }
+  }
+
   abbr[title] {
     text-decoration: none;
   }
