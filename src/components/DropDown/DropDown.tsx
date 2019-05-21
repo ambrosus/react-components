@@ -108,7 +108,7 @@ const DropDown = React.forwardRef((props: IDropDown, ref: any) => {
                 open={open}
                 anchorEl={anchorEl.current}
                 placement='bottom-end'
-                disablePortal={false}
+                disablePortal={true}
                 modifiers={{
                     flip: {
                         enabled: true,
