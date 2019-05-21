@@ -29,10 +29,8 @@ export const _CalendarInput = () => {
     Prism.highlightAll();
   });
 
-  const [value, setValue] = useState('');
-
-  const onChange = (e: any) => {
-    setValue(e);
+  const onClose = (e: any) => {
+    console.log(e);
   };
 
   return (
@@ -67,33 +65,29 @@ export const _CalendarInput = () => {
 
       <div className='examples'>
         <CalendarInput
-          value={value}
-          onChange={onChange}
+          defaultValue={'10/10/2010'}
+          onClose={onClose}
           label='Default input'
         />
         <CalendarInput
-          value={value}
-          onChange={onChange}
+          onClose={onClose}
           label='Calendar input with date range'
           daterange
         />
         <CalendarInput
           daterange
-          value={value}
           label='Date range with min and max date'
           maxDate={new Date('3/3/2019')}
           minDate={new Date('10/10/2018')}
-          onChange={onChange}
+          onClose={onClose}
         />
         <CalendarInput
-          value={value}
-          onChange={onChange}
+          onClose={onClose}
           label='Calendar input with light theme'
           light
         />
         <CalendarInput
-          value={value}
-          onChange={onChange}
+          onClose={onClose}
           label='Calendar input with info button'
           info='Some info'
         />

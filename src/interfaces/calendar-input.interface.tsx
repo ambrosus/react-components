@@ -12,9 +12,8 @@ interface Element extends React.HTMLProps<any> {
 
 export interface ICalendarInput extends Element {
   label?: string;
-  onChange?: (event: any) => void;
   onBlur?: (event: any) => void;
-  value?: string;
+  defaultValue?: string;
   onFocus?: (event: any) => void;
   check?: boolean;
   error?: string;
@@ -23,4 +22,5 @@ export interface ICalendarInput extends Element {
   daterange?: boolean;
   maxDate?: Date;
   minDate?: Date;
+  onClose?: (event: any) => void;
 }
