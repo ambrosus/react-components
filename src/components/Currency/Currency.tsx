@@ -5,21 +5,21 @@ import clsx from 'clsx';
 import './Currency.scss';
 import { Number } from '../';
 
-const Currency = (props: ICurrency) => {
+const Currency = React.forwardRef((props: ICurrency, ref: any) => {
 
-    const { className, symbol, value, fixed, side, delimiter, ...otherProps } = props;
+    const { className, symbol, value, fixed, side, delimiter, ...other } = props;
 
     const classes = clsx('AMB-Currency', className);
 
     const _symbol = symbol || '$';
 
     return (
-        <span className={classes} {...otherProps}>
+        <span className={classes}>
             {side === 'left' && <span className='symbol left'>{_symbol}</span>}
-            <Number value={value} fixed={fixed} delimiter={delimiter} />
+            <Number value={value} fixed={fixed} delimiter={delimiter} ref={ref} {...other} />
             {side !== 'left' && <span className='symbol right'>{_symbol}</span>}
         </span>
     );
-};
+});
 
 export default Currency;

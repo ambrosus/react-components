@@ -19,9 +19,9 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
     const [touched, setTouched] = useState(false);
     const inputRef: any = useRef(null);
 
-    const { label, check, className, value, onChange, onFocus, onBlur, error, disabled, light, info, placeholder, children, name, ...otherProps }: any = props;
+    const { label, check, className, value, onChange, onFocus, onBlur, error, disabled, light, info, placeholder, children, name, ...other }: any = props;
 
-    useEffect(() => setType(otherProps.type || 'text'), []);
+    useEffect(() => setType(other.type || 'text'), []);
 
     const togglePassword = () => {
         setType(type === 'text' ? 'password' : 'text');
@@ -60,15 +60,20 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
     const meta: any = {
         info,
         check: check && touched && !error && !!String(inputRef && inputRef.current && inputRef.current.value).trim(),
-        password: otherProps.type === 'password',
+        password: other.type === 'password',
     };
 
     return (
-        <label className={classes} {...otherProps} ref={ref}>
+        <label className={classes}>
             {label && <span className='title'>{label}</span>}
             <div className='input'>
                 <input
-                    ref={inputRef}
+                    ref={r => {
+                        inputRef.current = r;
+                        if (ref && ref.current) {
+                            ref.current = r;
+                        }
+                    }}
                     type={type}
                     value={_value}
                     onChange={_onChange}
@@ -77,6 +82,7 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
                     placeholder={placeholder}
                     disabled={disabled}
                     name={name}
+                    {...other}
                 />
                 <div className='border'></div>
                 {(meta.info || meta.check || meta.password) && <div className='meta'>

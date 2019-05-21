@@ -11,9 +11,9 @@ import clsx from 'clsx';
 
 import './Paragraph.scss';
 
-const Paragraph = (props: IParagraph) => {
+const Paragraph = React.forwardRef((props: IParagraph, ref: any) => {
 
-    const { className, content, children, light, ...otherProps } = props;
+    const { className, content, children, light, ...other } = props;
 
     const classes = clsx(
         'AMB-Paragraph',
@@ -26,14 +26,14 @@ const Paragraph = (props: IParagraph) => {
     return (
         <>
             {innerHTML && (
-                <p className={classes} {...otherProps} dangerouslySetInnerHTML={innerHTML} />
+                <p className={classes} {...other} dangerouslySetInnerHTML={innerHTML} ref={ref} />
             ) ||
-                <p className={classes} {...otherProps}>
+                <p className={classes} {...other} ref={ref}>
                     {children}
                 </p>
             }
         </>
     );
-};
+});
 
 export default Paragraph;

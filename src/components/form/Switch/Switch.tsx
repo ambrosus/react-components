@@ -8,8 +8,8 @@ import clsx from 'clsx';
 import './Switch.scss';
 import { ICheckbox } from '../../../interfaces';
 
-const Switch = (props: ICheckbox) => {
-    const { label, className, value, name, checked, disabled, onChange, children, light, ...otherProps } = props;
+const Switch = React.forwardRef((props: ICheckbox, ref: any) => {
+    const { label, className, value, name, checked, disabled, onChange, children, light, ...other } = props;
 
     const classes = clsx(
         'AMB-Switch',
@@ -19,7 +19,7 @@ const Switch = (props: ICheckbox) => {
     );
 
     return (
-        <div className={classes} {...otherProps}>
+        <div className={classes}>
             <label>
                 <div className='checkbox'>
                     <input
@@ -29,6 +29,8 @@ const Switch = (props: ICheckbox) => {
                         onChange={onChange}
                         disabled={disabled}
                         name={name}
+                        ref={ref}
+                        {...other}
                     />
                     <div className='switch'></div>
                 </div>
@@ -38,6 +40,6 @@ const Switch = (props: ICheckbox) => {
             )}
         </div>
     );
-};
+});
 
 export default Switch;

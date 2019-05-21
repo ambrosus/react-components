@@ -95,6 +95,7 @@ export const _DropDown = () => {
                     ['open', 'boolean', 'Opens dropdown'],
                     ['menu', 'IDropDownMenu[]', 'Menu'],
                     ['maxWidth', 'number', 'Sets max-width of the dropdown'],
+                    ['transition', 'string', 'Fade | Grow | Zoom'],
                 ]}
             />
 
@@ -107,7 +108,7 @@ export const _DropDown = () => {
 
             <div className='examples'>
                 <div style={{ width: '100%', padding: '30px 15px', display: 'flex', justifyContent: 'center' }}>
-                    <DropDown menu={dropDownMenu} label='toggle dropdown' />
+                    <DropDown menu={dropDownMenu} label='toggle dropdown' transition='Zoom' />
                 </div>
             </div>
 

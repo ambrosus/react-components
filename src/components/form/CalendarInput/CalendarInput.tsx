@@ -26,8 +26,7 @@ function CalendarInput(props: ICalendarInput) {
     onChange,
     onFocus,
     onBlur,
-    ...otherProps
-  } = props;
+    ...other } = props;
 
   const onChoose = (_date: Date | Date[]) => {
     if (Array.isArray(_date)) {
@@ -62,7 +61,7 @@ function CalendarInput(props: ICalendarInput) {
     }
   }, [value]);
 
-  const setValue = (_date: string) => {
+  const setValue = (_date: any) => {
     let temp: any = _date.split('-');
     temp = [new Date(temp[0]), new Date(temp[1])];
     if (!isValidDate(temp[0])) {
@@ -149,11 +148,11 @@ function CalendarInput(props: ICalendarInput) {
   return (
     <div className='AMB-CalendarInput'>
       <Input
-        {...otherProps}
+        {...other}
         value={value}
         placeholder={_placeholder}
         onChange={_onChange}
-        onClick={() => !otherProps.disabled && openCalendar()}
+        onClick={() => !other.disabled && openCalendar()}
         ref={inputRef}
       />
       {calendar && (
