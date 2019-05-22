@@ -9,11 +9,11 @@ import React from 'react';
 import { ISVG } from '../../interfaces';
 
 const SVG = (props: ISVG) => {
-    const { src, ...otherProps } = props;
+    const { src, ...other } = props;
 
     const Wrapper = props.wrapper || 'span';
 
-    return <Wrapper {...otherProps} dangerouslySetInnerHTML={{ __html: src }}></Wrapper>;
+    return <Wrapper {...other} dangerouslySetInnerHTML={{ __html: src }}></Wrapper>;
 };
 
 export default SVG;

@@ -22,5 +22,5 @@ export interface ICalendarInput extends Element {
   daterange?: boolean;
   maxDate?: Date;
   minDate?: Date;
-  onClose?: (event: any) => void;
+  onSelect?: (event: any) => void;
 }

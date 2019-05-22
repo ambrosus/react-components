@@ -12,13 +12,13 @@ import { ITextarea } from '../../../interfaces';
 import iconSuccess from '../../../assets/svg/success.svg';
 import iconInfo from '../../../assets/svg/info.svg';
 
-function Textarea(props: ITextarea) {
+const Textarea = React.forwardRef((props: ITextarea, ref: any) => {
     const [touched, setTouched] = useState(false);
     const inputRef: any = useRef(null);
 
     const onFocus = useCallback(() => setTouched(true), [touched]);
 
-    const { label, check, className, name, value, onChange, children, error, disabled, light, info, ...otherProps }: any = props;
+    const { label, check, className, name, value, onChange, children, error, disabled, light, info, ...other }: any = props;
 
     const classes = clsx(
         'AMB-Textarea',
@@ -37,7 +37,7 @@ function Textarea(props: ITextarea) {
     };
 
     return (
-        <label className={classes} {...otherProps}>
+        <label className={classes}>
             <div className='title'>
                 <span>{label}</span>
                 {(meta.info || meta.check) && <div className='meta'>
@@ -52,19 +52,25 @@ function Textarea(props: ITextarea) {
             </div>
             <div className='textarea'>
                 <textarea
-                    ref={inputRef}
                     value={_value}
                     onChange={onChange}
                     onFocus={onFocus}
                     spellCheck={false}
                     disabled={disabled}
                     name={name}
+                    ref={r => {
+                        inputRef.current = r;
+                        if (ref && ref.current) {
+                            ref.current = r;
+                        }
+                    }}
+                    {...other}
                 ></textarea>
                 <div className='border'></div>
             </div>
             {error && touched && <p className='message'>{error}</p>}
         </label>
     );
-}
+});
 
 export default Textarea;

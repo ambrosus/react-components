@@ -29,22 +29,22 @@ function round(input: any, precision: any) {
     return rounded;
 }
 
-const _Number = (props: INumber) => {
+const _Number = React.forwardRef((props: INumber, ref: any) => {
 
-    const { className, value, fixed, delimiter, ...otherProps } = props;
+    const { className, value, fixed, delimiter, ...other } = props;
     const number = typeof fixed === 'number' ? round(value, fixed) : value;
 
     const classes = clsx('AMB-Number', className);
     const [unit, mantissa]: any = String(number).split('.');
 
     return (
-        <span className={classes} {...otherProps}>
+        <span className={classes} {...other} ref={ref}>
             <span className='value'>{numWithCommas(unit, delimiter && delimiter.thousands || ',')}</span>
             {mantissa && fixed !== 0 && <span className='decimals'>
                 {delimiter && delimiter.decimals || '.'}{mantissa}
             </span>}
         </span>
     );
-};
+});
 
 export default _Number;

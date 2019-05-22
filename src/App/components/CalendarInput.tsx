@@ -29,7 +29,7 @@ export const _CalendarInput = () => {
     Prism.highlightAll();
   });
 
-  const onClose = (e: any) => {
+  const onSelect = (e: any) => {
     console.log(e);
   };
 
@@ -66,11 +66,11 @@ export const _CalendarInput = () => {
       <div className='examples'>
         <CalendarInput
           defaultValue={'10/10/2010'}
-          onClose={onClose}
+          onSelect={onSelect}
           label='Default input'
         />
         <CalendarInput
-          onClose={onClose}
+          onSelect={onSelect}
           label='Calendar input with date range'
           daterange
         />
@@ -79,15 +79,15 @@ export const _CalendarInput = () => {
           label='Date range with min and max date'
           maxDate={new Date('3/3/2019')}
           minDate={new Date('10/10/2018')}
-          onClose={onClose}
+          onSelect={onSelect}
         />
         <CalendarInput
-          onClose={onClose}
+          onSelect={onSelect}
           label='Calendar input with light theme'
           light
         />
         <CalendarInput
-          onClose={onClose}
+          onSelect={onSelect}
           label='Calendar input with info button'
           info='Some info'
         />
