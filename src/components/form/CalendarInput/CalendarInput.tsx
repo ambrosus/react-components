@@ -5,88 +5,96 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { formatDate } from '../../utils';
 import Calendar from 'react-calendar';
-import clsx from 'clsx';
-
 import './CalendarInput.scss';
 import { ICalendarInput } from '../../../interfaces';
-
 import { Input, Button } from '../';
 
 function CalendarInput(props: ICalendarInput) {
-  const [calendar, setCalendar] = useState(false);
-  const [calendarValue, setCalendarValue] = useState<any>(undefined);
-  const inputRef: any = useRef(null);
-  const calendarRef: any = useRef(null);
-
   const {
     maxDate,
     minDate,
     daterange,
-    value,
-    onChange,
+    defaultValue,
     onFocus,
+    onSelect,
     onBlur,
     ...other } = props;
 
+  const [value, setValue] = useState(defaultValue || '');
+  const [calendar, setCalendar] = useState(false);
+  const [calendarValue, setCalendarValue] = useState<Date | Date[] | undefined>(undefined);
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const _placeholder = formatDate(new Date());
+
   const onChoose = (_date: Date | Date[]) => {
+    let tempDate: string;
     if (Array.isArray(_date)) {
-      _date[1].setHours(0);
-      _date[1].setMinutes(0);
-      _date[1].setSeconds(0);
-      _date[1].setMilliseconds(0);
-      if (_date[0].getTime() === _date[1].getTime()) {
-        _date = _date[0];
+      tempDate = `${formatDate(new Date(_date[0].toString()))}`;
+      _date[1].setHours(0, 0, 0, 0);
+      if (_date[0].getTime() !== _date[1].getTime()) {
+        tempDate += ` - ${formatDate(new Date(_date[1].toString()))}`;
       }
+    } else {
+      tempDate = formatDate(new Date(_date.toString()));
     }
-    setCalendarValue(_date);
+    setValue(tempDate);
   };
 
   const onClickDay = (_date: Date) => {
     if (!!daterange) {
-      setCalendarValue(_date);
+      setValue(formatDate(new Date(_date.toString())));
     }
   };
 
   const _onChange = (event: any) => {
-    if (onChange) {
-      onChange(event.target.value);
+    if (setValue) {
+      setValue(event.target.value);
     }
   };
 
   useEffect(() => {
     if (value) {
-      setValue(value);
+      checkValue(value);
     } else {
       setCalendarValue(undefined);
     }
   }, [value]);
 
-  const setValue = (_date: any) => {
-    let temp: any = _date.split('-');
-    temp = [new Date(temp[0]), new Date(temp[1])];
-    if (!isValidDate(temp[0])) {
-      temp[0] = undefined;
-    }
-    if (!isValidDate(temp[1])) {
-      temp[1] = undefined;
-    }
-    setCalendarValue(temp);
-  };
-
   const handleClickOutsideCalendar = (event: any) => {
     if (
       calendarRef &&
       calendarRef.current &&
-      !inputRef.current.contains(event.target) &&
-      !calendarRef.current.contains(event.target) &&
-      !event.target.classList.contains('react-calendar__tile')
+      !calendarRef.current.contains(event.target)
     ) {
-      if (value) {
-        setValue(value);
-      }
       closeCalendar();
     }
   };
+
+
+  const checkValue = (_date: string) => {
+    let tempDate: Date | Date[];
+    if (daterange) {
+      const temp = _date.split('-');
+      tempDate = [new Date(temp[0]), new Date(temp[1])];
+      if (!isValidDate(tempDate[0]) || (minDate && tempDate[0] && tempDate[0].getTime() < minDate.getTime())) {
+        return;
+      } if (!isValidDate(tempDate[1]) || (maxDate && tempDate[1] && tempDate[1].getTime() > maxDate.getTime())) {
+        tempDate = new Date(tempDate[0].toString());
+      }
+    } else {
+      tempDate = new Date(_date);
+      if (!isValidDate(tempDate)) {
+        return;
+      }
+      if (minDate && tempDate && tempDate.getTime() < minDate.getTime()) {
+        return;
+      } if (maxDate && tempDate && tempDate.getTime() > maxDate.getTime()) {
+        return;
+      }
+    }
+    setCalendarValue(tempDate);
+  };
+
 
   const openCalendar = () => {
     setCalendar(true);
@@ -98,20 +106,17 @@ function CalendarInput(props: ICalendarInput) {
     window.removeEventListener('click', handleClickOutsideCalendar);
   };
 
-  const _placeholder = formatDate(new Date());
-
-  function isValidDate(d: Date) {
+  const isValidDate = (d: Date) => {
     return d instanceof Date && !isNaN(d.getTime());
   }
 
   const clearCalendar = () => {
     setCalendarValue(undefined);
-    if (onChange) {
-      onChange('');
-    }
+    setValue('');
   };
 
-  const selectCalendar = () => {
+  const selectDate = () => {
+    let _date: string;
     if (Array.isArray(calendarValue)) {
       if (minDate && calendarValue[0].getTime() < minDate.getTime()) {
         return;
@@ -123,14 +128,13 @@ function CalendarInput(props: ICalendarInput) {
       ) {
         return;
       }
-      let _date = `${formatDate(new Date(calendarValue[0].toString()))}`;
+      _date = `${formatDate(new Date(calendarValue[0].toString()))}`;
       if (calendarValue[1]) {
         _date += ` - ${formatDate(new Date(calendarValue[1].toString()))}`;
       }
-      if (onChange) {
-        onChange(_date);
+        setValue(_date);
+        onSelect && onSelect(_date);
         closeCalendar();
-      }
     } else if (calendarValue) {
       if (maxDate && calendarValue.getTime() > maxDate.getTime()) {
         return;
@@ -138,28 +142,40 @@ function CalendarInput(props: ICalendarInput) {
       if (minDate && calendarValue.getTime() < minDate.getTime()) {
         return;
       }
-      if (onChange) {
-        onChange(formatDate(new Date(calendarValue.toString())));
-        closeCalendar();
-      }
+      _date = formatDate(new Date(calendarValue.toString()));
+      setValue(_date);
+      onSelect && onSelect(_date);
+      closeCalendar();
     }
   };
 
+  const minMaxDate = (_date: Date | undefined, type: 'min' | 'max') => {
+    if (_date) {
+      if (type === 'min') {
+        _date.setHours(0, 0, 0, 0);
+      } else {
+        _date.setHours(23, 59, 59, 999);
+      }
+      return _date;
+    }
+    return undefined;
+  }
+
   return (
-    <div className='AMB-CalendarInput'>
+    <div
+      ref={calendarRef}
+      className='AMB-CalendarInput'>
       <Input
-        {...other}
         value={value}
         placeholder={_placeholder}
         onChange={_onChange}
         onClick={() => !other.disabled && openCalendar()}
-        ref={inputRef}
       />
       {calendar && (
-        <div className='calendar' ref={calendarRef}>
+        <div className='calendar'>
           <Calendar
-            maxDate={maxDate}
-            minDate={minDate}
+            maxDate={minMaxDate(maxDate, 'max')}
+            minDate={minMaxDate(minDate, 'min')}
             onChange={onChoose}
             onClickDay={onClickDay}
             selectRange={!!daterange}
@@ -174,7 +190,7 @@ function CalendarInput(props: ICalendarInput) {
             >
               Clear
             </Button>
-            <Button onClick={selectCalendar} className='calendar-search-button'>
+            <Button onClick={selectDate} className='calendar-search-button'>
               Select
             </Button>
           </div>
