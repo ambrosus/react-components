@@ -23,6 +23,7 @@ const Switch = React.forwardRef((props: ICheckbox, ref: any) => {
             <label>
                 <div className='checkbox'>
                     <input
+                        {...other}
                         type='checkbox'
                         value={value}
                         checked={checked}
@@ -30,7 +31,6 @@ const Switch = React.forwardRef((props: ICheckbox, ref: any) => {
                         disabled={disabled}
                         name={name}
                         ref={ref}
-                        {...other}
                     />
                     <div className='switch'></div>
                 </div>

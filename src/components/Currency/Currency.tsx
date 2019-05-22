@@ -16,7 +16,7 @@ const Currency = React.forwardRef((props: ICurrency, ref: any) => {
     return (
         <span className={classes}>
             {side === 'left' && <span className='symbol left'>{_symbol}</span>}
-            <Number value={value} fixed={fixed} delimiter={delimiter} ref={ref} {...other} />
+            <Number {...other} value={value} fixed={fixed} delimiter={delimiter} ref={ref} />
             {side !== 'left' && <span className='symbol right'>{_symbol}</span>}
         </span>
     );

@@ -20,7 +20,7 @@ const Radio = React.forwardRef((props: IRadio, ref: any) => {
 
     return (
         <label className={classes}>
-            <input type='radio' name={name} value={value} onChange={onChange} disabled={disabled} ref={ref} {...other} />
+            <input {...other} type='radio' name={name} value={value} onChange={onChange} disabled={disabled} ref={ref} />
             <div className='radio'></div>
             <span className='label'>{children || label || value}</span>
         </label>
