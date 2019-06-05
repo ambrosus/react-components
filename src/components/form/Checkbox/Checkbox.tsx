@@ -26,6 +26,7 @@ const Checkbox = React.forwardRef((props: ICheckbox, ref: any) => {
             <label>
                 <div className='checkbox'>
                     <input
+                        {...other}
                         type='checkbox'
                         value={value}
                         checked={checked}
@@ -33,7 +34,6 @@ const Checkbox = React.forwardRef((props: ICheckbox, ref: any) => {
                         disabled={disabled}
                         name={name}
                         ref={ref}
-                        {...other}
                     />
                     <SVG className='SVG icon' src={iconSuccess} />
                 </div>

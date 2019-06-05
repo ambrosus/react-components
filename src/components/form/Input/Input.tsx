@@ -68,6 +68,7 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
             {label && <span className='title'>{label}</span>}
             <div className='input'>
                 <input
+                    {...other}
                     ref={r => {
                         inputRef.current = r;
                         if (ref && ref.current) {
@@ -82,7 +83,6 @@ const Input = React.forwardRef((props: IInput, ref: any) => {
                     placeholder={placeholder}
                     disabled={disabled}
                     name={name}
-                    {...other}
                 />
                 <div className='border'></div>
                 {(meta.info || meta.check || meta.password) && <div className='meta'>

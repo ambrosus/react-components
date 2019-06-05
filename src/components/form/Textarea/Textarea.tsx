@@ -52,6 +52,7 @@ const Textarea = React.forwardRef((props: ITextarea, ref: any) => {
             </div>
             <div className='textarea'>
                 <textarea
+                    {...other}
                     value={_value}
                     onChange={onChange}
                     onFocus={onFocus}
@@ -64,7 +65,6 @@ const Textarea = React.forwardRef((props: ITextarea, ref: any) => {
                             ref.current = r;
                         }
                     }}
-                    {...other}
                 ></textarea>
                 <div className='border'></div>
             </div>

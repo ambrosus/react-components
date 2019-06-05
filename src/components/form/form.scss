@@ -203,9 +203,14 @@
 }
 
 %input--light {
+
+  .border {
+    border-color: #ddd;
+  }
+
   span {
     &:first-child {
-      color: $grey;
+      color: #bbb;
     }
   }
 
