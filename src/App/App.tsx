@@ -1,6 +1,6 @@
 /**
  * Copyright 2018 Ambrosus Inc.
- * Email: tech@ambrosus.com
+ * Email: tech@ambrosus.io
  */
 import React, { useState } from 'react';
 import Router from './Router';

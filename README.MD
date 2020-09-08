@@ -37,4 +37,4 @@ Import components and use them.
 
 ## Documentation
 
-You can find our [documentation here](http://ui-components.ambrosus.com).
+You can find our [documentation here](http://ui-components.ambrosus.io).

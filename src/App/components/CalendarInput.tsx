@@ -1,6 +1,6 @@
 /**
  * Copyright 2018 Ambrosus Inc.
- * Email: tech@ambrosus.com
+ * Email: tech@ambrosus.io
  */
 import React, { useEffect, useState } from 'react';
 import { CalendarInput } from '../../components';
