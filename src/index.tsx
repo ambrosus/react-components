@@ -1,6 +1,6 @@
 /**
  * Copyright 2018 Ambrosus Inc.
- * Email: tech@ambrosus.com
+ * Email: tech@ambrosus.io
  */
 import ReactDOM from 'react-dom';
 import React from 'react';

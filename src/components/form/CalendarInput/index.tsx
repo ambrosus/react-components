@@ -1,5 +1,5 @@
 /**
  * Copyright 2018 Ambrosus Inc.
- * Email: tech@ambrosus.com
+ * Email: tech@ambrosus.io
  */
 export { default } from './CalendarInput';
