@@ -18,6 +18,7 @@ function CalendarInput(props: ICalendarInput) {
     onFocus,
     onSelect,
     onBlur,
+    onChooseClick,
     ...other } = props;
 
   const [value, setValue] = useState(defaultValue || '');
@@ -37,7 +38,12 @@ function CalendarInput(props: ICalendarInput) {
     } else {
       tempDate = formatDate(new Date(_date.toString()));
     }
+    if(!!onChooseClick){
+      onChooseClick(tempDate)
+    }
     setValue(tempDate);
+
+
   };
 
   const onClickDay = (_date: Date) => {
@@ -164,7 +170,7 @@ function CalendarInput(props: ICalendarInput) {
   return (
     <div
       ref={calendarRef}
-      className='AMB-CalendarInput'>
+      className='AMB-CalendarInput sir'>
       <Input
         value={value}
         placeholder={_placeholder}
