@@ -38,7 +38,7 @@ const DropDown = React.forwardRef((props: IDropDown, ref: any) => {
     }, [open]);
 
     const handleResize = () => {
-        const m = window.innerWidth <= 1024;
+        const m: any =  window.innerWidth <= 1024;
 
         if (m !== mobile) {
             setMobile(m);
